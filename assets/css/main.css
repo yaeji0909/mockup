@@ -8,3 +8,14 @@
     /* font-size: 10px; */
   }
 }
+
+@layer components{
+  .nav-bar{
+    background-color: theme('colors.black');
+    color:theme('colors.white')
+  }
+  .button{
+    
+  }
+}
+

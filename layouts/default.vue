@@ -1,7 +1,6 @@
 <template>
   <div>
-    <NavigationBar />
-
+    <CommonNavigationBar />
     <slot />
   </div>
 </template>
