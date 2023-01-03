@@ -11,7 +11,7 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
-    "@nuxt/image": "^0.7.1",
+    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "@pinia/nuxt": "^0.4.6",
     "autoprefixer": "^10.4.13",
     "nuxt-gsap-module": "^1.7.2",
