@@ -14,43 +14,39 @@ module.exports = {
         sans: ['Pretendard'],
       },
       fontSize: {
-        // '2xs': '0.75rem', // 12px
-        // xs: '0.875rem', // 14px
-        // sm: '0.938rem', // 15px
-        // base: '1rem', // 16px
-        // xl: '1.25rem',  // px
-        // '2xl': '1.563rem',
-        // '3xl': '1.953rem',
-        // '4xl': '2.441rem',
-        // '5xl': '3.052rem',
-
-        // '2xs': '1.2rem,', // 12px
-        // xs: '1.4rem', // 14px
-        // sm: '1.5rem', // 15px
-        // base: '1.6rem', // 16px
-        // xl: '1.8rem', // 18px
-        // '2xl': '2.1rem', // 21px
-        // '3xl': '2.6rem', // 26px
-        // '4xl': '3.0rem', //30px
-        // '4xl': '3.2rem', //32px
-        // '5xl': '4.8rem', //48px
-        // '6xl': '5.2rem', //52px
-        // '7xl': '6.0rem', //60px
-
-        '2xs': ['12px', '18px'],
-        xs: ['14px', '18px'],
-        sm: ['15px', '24px'],
-        base: ['16px', 'auto'],
-        xl: ['18px', 'auto'],
-        '2xl': ['21px', 'auto'],
-        '3xl': ['26px', 'auto'],
-        '4xl': ['30px', '30px'],
-        '5xl': ['32px', 'auto'],
-        '6xl': ['48px', 'auto'],
-        '7xl': ['52px', 'auto'],
-        '8xl': ['60px', '80px'],
+        '2xs': ['0.75rem', '0.889rem'], // 12px
+        xs: ['0.875rem', '0.889rem'], // 14px
+        sm: ['0.938rem', '1.5rem'], // 15px
+        base: ['1rem', '1.25rem'], // 16px
+        xl: ['1.125rem', '1.5rem'], // 18px
+        '2xl': ['1.3125rem', '1.875rem'], // 21px
+        '3xl': ['1.625rem', 'auto'], // 26px
+        '4xl': ['1.875', 'auto'], // 30px
+        '5xl': ['2rem', '2.875rem'], // 32px
+        '6xl': ['3rem', '3.75rem'], // 48px
+        '7xl': ['3.25rem', '4.375rem'], // 52px
+        '8xl': ['3.75rem', '5rem'], // 60px
+      },
+      fontWeight: {
+        normal: 400,
+        medium: 600,
+        bold: 700,
+      },
+      colors: {
+        'gradient-aqua': '#5EEBFC',
+        'primary-aqua': '#37D1C7',
+        'primary-mint': '#97DECE',
+        'secondary-green': '#DFEDDC',
+        'secondary-beige': '#F8F8F8',
+        error: '#FF5353',
+        black: '#081236',
+        'gray-sub': '#3A4968',
+        'gray-caption': '#9BA4B4',
+        'gray-border': '#D5DDE5',
+        'gray-bg': '#F2F5FC',
+        white: '#FFFFFF',
       },
     },
+    plugins: [],
   },
-  plugins: [],
 };
