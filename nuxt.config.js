@@ -1,13 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['~/assets/css/main.css'],
+  css: ["~/assets/css/main.css"],
+  modules: ["@nuxt/image-edge"],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
-  buildModules: ['nuxt-gsap-module'],
+  buildModules: ["nuxt-gsap-module"],
   gsap: {
     /* Module Options */
   },
