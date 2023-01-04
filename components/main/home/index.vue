@@ -1,12 +1,9 @@
 <template>
-  <header class="relative">
-    <video class="absolute min-w-[100vh] max-w-[100vw] md:min-w-[100vw] md:max-w-[100vw]" muted autoplay loop>
-      <source :src="MAIN_VIDEO" type="video/mp4" />
-    </video>
-    <main class="relative pt-[20%]">
+  <header class="relative flex items-center justify-center h-screen mb-12 overflow-hidden">
+    <main class="relative z-30 p-5 text-2xl">
       <section class="title">
-        <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">누구든지, 어디든지</h1>
-        <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">기대 이상의</h1>
+        <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">{{ $t('home.title1') }}</h1>
+        <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">{{ $t('home.title2') }}</h1>
         <h1
           class="text-4xl md:text-6xl xl:text-8xl font-bold bg-gradient-to-r from-secondary-green to-gradient-aqua text-transparent bg-clip-text"
         >
@@ -31,6 +28,9 @@
         </CommonButton>
       </section>
     </main>
+    <video autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none">
+      <source :src="MAIN_VIDEO" type="video/mp4" />
+    </video>
   </header>
 </template>
 
