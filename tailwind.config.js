@@ -1,17 +1,18 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
-    './components/**/*.{js,vue,ts}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
-    './app.vue',
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}",
+    "./app.vue",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Pretendard'],
+        sans: ["Pretendard"],
       },
       fontSize: {
         '2xs': ['0.75rem', '0.889rem'], // 12px
@@ -33,18 +34,18 @@ module.exports = {
         bold: 700,
       },
       colors: {
-        'gradient-aqua': '#5EEBFC',
-        'primary-aqua': '#37D1C7',
-        'primary-mint': '#97DECE',
-        'secondary-green': '#DFEDDC',
-        'secondary-beige': '#F8F8F8',
-        error: '#FF5353',
-        black: '#081236',
-        'gray-sub': '#3A4968',
-        'gray-caption': '#9BA4B4',
-        'gray-border': '#D5DDE5',
-        'gray-bg': '#F2F5FC',
-        white: '#FFFFFF',
+        "gradient-aqua": "#5EEBFC",
+        "primary-aqua": "#37D1C7",
+        "primary-mint": "#97DECE",
+        "secondary-green": "#DFEDDC",
+        "secondary-beige": "#F8F8F8",
+        error: "#FF5353",
+        black: "#081236",
+        "gray-sub": "#3A4968",
+        "gray-caption": "#9BA4B4",
+        "gray-border": "#D5DDE5",
+        "gray-bg": "#F2F5FC",
+        white: "#FFFFFF",
       },
     },
     plugins: [],
