@@ -15,13 +15,13 @@ module.exports = {
       },
       fontSize: {
         '2xs': ['0.75rem', '0.889rem'], // 12px
-        xs: ['0.875rem', '0.889rem'], // 14px
+        xs: ['0.875rem', '1.25rem'], // 14px
         sm: ['0.938rem', '1.5rem'], // 15px
         base: ['1rem', '1.25rem'], // 16px
         xl: ['1.125rem', '1.5rem'], // 18px
         '2xl': ['1.3125rem', '1.875rem'], // 21px
         '3xl': ['1.625rem', 'auto'], // 26px
-        '4xl': ['1.875', 'auto'], // 30px
+        '4xl': ['1.875rem', '2.5rem'], // 30px
         '5xl': ['2rem', '2.875rem'], // 32px
         '6xl': ['3rem', '3.75rem'], // 48px
         '7xl': ['3.25rem', '4.375rem'], // 52px
