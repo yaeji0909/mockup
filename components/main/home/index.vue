@@ -26,6 +26,7 @@
         <CommonButton class="a-btn" text="App Store" :icon="true" @click="ClickBtn(APP_STORE_URL)">
           <img class="a-btn-icon" :src="APP_STORE_ICON" />
         </CommonButton>
+        <CommonButton text="더 많은 소식 보기" bgColor="primary-aqua" bdColor="primary-aqua" />
       </section>
     </main>
     <video autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none brightness-50">
