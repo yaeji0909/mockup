@@ -1,43 +1,52 @@
 <template>
-  <nav>
-    <div
-      class="nav-bar flex justify-around p-4 bg-black text-white flex items-center"
-      ref="navigationBox"
+  <div class="bg-black text-white" ref="navigationBox">
+    <nav
+      class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
     >
-      <div class="logo-box flex">
+      <div class="flex items-center justify-between">
         <NuxtLink to="/">
           <nuxt-img
-            ref="logoImage"
-            src="https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-white.svg"
+            :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${imageColor}.svg`"
           />
         </NuxtLink>
-      </div>
-      <div class="menu-box">
-        <ul class="flex">
-          <li
-            class="mx-3 hover:text-primary-aqua cursor-pointer font-semibold text-xs md:text-xl xl:tex-=2xl"
-            v-for="value in menu"
-            :key="value"
-          >
-            {{ value }}
-          </li>
-        </ul>
-      </div>
-      <div ref="buttonBox" class="flex justify-center items-center text-xs">
-        <div class="hidden md:block">
+
+        <!-- Mobile menu button -->
+        <div class="hidden xs:block sm:pl-40 md:hidden text-white text-xs">
           <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;|</button>
           <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
         </div>
-        <div class="flex items-center">
-          <button class="xs:hidden w-4 h-4">
+        <div class="flex justify-center items-center">
+          <button class="xs:hidden w-4 h-4 relative">
             <img
               @click="clickHandler"
-              class="relative"
-              src="https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang.svg"
+              :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang${langIcon}.svg`"
             />
           </button>
-          <CommonNavigationBarHamburger />
+          <div @click="showMenu = !showMenu" class="flex md:hidden">
+            <CommonNavigationBarHamburger
+              :color="props.color ? 'black' : 'white'"
+              :showMenu="showMenu"
+            />
+          </div>
         </div>
+      </div>
+
+      <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+      <ul
+        :class="showMenu ? 'flex' : 'hidden'"
+        class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
+      >
+        <li
+          class="mx-3 hover:text-primary-aqua cursor-pointer font-semibold text-xs md:text-xl xl:tex-=2xl"
+          v-for="value in menu"
+          :key="value"
+        >
+          {{ value }}
+        </li>
+      </ul>
+      <div class="hidden md:block text-xs">
+        <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;|</button>
+        <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
       </div>
       <div
         v-if="langBtnIsClicked"
@@ -46,30 +55,34 @@
         <button class="text-xs hover:text-primary-aqua p-1">KOR</button>
         <button class="text-xs hover:text-primary-aqua p-1">ENG</button>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script setup>
 import { onMounted, defineProps, ref } from "vue";
+const langIcon = ref("");
+const showMenu = ref(false);
+const imageColor = ref("white");
+const langBtnIsClicked = ref(false);
+const navigationBox = ref(null);
 const menu = ["Service", "Company", "News", "Recruit", "Contact"];
+
 const props = defineProps({
   color: String,
 });
-const langBtnIsClicked = ref(false);
-const buttonBox = ref(null);
-const navigationBox = ref(null);
-const logoImage = ref(null);
+
 const clickHandler = () => {
   langBtnIsClicked.value = !langBtnIsClicked.value;
 };
 
 onMounted(() => {
   if (props.color === "white") {
+    imageColor.value = "mint";
+    langIcon.value = "-black";
     navigationBox.value.classList.add("bg-white");
-    navigationBox.value.classList.add("text-primary-aqua");
+    navigationBox.value.classList.add("text-black");
   }
-  // console.log(langBox.value);
 });
 </script>
 

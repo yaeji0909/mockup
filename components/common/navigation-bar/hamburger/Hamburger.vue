@@ -1,30 +1,37 @@
 <template>
   <div class="md:hidden flex-col mx-2" @click="clickHandler">
-    <div ref="line1" class="p-[0.1rem] w-5 bg-white rounded"></div>
-    <div ref="line2" class="mt-[0.1rem] p-[0.1rem] w-5 bg-white rounded"></div>
-    <div ref="line3" class="mt-[0.1rem] p-[0.1rem] w-5 bg-white rounded"></div>
+    <div ref="line1" :class="`p-[0.1rem] w-5 bg-${color} rounded`"></div>
+    <div
+      ref="line2"
+      :class="`mt-[0.1rem] p-[0.1rem] w-5 bg-${color} rounded`"
+    ></div>
+    <div
+      ref="line3"
+      :class="`mt-[0.1rem] p-[0.1rem] w-5 bg-${color} rounded`"
+    ></div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-const isClicked = ref(false);
+import { ref, defineProps } from "vue";
 const line1 = ref(null);
 const line2 = ref(null);
 const line3 = ref(null);
 
-const clickHandler = (e) => {
-  isClicked.value = !isClicked.value;
-  console.log(isClicked.value);
+const props = defineProps({
+  color: String,
+  showMenu: Boolean,
+});
 
-  if (isClicked.value) {
+const clickHandler = () => {
+  if (!props.showMenu) {
     line1.value.classList.remove("rotate-end");
     line3.value.classList.remove("rotate-end");
     line2.value.classList.add("hidden");
     line1.value.classList.add("rotate");
     line3.value.classList.add("rotate-reverse");
   }
-  if (!isClicked.value) {
+  if (props.showMenu) {
     line2.value.classList.remove("hidden");
     line1.value.classList.remove("rotate");
     line3.value.classList.add("rotate-end");
@@ -33,6 +40,8 @@ const clickHandler = (e) => {
   }
 };
 </script>
+
+<script setup></script>
 
 <style scoped>
 .rotate {
