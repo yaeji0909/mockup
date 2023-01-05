@@ -1,32 +1,41 @@
 <template>
-  <header class="relative flex items-center h-screen mb-12 overflow-hidden">
+  <header class="relative flex items-center h-screen overflow-hidden">
     <main class="relative z-30 p-5 text-2xl mx-1 md:mx-8 xl:mx-80">
       <section class="title opacity-0">
-        <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">{{ $t('home.title1') }}</h1>
-        <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">{{ $t('home.title2') }}</h1>
+        <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">
+          {{ $t('home.title1') }}
+        </h1>
+        <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">
+          {{ $t('home.title2') }}
+        </h1>
         <h1
           class="text-4xl md:text-6xl xl:text-8xl font-bold bg-gradient-to-r from-secondary-green to-gradient-aqua text-transparent bg-clip-text"
         >
-          통합 모빌리티 플랫폼
+          {{ $t('home.title3') }}
         </h1>
       </section>
       <section class="sub-title opacity-0 mt-5">
-        <p class="text-xs md:text-xl xl:text-2xl font-medium text-white">실시간으로 달라지는 교통상황까지 고려하여</p>
         <p class="text-xs md:text-xl xl:text-2xl font-medium text-white">
-          목적지까지 최적의 이동수단으로 예약부터 결제까지
+          {{ $t('home.desc1') }}
         </p>
         <p class="text-xs md:text-xl xl:text-2xl font-medium text-white">
-          하나의 솔루션으로 가능한 통합 모빌리티 플랫폼 회사입니다.
+          {{ $t('home.desc2') }}
+        </p>
+        <p class="text-xs md:text-xl xl:text-2xl font-medium text-white">
+          {{ $t('home.desc3') }}
         </p>
       </section>
       <section class="buttons opacity-0 mt-14 gap-4 md:gap-10 text-white flex">
         <CommonButton class="g-btn" text="Google Play" :icon="true" @click="ClickBtn(GOOGLE_PLAY_URL)">
-          <img :src="GOOGLE_PLAY_ICON" />
+          <template #icon>
+            <img :src="GOOGLE_PLAY_ICON" />
+          </template>
         </CommonButton>
         <CommonButton class="a-btn" text="App Store" :icon="true" @click="ClickBtn(APP_STORE_URL)">
-          <img class="a-btn-icon" :src="APP_STORE_ICON" />
+          <template #icon>
+            <img class="a-btn-icon" :src="APP_STORE_ICON" />
+          </template>
         </CommonButton>
-        <CommonButton text="더 많은 소식 보기" bgColor="primary-aqua" bdColor="primary-aqua" />
       </section>
     </main>
     <video autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none brightness-50">
@@ -45,7 +54,9 @@ const GOOGLE_PLAY_ICON = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com
 const APP_STORE_ICON = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/appstore.svg';
 const APP_STORE_ICON_BK = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/appstore-black.svg';
 
-// hover 시 APP_STORE_ICON_BK 적용
+/**
+ * hover 시 APP_STORE_ICON_BK 적용
+ */
 onMounted(() => {
   const el = document.querySelector('.a-btn');
   el.addEventListener('mouseover', e => {
@@ -55,13 +66,18 @@ onMounted(() => {
     document.querySelector('.a-btn-icon').src = APP_STORE_ICON;
   });
 
-  // gsap animation
+  /**
+   * gsap animation
+   */
   let tl = gsap.timeline(); //create the timeline
   tl.to('.title', { opacity: 1, y: -90, ease: 'power0', duration: 0.7 }) //start sequencing
     .to('.sub-title', { opacity: 1, y: -60, ease: 'power0', duration: 0.7 })
     .to('.buttons', { opacity: 1, y: -30, ease: 'power0', duration: 0.7 });
 });
 
+/**
+ * click button
+ */
 function ClickBtn(param) {
   window.open(param);
 }
