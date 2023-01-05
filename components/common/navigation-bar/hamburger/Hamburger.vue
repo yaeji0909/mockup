@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-col mx-2" @click="clickHandler">
+  <div class="md:hidden flex-col mx-2" @click="clickHandler">
     <div ref="line1" class="p-[0.1rem] w-5 bg-white rounded"></div>
     <div ref="line2" class="mt-[0.1rem] p-[0.1rem] w-5 bg-white rounded"></div>
     <div ref="line3" class="mt-[0.1rem] p-[0.1rem] w-5 bg-white rounded"></div>
