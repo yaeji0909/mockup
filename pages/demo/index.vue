@@ -37,6 +37,7 @@
     <div class="w-[500px] mt-5 border-2 rounded-xl">
       <h1 class="text-center my-5 font-bold">CHECKBOX</h1>
       <div class="p-2"><CheckBox /></div>
+      <div class="p-2"><CheckBox :disabled="true" /></div>
     </div>
   </div>
 </template>
