@@ -1,7 +1,7 @@
 <template>
   <button
-    class="text-xs md:text-base font-bold rounded-full"
     :class="[
+      'text-xs md:text-base font-bold rounded-full',
       icon
         ? 'flex justify-center items-center gap-2.5 w-[180px] h-[45px] md:h-[50px] hover:bg-white hover:text-black'
         : 'w-[190px] h-[45px] md:h-[58px] hover:bg-gradient-to-r from-primary-aqua to-primary-mint',
@@ -38,7 +38,7 @@ const changeBgColor = color => {
   optionObj.bgColor = color ? 'bg-' + color : 'bg-white/30';
 };
 const changeBdColor = color => {
-  optionObj.bdColor = color ? 'bd-' + color : 'border';
+  optionObj.bdColor = color ? 'border-' + color : 'border';
 };
 const changeTextColor = color => {
   optionObj.textColor = color ? 'text-' + color : 'text-white';

@@ -1,14 +1,14 @@
 <template>
   <button
-    class="w-[137px] h-[52px] text-base md:text-base font-bold rounded-[15px]"
     :class="[
+      'w-[137px] h-[52px] text-base md:text-base font-bold rounded-[15px]',
       isCancel
         ? 'bg-gray-bg text-gray-caption hover:bg-gray-border '
         : 'bg-primary-aqua text-white hover:bg-primary-mint',
     ]"
     @click="$emit('click', $event)"
   >
-    <p>{{ text }}</p>
+    {{ text }}
   </button>
 </template>
 
