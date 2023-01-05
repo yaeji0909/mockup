@@ -2,6 +2,7 @@
   <div class="bg-black text-white" ref="navigationBox">
     <nav
       class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
+      :class="showMenu && 'h-screen'"
     >
       <div class="flex items-center justify-between">
         <NuxtLink to="/">
