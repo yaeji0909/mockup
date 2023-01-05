@@ -8,7 +8,7 @@
         checked
         class="w-[20px] h-[20px] rounded border border-gray-border text-white accent-primary-aqua"
       />
-      <label for="check">tailwind css checkbox</label>
+      <label for="check">{{ text }}</label>
     </label>
     <!-- style tag로 적용 -->
     <div class="check-wrap">
@@ -16,7 +16,7 @@
         <input type="checkbox" :disabled="disabled" />
         <span :class="['check', disabled ? 'bg-gray-200' : '']"></span>
       </label>
-      <label>css checkbox</label>
+      <label>{{ text }}</label>
     </div>
   </div>
 </template>
