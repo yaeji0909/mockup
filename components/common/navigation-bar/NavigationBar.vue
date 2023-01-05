@@ -7,6 +7,7 @@
       <div class="logo-box flex">
         <NuxtLink to="/">
           <nuxt-img
+            ref="logoImage"
             src="https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-white.svg"
           />
         </NuxtLink>
@@ -27,8 +28,8 @@
           <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;|</button>
           <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
         </div>
-        <div class="md:hidden flex items-center">
-          <button>
+        <div class="flex items-center">
+          <button class="xs:hidden w-4 h-4">
             <img
               @click="clickHandler"
               class="relative"
@@ -58,13 +59,12 @@ const props = defineProps({
 const langBtnIsClicked = ref(false);
 const buttonBox = ref(null);
 const navigationBox = ref(null);
-
+const logoImage = ref(null);
 const clickHandler = () => {
   langBtnIsClicked.value = !langBtnIsClicked.value;
 };
 
 onMounted(() => {
-  // console.log(navigationBox.value);
   if (props.color === "white") {
     navigationBox.value.classList.add("bg-white");
     navigationBox.value.classList.add("text-primary-aqua");
