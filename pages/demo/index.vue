@@ -43,6 +43,12 @@
         <CheckBox :text="$t('button.cancel')" :disabled="true" />
       </div>
     </div>
+    <div class="w-[500px] mt-5 border-2 rounded-xl">
+      <h1 class="text-center my-5 font-bold">SELECTBOX</h1>
+      <div class="p-2">
+        <SelectBox />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -52,4 +58,5 @@ import PopupBtn from "/components/common/button/PopupBtn.vue";
 import ShortcutBtn from "/components/common/button/ShortcutBtn";
 import ApplyBtn from "/components/common/button/ApplyBtn";
 import CheckBox from "/components/common/checkbox/CheckBox";
+import SelectBox from "/components/common/selectbox/SelectBox";
 </script>

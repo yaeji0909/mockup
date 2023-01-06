@@ -50,6 +50,10 @@ module.exports = {
         "gray-bg": "#F2F5FC",
         white: "#FFFFFF",
       },
+      boxShadow: {
+        mint: "0px 0px 5px rgba(67, 227, 217, 0.5);",
+        red: "0px 0px 5px rgba(67, 227, 217, 0.5);",
+      },
     },
     plugins: [],
   },
