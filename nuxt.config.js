@@ -1,12 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['~/assets/css/main.css'],
-  modules: ['@nuxt/image-edge', '@intlify/nuxt3'],
+  css: ["~/assets/css/main.css"],
+  modules: ["@nuxt/image-edge", "@intlify/nuxt3", "@vueuse/nuxt"],
   intlify: {
-    localeDir: 'locales',
+    localeDir: "locales",
     vueI18n: {
-      locale: 'ko',
-      fallbackLocale: 'ko',
+      locale: "ko",
+      fallbackLocale: "ko",
     },
   },
   postcss: {
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  buildModules: ['nuxt-gsap-module'],
+  buildModules: ["nuxt-gsap-module"],
   gsap: {
     /* Module Options */
   },
