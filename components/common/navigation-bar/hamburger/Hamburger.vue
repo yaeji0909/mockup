@@ -1,19 +1,25 @@
 <template>
   <div class="md:hidden flex-col mx-2" @click="clickHandler">
-    <div ref="line1" :class="`p-[0.1rem] w-5 bg-${color} rounded`"></div>
+    <div
+      ref="line1"
+      class="p-[0.1rem] w-5 rounded bg-white"
+      :class="`bg-${color}`"
+    ></div>
     <div
       ref="line2"
-      :class="`mt-[0.1rem] p-[0.1rem] w-5 bg-${color} rounded`"
+      class="mt-[0.1rem] p-[0.1rem] w-5 rounded bg-white"
+      :class="`bg-${color}`"
     ></div>
     <div
       ref="line3"
-      :class="`mt-[0.1rem] p-[0.1rem] w-5 bg-${color} rounded`"
+      class="mt-[0.1rem] p-[0.1rem] w-5 rounded bg-white"
+      :class="`bg-${color} `"
     ></div>
   </div>
 </template>
 
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref } from "vue";
 const line1 = ref(null);
 const line2 = ref(null);
 const line3 = ref(null);
@@ -23,20 +29,25 @@ const props = defineProps({
   showMenu: Boolean,
 });
 
+// const emits = defineEmits(["test-emit"]);
+
 const clickHandler = () => {
-  if (!props.showMenu) {
-    line1.value.classList.remove("rotate-end");
-    line3.value.classList.remove("rotate-end");
-    line2.value.classList.add("hidden");
-    line1.value.classList.add("rotate");
-    line3.value.classList.add("rotate-reverse");
-  }
+  console.log("children", props.showMenu);
   if (props.showMenu) {
     line2.value.classList.remove("hidden");
     line1.value.classList.remove("rotate");
     line3.value.classList.add("rotate-end");
     line3.value.classList.remove("rotate-reverse");
     line1.value.classList.add("rotate-end");
+    // emits("test-emit", true);
+  }
+  if (!props.showMenu) {
+    line1.value.classList.remove("rotate-end");
+    line3.value.classList.remove("rotate-end");
+    line2.value.classList.add("hidden");
+    line1.value.classList.add("rotate");
+    line3.value.classList.add("rotate-reverse");
+    // emits("test-emit", false);
   }
 };
 </script>
