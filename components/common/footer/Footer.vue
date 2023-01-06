@@ -35,7 +35,9 @@
           <p>© Copyright 2018 - 2019 Nature Mobility | All Rights Reserved</p>
         </div>
       </section>
-      <section class="md:flex md:flex-col md:justify-between items-end h-full">
+      <section
+        class="md:flex md:flex-col md:justify-between md:h-full items-end"
+      >
         <div>Family Site select</div>
         <div class="flex gap-[8px] xl:gap-[15px]">
           <span
