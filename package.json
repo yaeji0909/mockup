@@ -9,6 +9,8 @@
   },
   "devDependencies": {
     "@intlify/nuxt3": "^0.2.4",
+    "@vueuse/core": "^9.10.0",
+    "@vueuse/nuxt": "^9.10.0",
     "nuxt": "3.0.0"
   },
   "dependencies": {
