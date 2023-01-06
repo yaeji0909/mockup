@@ -1,25 +1,53 @@
 <template>
-  <nav>
-    <div class="nav-bar flex justify-around p-4">
-      <div class="logo-box">
-        <NuxtLink to="/">
-          <nuxt-img src="/logo-white.svg" />
-        </NuxtLink>
-      </div>
-      <div class="menu-box">
-        <ul class="flex">
-          <li class="mx-1" v-for="value in menu" :key="value">{{ value }}</li>
+  <div>
+    <div class="relative">
+      <!-- Dropdown toggle button -->
+      <button
+        @click="show = !show"
+        class="flex items-center p-2 text-base text-indigo-100 bg-gray-bg focus:bg-white focus:shadow-mint border-[1.5px] border-gray-border focus:border-primary-aqua rounded-[10px] w-80"
+        :class="onError && 'focus:border-error focus:shadow-error'"
+      >
+        <span class="mr-4 text-gray-caption">{{ text }}</span>
+      </button>
+
+      <!-- Dropdown menu -->
+      <div
+        v-show="show"
+        class="absolute left-0 p-1 mt-2 bg-white border border-primary-aqua shadow-mint rounded-[10px] w-80"
+      >
+        <ul class="p-1" v-for="option in options" :key="option">
+          <li
+            @click="changeOption"
+            class="block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub"
+          >
+            {{ option }}
+          </li>
         </ul>
       </div>
-      <div class="lang-box flex">
-        <button>KOR</button>
-        <span>|</span>
-        <button>ENG</button>
-      </div>
     </div>
-  </nav>
+  </div>
 </template>
 
 <script setup>
-const menu = ["Service", "Company", "News", "Recruit", "Contact"];
+import { ref, onMounted } from "vue";
+const options = ["Option1", "Option2", "Option3"];
+const show = ref(false);
+const text = ref("문의 유형을 선택해 주세요");
+const props = defineProps({
+  onError: Boolean,
+});
+
+const changeOption = (e) => {
+  const value = e.target.innerHTML;
+  text.value = value;
+  show.value = false;
+};
+
+onMounted(() => {
+  if (props.onError) {
+    show = false;
+  }
+});
+
+console.log(props.onError);
 </script>
