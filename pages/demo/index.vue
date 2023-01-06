@@ -49,6 +49,12 @@
         <SelectBox />
       </div>
     </div>
+    <div class="w-[500px] mt-5 border-2 rounded-xl">
+      <h1 class="text-center my-5 font-bold">Input</h1>
+      <div class="p-2">
+        <Input />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -59,4 +65,5 @@ import ShortcutBtn from "/components/common/button/ShortcutBtn";
 import ApplyBtn from "/components/common/button/ApplyBtn";
 import CheckBox from "/components/common/checkbox/CheckBox";
 import SelectBox from "/components/common/selectbox/SelectBox";
+import Input from "/components/common/input/Input";
 </script>

@@ -4,7 +4,7 @@
       <!-- Dropdown toggle button -->
       <button
         @click="show = !show"
-        class="flex items-center p-2 text-indigo-100 bg-gray-bg focus:bg-white focus:shadow-mint border-[1.5px] border-gray-border focus:border-primary-aqua rounded-[10px] w-80"
+        class="flex items-center p-2 text-base text-indigo-100 bg-gray-bg focus:bg-white focus:shadow-mint border-[1.5px] border-gray-border focus:border-primary-aqua rounded-[10px] w-80"
         :class="onError && 'focus:border-error focus:shadow-error'"
       >
         <span class="mr-4 text-gray-caption">{{ text }}</span>
@@ -18,7 +18,7 @@
         <ul class="p-1" v-for="option in options" :key="option">
           <li
             @click="changeOption"
-            class="block px-4 py-2 text-sm text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub"
+            class="block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub"
           >
             {{ option }}
           </li>
