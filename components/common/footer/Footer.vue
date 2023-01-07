@@ -1,81 +1,88 @@
 <template>
-  <footer class="bg-gray-bg flex justify-center">
+  <footer class="bg-gray-bg px-10 py-[30px]">
     <div
-      class="w-[335px] md:w-[960px] xl:w-[1200px] px-10 py-[30px] md:flex items-center md:gap-40"
+      class="md:flex-col md:items-center w-[335px] md:w-[710px] xl:w-[1200px] m-auto"
     >
-      <section>
-        <div class="md:flex justify-between text-xs md:text-2xs xl:text-xs">
+      <section class="md:flex md:justify-between">
+        <div
+          class="md:flex md:justify-between md:gap-10 text-xs md:text-2xs xl:text-xs"
+        >
           <img
-            src="https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-black.svg"
-            alt=""
+            class="w-[184px] md:w-[120px] xl:w-[184px]"
+            :src="NATURE_LOGO"
+            alt="NATURE_LOGO"
           />
-          <p>회사소개</p>
-          <button>인재채용</button>
-          <button>이용약관</button>
-          <button>개인정보처리방침</button>
-          <button>문의하기</button>
-        </div>
-        <div class="mt-6 text-gray-caption text-2xs xl:text-xs">
-          <p>주식회사 네이처 모빌리티</p>
-          <div>
-            <span>제주본사</span>
-            <span>
-              제주특별자치도 제주시 첨단로 330, 3층 카이스트 친환경 스마트
-              자동차 연구센터 D동 KMV10 (영평동, 세미양 빌딩)
-            </span>
+          <div class="flex gap-4 mt-7 md:mt-0">
+            <button>{{ $t("footer.company") }}</button>
+            <button>{{ $t("footer.recruit") }}</button>
+            <button>{{ $t("footer.condition") }}</button>
+            <button>{{ $t("footer.privacy") }}</button>
           </div>
-          <div>
-            <span>서울본사</span>
-            <span>
-              서울특별시 강남구 봉은사로 325, 9층 (논현동, 라임타워)
-            </span>
+          <div class="mt-5 md:mt-0">
+            <button class="border border-black rounded-full px-[20px] py-[5px]">
+              {{ $t("footer.contact") }}
+            </button>
           </div>
         </div>
-        <div class="mt-8 text-gray-caption text-2xs xl:text-xs">
-          <p>© Copyright 2018 - 2019 Nature Mobility | All Rights Reserved</p>
+        <div class="mt-11 md:mt-0">
+          <button>FAMILY SITE</button>
         </div>
       </section>
       <section
-        class="md:flex md:flex-col md:justify-between md:h-full items-end"
+        v-if="largerThanSm"
+        class="text-gray-caption text-xs md:text-2xs xl:text-xs mt-6"
       >
-        <div>Family Site select</div>
-        <div class="flex gap-[8px] xl:gap-[15px]">
-          <span
-            class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center filter drop-shadow[0px_1px_2px_rgba(14, 31, 53, 0.1)]"
+        <div>{{ $t("footer.name") }}</div>
+        <div class="flex gap-[10px] mt-3 mb-1">
+          <p>{{ $t("footer.jeju") }}</p>
+          <p>{{ $t("footer.jejuAddr") }}</p>
+        </div>
+        <div class="flex gap-[10px]">
+          <p>{{ $t("footer.seoul") }}</p>
+          <p>{{ $t("footer.seoulAddr") }}</p>
+        </div>
+      </section>
+      <section
+        class="text-gray-caption text-xs md:text-2xs xl:text-xs mt-8 flex flex-col-reverse md:flex-row md:justify-between md:items-center"
+      >
+        <p>{{ $t("footer.copyright") }}</p>
+        <div class="flex gap-[10px] xl:gap-[15px] mb-5 md:mb-0">
+          <button
+            class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center drop-shadow"
           >
             <img
               class="w-4 h-4 md:w-3 md:h-3 xl:w-4 xl:h-4"
               :src="NAVER"
               alt="NAVER"
             />
-          </span>
-          <span
-            class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center"
+          </button>
+          <button
+            class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center drop-shadow"
           >
             <img
               class="w-5 h-5 md:w-4 md:h-4 xl:w-5 xl:h-5"
               :src="INSTAGRAM"
               alt="INSTAGRAM"
             />
-          </span>
-          <div
-            class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center"
+          </button>
+          <button
+            class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center drop-shadow"
           >
             <img
               class="w-5 h-5 md:w-4 md:h-4 xl:w-5 xl:h-5"
               :src="FACEBOOK"
               alt="FACEBOOK"
             />
-          </div>
-          <div
-            class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center"
+          </button>
+          <button
+            class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center drop-shadow"
           >
             <img
               class="w-6 h-6 md:w-4 md:h-4 xl:w-6 xl:h-6"
               :src="YOUTUBE"
               alt="YOUTUBE"
             />
-          </div>
+          </button>
         </div>
       </section>
     </div>
@@ -83,6 +90,10 @@
 </template>
 
 <script setup>
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+
+const NATURE_LOGO =
+  "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-black.svg";
 const NAVER =
   "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/sns-naver.svg";
 const INSTAGRAM =
@@ -91,4 +102,7 @@ const FACEBOOK =
   "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/sns-facebook.svg";
 const YOUTUBE =
   "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/sns-youtube.svg";
+
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const largerThanSm = breakpoints.greater("sm"); // only larger than sm
 </script>

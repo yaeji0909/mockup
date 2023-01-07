@@ -14,5 +14,18 @@
     "cancel": "취소",
     "moreDetail": "자세히 보기",
     "apply": "지원하기"
+  },
+  "footer": {
+    "company": "회사소개",
+    "recruit": "인재채용",
+    "condition": "이용약관",
+    "privacy": "개인정보처리방침",
+    "contact": "문의하기",
+    "name": "주식회사 네이처 모빌리티",
+    "jeju": "제주본사",
+    "jejuAddr": "제주특별자치도 제주시 첨단로 330, 3층 카이스트 친환경 스마트 자동차 연구센터 D동 KMV10 (영평동, 세미양 빌딩)",
+    "seoul": "서울본사",
+    "seoulAddr": "서울특별시 강남구 봉은사로 325, 9층 (논현동, 라임타워)",
+    "copyright": "© Copyright 2018 - 2019 Nature Mobility｜All Rights Reserved"
   }
 }
