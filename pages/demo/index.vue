@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- button -->
     <div class="w-[500px] mt-5 border-2 rounded-xl">
       <h1 class="text-center my-5 font-bold">BUTTONS</h1>
       <div class="bg-black p-2">
@@ -36,6 +37,7 @@
       </div>
       <div class="p-2"><RecruitApplyButton :text="$t('button.apply')" /></div>
     </div>
+    <!-- checkbox -->
     <div class="w-[500px] mt-5 border-2 rounded-xl">
       <h1 class="text-center my-5 font-bold">CHECKBOX</h1>
       <div class="p-2"><CheckBox :text="$t('button.confirm')" /></div>
@@ -49,12 +51,15 @@
         <SelectBox />
       </div>
     </div>
+    <!-- input -->
     <div class="w-[500px] mt-5 border-2 rounded-xl">
       <h1 class="text-center my-5 font-bold">Input</h1>
       <div class="p-2">
         <Input />
       </div>
     </div>
+    <!-- review card -->
+    <ReviewCard />
   </div>
 </template>
 
@@ -64,4 +69,5 @@ import ShortcutBtn from "/components/common/button/ShortcutBtn";
 import CheckBox from "/components/common/checkbox/CheckBox";
 import SelectBox from "/components/common/selectbox/SelectBox";
 import Input from "/components/common/input/Input";
+import ReviewCard from "/components/main/company/review-card/ReviewCard";
 </script>
