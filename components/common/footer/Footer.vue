@@ -13,6 +13,7 @@
             alt="NATURE_LOGO"
           />
           <div class="flex gap-4 mt-7 md:mt-0">
+            <CommonFooterSelectBox title="회사소개" />
             <button>{{ $t("footer.company") }}</button>
             <button>{{ $t("footer.recruit") }}</button>
             <button>{{ $t("footer.condition") }}</button>
@@ -25,7 +26,7 @@
           </div>
         </div>
         <div class="mt-11 md:mt-0">
-          <button>FAMILY SITE</button>
+          <CommonFooterSelectBox title="FAMILY SITE" />
         </div>
       </section>
       <section

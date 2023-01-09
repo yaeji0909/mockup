@@ -1,16 +1,19 @@
 <template>
   <div class="md:hidden flex-col mx-2" @click="clickHandler">
     <div
+      id="line1"
       ref="line1"
       class="p-[0.1rem] w-5 rounded bg-white"
       :class="`bg-${color}`"
     ></div>
     <div
+      id="line2"
       ref="line2"
       class="mt-[0.1rem] p-[0.1rem] w-5 rounded bg-white"
       :class="`bg-${color}`"
     ></div>
     <div
+      id="line3"
       ref="line3"
       class="mt-[0.1rem] p-[0.1rem] w-5 rounded bg-white"
       :class="`bg-${color} `"
@@ -19,6 +22,8 @@
 </template>
 
 <script setup>
+import { gsap } from "gsap";
+
 import { ref } from "vue";
 const line1 = ref(null);
 const line2 = ref(null);
@@ -32,27 +37,22 @@ const props = defineProps({
 // const emits = defineEmits(["test-emit"]);
 
 const clickHandler = () => {
-  console.log("children", props.showMenu);
   if (props.showMenu) {
-    line2.value.classList.remove("hidden");
-    line1.value.classList.remove("rotate");
-    line3.value.classList.add("rotate-end");
-    line3.value.classList.remove("rotate-reverse");
-    line1.value.classList.add("rotate-end");
-    // emits("test-emit", true);
+    gsap.to("#line1", { rotation: 0 });
+    gsap.to("#line3", { rotation: 0 });
+    gsap.to("#line2", { display: "block" });
   }
   if (!props.showMenu) {
-    line1.value.classList.remove("rotate-end");
-    line3.value.classList.remove("rotate-end");
-    line2.value.classList.add("hidden");
-    line1.value.classList.add("rotate");
-    line3.value.classList.add("rotate-reverse");
-    // emits("test-emit", false);
+    gsap.to("#line2", { display: "none" });
+    gsap.to("#line1", {
+      rotation: 45,
+      transformOrigin: "center center",
+      stagger: 1,
+    });
+    gsap.to("#line3", { rotation: -45, transformOrigin: "20% 0%" });
   }
 };
 </script>
-
-<script setup></script>
 
 <style scoped>
 .rotate {
