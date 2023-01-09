@@ -7,5 +7,4 @@
 <script setup>
 import PopupBtn from "/components/common/button/PopupBtn";
 import ShortcutBtn from "/components/common/button/ShortcutBtn";
-import ApplyBtn from "/components/common/button/ApplyBtn";
 </script>
