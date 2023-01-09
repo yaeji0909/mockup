@@ -53,20 +53,3 @@ const clickHandler = () => {
   }
 };
 </script>
-
-<style scoped>
-.rotate {
-  transform: rotate(45deg);
-  transition: all 400ms cubic-bezier(0.47, 1.64, 0.41, 0.8);
-}
-.rotate-reverse {
-  transition: all 400ms cubic-bezier(0.47, 1.64, 0.41, 0.8);
-  transform: rotate(-45deg);
-  transform-origin: 20% -20%;
-}
-.rotate-end {
-  transition: all 400ms cubic-bezier(0.47, 1.64, 0.41, 0.8);
-  transform: rotate(0deg);
-  transform-origin: 20% 0%;
-}
-</style>

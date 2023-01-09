@@ -58,7 +58,7 @@
       </div>
       <div
         v-if="langBtnIsClicked"
-        class="bg-white w-11 h-[52px] absolute top-11 right-10 z-10 rounded-sm flex flex-col justify-center text-black"
+        class="bg-white w-11 h-[52px] absolute top-14 right-11 z-10 rounded-sm flex flex-col justify-center text-black sm:hidden"
       >
         <button class="text-xs hover:text-primary-aqua p-1">KOR</button>
         <button class="text-xs hover:text-primary-aqua p-1">ENG</button>
