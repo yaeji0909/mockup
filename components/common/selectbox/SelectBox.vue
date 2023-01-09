@@ -3,7 +3,7 @@
     <div class="relative">
       <!-- Dropdown toggle button -->
       <button
-        @click="show = !show"
+        @click="clickHandler"
         class="flex items-center p-2 text-base text-indigo-100 bg-gray-bg focus:bg-white focus:shadow-mint border-[1.5px] border-gray-border focus:border-primary-aqua rounded-[10px] w-80"
         :class="onError && 'focus:border-error focus:shadow-error'"
       >
@@ -12,6 +12,7 @@
 
       <!-- Dropdown menu -->
       <div
+        id="drop-box"
         v-show="show"
         class="absolute left-0 p-1 mt-2 bg-white border border-primary-aqua shadow-mint rounded-[10px] w-80"
       >
@@ -29,6 +30,7 @@
 </template>
 
 <script setup>
+import { gsap } from "gsap";
 import { ref, onMounted } from "vue";
 const options = ["Option1", "Option2", "Option3"];
 const show = ref(false);
@@ -36,6 +38,11 @@ const text = ref("문의 유형을 선택해 주세요");
 const props = defineProps({
   onError: Boolean,
 });
+
+const clickHandler = () => {
+  show.value = !show.value;
+  gsap.fromTo("#drop-box", { y: -3 }, { y: 0 });
+};
 
 const changeOption = (e) => {
   const value = e.target.innerHTML;

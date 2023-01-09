@@ -55,6 +55,12 @@
         <Input />
       </div>
     </div>
+    <div class="w-[500px] mt-5 border-2 rounded-xl bg-gray-bg">
+      <h1 class="text-center my-5 font-bold">FooterSelectBox</h1>
+      <div class="p-2">
+        <FooterSelectBox title="FAMILY SITE" :border="true" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -65,5 +71,6 @@ import ShortcutBtn from "/components/common/button/ShortcutBtn";
 import ApplyBtn from "/components/common/button/ApplyBtn";
 import CheckBox from "/components/common/checkbox/CheckBox";
 import SelectBox from "/components/common/selectbox/SelectBox";
+import FooterSelectBox from "/components/common/footer/selectBox/SelectBox";
 import Input from "/components/common/input/Input";
 </script>
