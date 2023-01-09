@@ -58,6 +58,12 @@
         <Input />
       </div>
     </div>
+    <div class="w-[500px] mt-5 border-2 rounded-xl bg-gray-bg">
+      <h1 class="text-center my-5 font-bold">FooterSelectBox</h1>
+      <div class="p-2">
+        <FooterSelectBox title="FAMILY SITE" :border="true" />
+      </div>
+    </div>
     <!-- review card -->
     <ReviewCard />
   </div>
@@ -68,6 +74,7 @@ import PopupBtn from "/components/common/button/PopupBtn.vue";
 import ShortcutBtn from "/components/common/button/ShortcutBtn";
 import CheckBox from "/components/common/checkbox/CheckBox";
 import SelectBox from "/components/common/selectbox/SelectBox";
+import FooterSelectBox from "/components/common/footer/selectBox/SelectBox";
 import Input from "/components/common/input/Input";
 import ReviewCard from "/components/main/company/review-card/ReviewCard";
 </script>
