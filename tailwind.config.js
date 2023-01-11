@@ -54,6 +54,7 @@ module.exports = {
         mint: "0px 0px 5px rgba(67, 227, 217, 0.5);",
         red: "0px 0px 5px rgba(67, 227, 217, 0.5);",
         service: "-5px 5px 40px rgba(0, 0, 0, 0.15);",
+        review: "0px 8px 20px rgba(14, 31, 53, 0.12);",
       },
       backgroundImage: {
         service:
@@ -62,6 +63,8 @@ module.exports = {
           "url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)",
         "service-header":
           "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
+        "review-5":
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
       },
     },
     plugins: [],
