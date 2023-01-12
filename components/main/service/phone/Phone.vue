@@ -27,16 +27,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
-let redirectUrl = ref('');
-const slideChanged = url => {
+/**
+ * 자세히 보기 이동
+ */
+let redirectUrl = ref("https://train.zzimcar.com/");
+
+const slideChanged = (url) => {
   redirectUrl = url;
-  console.log(redirectUrl);
 };
 
-const moveTo = url => {
-  console.log('move to', url);
-  // if (process.client) window.location.href = 'https://rent-car.zzimcar.com/';
+const moveTo = () => {
+  window.open(redirectUrl.value || redirectUrl);
 };
 </script>
