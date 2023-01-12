@@ -1,22 +1,22 @@
 <template>
-  <div class="flex flex-col items-center justify-center bg-service h-screen">
+  <div class="flex flex-col items-center justify-center bg-service bg-cover py-52">
     <h1
       class="title opacity-0 text-3xl md:text-4xl xl:text-7xl md:leading-none font-bold text-center whitespace-pre-line md:whitespace-nowrap"
     >
-      {{ $t("service.title") }}
+      {{ $t('service.title') }}
     </h1>
     <p
       class="desc opacity-0 text-xs md:text-base xl:text-xl font-medium text-center whitespace-pre-line md:whitespace-nowrap"
     >
-      {{ $t("service.desc") }}
+      {{ $t('service.desc') }}
     </p>
     <MainServicePhone class="phone opacity-0 mt-[40px] xl:mt-[70px]" />
   </div>
 </template>
 
 <script setup>
-import { gsap } from "gsap";
-import { useI18n } from "vue-i18n";
+import { gsap } from 'gsap';
+import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 /**
@@ -24,19 +24,8 @@ const { t } = useI18n();
  */
 onMounted(() => {
   let tl = gsap.timeline(); //create the timeline
-  tl.to(".title", { opacity: 1, y: -90, ease: "power0", duration: 0 }) //start sequencing
-    .to(".desc", { opacity: 1, y: -60, ease: "power0", duration: 0 })
-    .to(".phone", { opacity: 1, y: -30, ease: "power0", duration: 0 });
-
-  breakLine(t("service.title"));
+  tl.to('.title', { opacity: 1, y: -90, ease: 'power0', duration: 0 }) //start sequencing
+    .to('.desc', { opacity: 1, y: -60, ease: 'power0', duration: 0 })
+    .to('.phone', { opacity: 1, y: -30, ease: 'power0', duration: 0 });
 });
-
-console.log('t("service.title")', t("service.title"));
-
-/**
- * 개행
- */
-const breakLine = (text) => {
-  return text.replace("\n", "<br />");
-};
 </script>

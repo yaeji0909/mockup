@@ -5,3 +5,5 @@
     <CommonFooter />
   </div>
 </template>
+
+<style scoped></style>
