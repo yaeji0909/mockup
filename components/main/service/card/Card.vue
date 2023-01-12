@@ -17,7 +17,7 @@
     <swiper-slide
       v-for="service in services"
       :key="service.id"
-      class="w-[300px] lg:w-[450px] mt-[90px] mr-[0px] mb-[70px] ml-[0px] md:mt-[120px] md:mr-[50px] md:mb-[50px] md:ml-[50px]"
+      class="w-[300px] lg:w-[450px] mt-[40px] mr-[0px] mb-[30px] ml-[0px] md:mt-[70px] md:mr-[50px] md:ml-[50px]"
     >
       <div
         class="bg-white w-[175px] h-[175px] md:w-[260px] md:h-[260px] rounded-[14px] xl:rounded-[20px] flex flex-col items-center justify-center shadow-service"
@@ -79,16 +79,13 @@ const largerThanMd = breakpoints.greater('md'); // only larger than md
 
 <style scoped>
 .swiper {
-  width: 100%;
-  padding: 50px;
+  /* width: 100%; */
+  padding: 50px 0 0 0;
 }
 .swiper-slide {
   background-position: center;
   background-size: cover;
   width: 250px;
-  /* height: 450px; */
-  /* margin: 50px; */
-  /* margin: 50px 50px 150px 50px; */
   transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1) !important;
   display: flex;
   flex-direction: column;
@@ -102,7 +99,7 @@ const largerThanMd = breakpoints.greater('md'); // only larger than md
   transform: translate3d(0px, -25px, -214.286px) rotateX(0deg) rotateY(0deg) scale(1) !important;
 }
 :deep(.swiper-slide-active) {
-  transform: translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1) !important;
+  transform: translate3d(-3px, 0px, 0px) rotateX(0deg) rotateY(0deg) scale(1) !important;
 }
 :deep(.swiper-button-next) {
   width: 60px;
