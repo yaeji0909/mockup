@@ -13,6 +13,8 @@
     }"
     :navigation="largerThanMd ? true : false"
     :modules="modules"
+    @slideChange="e => onSlideChange(e)"
+    ref="mySwiper"
   >
     <swiper-slide
       v-for="service in services"
@@ -28,14 +30,6 @@
       <p class="w-[300px] px-[10px] text-gray-sub text-center mt-[20px] text-2xs md:text-base whitespace-pre-line">
         {{ service.desc }}
       </p>
-      <!-- <div class="p-2">
-        <CommonButtonShortcutBtn
-          :text="$t('button.moreDetail')"
-          color="gray-caption"
-          hoverColor="black"
-          class="text-center m-auto pt-10"
-        />
-      </div> -->
     </swiper-slide>
   </swiper>
 </template>
@@ -48,6 +42,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+import { defineEmits, ref } from 'vue';
 
 /**
  * image setting
@@ -71,7 +66,28 @@ const services = [
  */
 const modules = [EffectCoverflow, Navigation];
 /**
- * swiper navigation
+ * 슬라이드 전환 시 자세히보기 버튼에 url 넘기기
+ */
+const emit = defineEmits(['slideChanged']);
+const onSlideChange = e => {
+  // console.log(e.activeIndex);
+  let url = '';
+  if (e.activeIndex === 0) {
+    url = 'https://rent-car.zzimcar.com/';
+  } else if (e.activeIndex === 1) {
+    url = 'https://tour-taxi.zzimcar.com/';
+  } else if (e.activeIndex === 2) {
+    url = 'https://hotpltrip.com/m/index.php?chn=zzimcar';
+  } else if (e.activeIndex === 3) {
+    url = 'https://train.zzimcar.com/';
+  } else if (e.activeIndex === 4) {
+    url = 'https://air.zzimcar.com/';
+  }
+  console.log('url', url);
+  emit('slideChanged', url);
+};
+/**
+ * swiper navigation disappear
  */
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanMd = breakpoints.greater('md'); // only larger than md
