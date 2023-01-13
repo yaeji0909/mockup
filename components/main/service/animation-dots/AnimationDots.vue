@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="relative">
     <swiper
       :direction="'vertical'"
       autoHeight
@@ -12,6 +12,7 @@
       }"
       class="mySwiper"
     >
+      <!-- 1 -->
       <swiper-slide
         class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
       >
@@ -25,9 +26,9 @@
         </div>
         <img :src="SERVICE_1" alt="SERVICE_1" class="w-[400px] md:w-[500px]" />
       </swiper-slide>
-
+      <!-- 2 -->
       <swiper-slide
-        class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
+        class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
       >
         <img :src="SERVICE_2" alt="SERVICE_2" class="w-[400px] md:w-[500px]" />
         <div class="mt-10 xl:mr-20">
@@ -39,9 +40,9 @@
           </p>
         </div>
       </swiper-slide>
-
+      <!-- 3 -->
       <swiper-slide
-        class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
+        class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
       >
         <div class="mt-10 xl:mr-20">
           <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
@@ -53,9 +54,9 @@
         </div>
         <img :src="SERVICE_3" alt="SERVICE_3" class="w-[400px] md:w-[500px]" />
       </swiper-slide>
-
+      <!-- 4 -->
       <swiper-slide
-        class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
+        class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
       >
         <img :src="SERVICE_4" alt="SERVICE_4" class="w-[400px] md:w-[500px]" />
         <div class="mt-10 xl:mr-20">
@@ -68,9 +69,12 @@
         </div>
       </swiper-slide>
     </swiper>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div>
+      <div class="absolute z-10 right-[4.5%] bottom-[68%] text-base md:text-xl font-medium text-primary-aqua">01</div>
+      <div class="absolute z-10 right-[5.2%] bottom-[57%] h-[80px] border" />
+      <!-- <div class="custom-number text-base md:text-xl font-medium text-primary-aqua">01</div>
+      <div class="custom-line h-[80px] border" /> -->
+    </div>
   </div>
 </template>
 
@@ -93,12 +97,10 @@ const modules = [Pagination];
   background: #fff;
   height: 100vh;
 }
-.swiper-pagination {
-}
 :deep(.swiper-pagination-vertical) {
   right: 5%;
   top: 50%;
-  transform: translate3d(0px, -50%, 0);
+  /* transform: translate3d(0px, -50%, 0); */
 }
 :deep(.swiper-pagination-bullet) {
   width: 8px;
@@ -106,9 +108,14 @@ const modules = [Pagination];
   background: #d5dde5;
   opacity: 1;
 }
+:deep(.swiper-pagination-bullet:hover) {
+  background: #37d1c7;
+  box-shadow: 0px 0px 5px rgba(55, 209, 199, 0.5);
+  filter: blur(2.5px);
+}
 :deep(.swiper-pagination-bullet-active) {
   height: 20px;
-  transition: height 0.5s;
+  transition: 0.5s;
   border-radius: 5px;
   background: #97dece;
 }
