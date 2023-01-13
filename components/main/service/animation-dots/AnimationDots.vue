@@ -1,95 +1,101 @@
 <template>
-  <div class="relative">
-    <swiper
-      :direction="'vertical'"
-      autoHeight
-      :grabCursor="true"
-      :centeredSlides="true"
-      :slidesPerView="'auto'"
-      :modules="modules"
-      :pagination="{
-        clickable: true,
-      }"
-      class="mySwiper"
+  <swiper
+    :direction="'vertical'"
+    autoHeight
+    :grabCursor="true"
+    :centeredSlides="true"
+    :slidesPerView="'auto'"
+    :mousewheel="true"
+    :modules="modules"
+    :pagination="{
+      clickable: true,
+    }"
+    class="mySwiper"
+  >
+    <!-- 1 -->
+    <swiper-slide
+      class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
     >
-      <!-- 1 -->
-      <swiper-slide
-        class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
-      >
-        <div class="mt-10 xl:mr-20">
-          <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
-            {{ $t('service.1') }}
-          </h1>
-          <p class="text-xs md:text-sm xl:text-xl mt-[15px]">
-            {{ $t('service.1-desc') }}
-          </p>
-        </div>
-        <img :src="SERVICE_1" alt="SERVICE_1" class="w-[400px] md:w-[500px]" />
-      </swiper-slide>
-      <!-- 2 -->
-      <swiper-slide
-        class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
-      >
-        <img :src="SERVICE_2" alt="SERVICE_2" class="w-[400px] md:w-[500px]" />
-        <div class="mt-10 xl:mr-20">
-          <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
-            {{ $t('service.2') }}
-          </h1>
-          <p class="text-xs md:text-sm xl:text-xl mt-[15px]">
-            {{ $t('service.2-desc') }}
-          </p>
-        </div>
-      </swiper-slide>
-      <!-- 3 -->
-      <swiper-slide
-        class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
-      >
-        <div class="mt-10 xl:mr-20">
-          <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
-            {{ $t('service.3') }}
-          </h1>
-          <p class="text-xs md:text-sm xl:text-xl mt-[15px]">
-            {{ $t('service.3-desc') }}
-          </p>
-        </div>
-        <img :src="SERVICE_3" alt="SERVICE_3" class="w-[400px] md:w-[500px]" />
-      </swiper-slide>
-      <!-- 4 -->
-      <swiper-slide
-        class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
-      >
-        <img :src="SERVICE_4" alt="SERVICE_4" class="w-[400px] md:w-[500px]" />
-        <div class="mt-10 xl:mr-20">
-          <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
-            {{ $t('service.4') }}
-          </h1>
-          <p class="text-xs md:text-sm xl:text-xl mt-[15px]">
-            {{ $t('service.4-desc') }}
-          </p>
-        </div>
-      </swiper-slide>
-    </swiper>
-    <div>
-      <div class="absolute z-10 right-[4.5%] bottom-[68%] text-base md:text-xl font-medium text-primary-aqua">01</div>
-      <div class="absolute z-10 right-[5.2%] bottom-[57%] h-[80px] border" />
-      <!-- <div class="custom-number text-base md:text-xl font-medium text-primary-aqua">01</div>
-      <div class="custom-line h-[80px] border" /> -->
-    </div>
-  </div>
+      <div class="mt-10 xl:mr-20">
+        <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
+          {{ $t('service.1') }}
+        </h1>
+        <p class="text-xs md:text-sm xl:text-xl mt-[15px]">
+          {{ $t('service.1-desc') }}
+        </p>
+      </div>
+      <img :src="SERVICE_1" alt="SERVICE_1" class="w-[400px] md:w-[500px]" />
+    </swiper-slide>
+    <!-- 2 -->
+    <swiper-slide
+      class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
+    >
+      <img :src="SERVICE_2" alt="SERVICE_2" class="w-[400px] md:w-[500px]" />
+      <div class="mt-10 xl:mr-20">
+        <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
+          {{ $t('service.2') }}
+        </h1>
+        <p class="text-xs md:text-sm xl:text-xl mt-[15px]">
+          {{ $t('service.2-desc') }}
+        </p>
+      </div>
+    </swiper-slide>
+    <!-- 3 -->
+    <swiper-slide
+      class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
+    >
+      <div class="mt-10 xl:mr-20">
+        <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
+          {{ $t('service.3') }}
+        </h1>
+        <p class="text-xs md:text-sm xl:text-xl mt-[15px]">
+          {{ $t('service.3-desc') }}
+        </p>
+      </div>
+      <img :src="SERVICE_3" alt="SERVICE_3" class="w-[400px] md:w-[500px]" />
+    </swiper-slide>
+    <!-- 4 -->
+    <swiper-slide
+      class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
+    >
+      <img :src="SERVICE_4" alt="SERVICE_4" class="w-[400px] md:w-[500px]" />
+      <div class="mt-10 xl:mr-20">
+        <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
+          {{ $t('service.4') }}
+        </h1>
+        <p class="text-xs md:text-sm xl:text-xl mt-[15px]">
+          {{ $t('service.4-desc') }}
+        </p>
+      </div>
+    </swiper-slide>
+  </swiper>
 </template>
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination } from 'swiper';
+import { Pagination, Mousewheel } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { onMounted } from 'vue';
 
 const SERVICE_1 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-1.svg';
 const SERVICE_2 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-2.svg';
 const SERVICE_3 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-3.svg';
 const SERVICE_4 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-4.svg';
 
-const modules = [Pagination];
+const modules = [Pagination, Mousewheel];
+
+onMounted(() => {
+  // add line
+  const el = window.document.querySelector('.swiper-pagination');
+  const line = document.createElement('div');
+  el.prepend(line);
+  // add number
+  let p = document.createElement('p');
+  let number = document.createTextNode('01');
+  p.appendChild(number);
+  el.prepend(p);
+});
 </script>
 
 <style scoped>
@@ -100,8 +106,25 @@ const modules = [Pagination];
 :deep(.swiper-pagination-vertical) {
   right: 5%;
   top: 50%;
-  /* transform: translate3d(0px, -50%, 0); */
+  transform: translate3d(0px, -50%, 0);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
+/* line */
+:deep(.swiper-pagination-vertical > div) {
+  height: 80px;
+  border: solid 1px #d5dde5;
+  margin: 20px 0 30px 0;
+}
+/* nymber */
+:deep(.swiper-pagination-vertical > p) {
+  font-size: 18px;
+  color: #37d1c7;
+  font-weight: 600;
+}
+/* custom pagination */
 :deep(.swiper-pagination-bullet) {
   width: 8px;
   height: 8px;
