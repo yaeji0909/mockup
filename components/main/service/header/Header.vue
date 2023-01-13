@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-screen">
     <div
       class="flex-col justify-center items-center bg-service-header md:bg-cover bg-right bg-no-repeat py-72 md:py-60"
     >
