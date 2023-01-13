@@ -10,7 +10,7 @@
     :pagination="{
       clickable: true,
     }"
-    class="mySwiper"
+    @slideChange="e => onSlideChange(e)"
   >
     <!-- 1 -->
     <swiper-slide
@@ -76,7 +76,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Mousewheel } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const SERVICE_1 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-1.svg';
 const SERVICE_2 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-2.svg';
@@ -85,17 +85,40 @@ const SERVICE_4 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/
 
 const modules = [Pagination, Mousewheel];
 
+let number = ref('01');
+
+/**
+ * custom pagination
+ */
 onMounted(() => {
   // add line
-  const el = window.document.querySelector('.swiper-pagination');
+  const el = document.querySelector('.swiper-pagination');
   const line = document.createElement('div');
   el.prepend(line);
   // add number
   let p = document.createElement('p');
-  let number = document.createTextNode('01');
-  p.appendChild(number);
+  let num = document.createTextNode('01');
+  p.appendChild(num);
   el.prepend(p);
 });
+
+/**
+ * change number
+ */
+const onSlideChange = e => {
+  if (e.activeIndex === 0) {
+    number.value = '01';
+  } else if (e.activeIndex === 1) {
+    number.value = '02';
+  } else if (e.activeIndex === 2) {
+    number.value = '03';
+  } else if (e.activeIndex === 3) {
+    number.value = '04';
+  }
+
+  const el = document.querySelector('.swiper-pagination > p');
+  el.innerText = number.value;
+};
 </script>
 
 <style scoped>
