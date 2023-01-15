@@ -7,7 +7,7 @@
         CUSTOMER REVIEWS
       </h3>
       <h1 class="text-3xl md:text-4xl lg:text-5xl text-black font-bold">
-        찜카 이용자 후기
+        {{ $t('service.review') }}
       </h1>
     </div>
     <div

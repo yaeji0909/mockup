@@ -20,6 +20,9 @@
     <swiper-slide>
       <MainServiceHeader />
     </swiper-slide>
+    <swiper-slide>
+      <MainNews />
+    </swiper-slide>
   </swiper>
 </template>
 
