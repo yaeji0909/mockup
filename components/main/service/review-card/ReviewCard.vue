@@ -11,7 +11,7 @@
       </h1>
     </div>
     <div
-      class="flex justify-center items-center overflow-hidden gap-10 min-w-max pt-8"
+      class="review-card flex justify-center items-center overflow-hidden gap-10 min-w-max pt-8"
     >
       <div
         v-for="r in reviews"
@@ -33,8 +33,25 @@
 
 <script setup>
 import reviews from '@/components/main/service/review-card/reviews.json';
+import { gsap } from 'gsap';
+
 const REVIEW_5 =
   'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg';
+
+onMounted(() => {
+  /**
+   * gsap animation
+   */
+  gsap.to('.review-card', {
+    duration: 5,
+    ease: 'none',
+    x: '-=500', //move each box 500px to left
+    modifiers: {
+      x: gsap.utils.unitize((x) => parseFloat(x) % 500), //force x value to be between 0 and 500 using modulus
+    },
+    repeat: -1,
+  });
+});
 </script>
 
 <style scoped>
