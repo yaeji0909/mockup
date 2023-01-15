@@ -38,20 +38,18 @@ import { gsap } from 'gsap';
 const REVIEW_5 =
   'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg';
 
-onMounted(() => {
-  /**
-   * gsap animation
-   */
-  gsap.to('.review-card', {
-    duration: 5,
-    ease: 'none',
-    x: '-=500', //move each box 500px to left
-    modifiers: {
-      x: gsap.utils.unitize((x) => parseFloat(x) % 500), //force x value to be between 0 and 500 using modulus
-    },
-    repeat: -1,
-  });
-});
+/**
+ * gsap animation marquee
+ */
+// gsap.to('.review-card', {
+//   duration: 5,
+//   ease: 'none',
+//   x: '-=500', //move each box 500px to left
+//   modifiers: {
+//     x: gsap.utils.unitize((x) => parseFloat(x) % 500), //force x value to be between 0 and 500 using modulus
+//   },
+//   repeat: -1,
+// });
 </script>
 
 <style scoped>
@@ -59,5 +57,20 @@ onMounted(() => {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+/* marquee */
+.review-card {
+  animation: marquee 100s infinite;
+}
+.review-card:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 </style>
