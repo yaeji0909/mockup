@@ -1,16 +1,31 @@
 <template>
-  <div class="bg-gray-bg flex justify-center items-center">
+  <div class="bg-gray-bg h-screen pt-10 lg:pt-20">
+    <div class="text-center">
+      <h3
+        class="text-base md:text-xl lg:text-2xl text-gray-caption font-medium"
+      >
+        CUSTOMER REVIEWS
+      </h3>
+      <h1 class="text-3xl md:text-4xl lg:text-5xl text-black font-bold">
+        찜카 이용자 후기
+      </h1>
+    </div>
     <div
-      class="relative bg-review-5 max-w-screen-sm h-[200px] xl:w-full xl:h-[400px] bg-center bg-no-repeat flex justify-center items-center filter drop-shadow-review overflow-hidden"
+      class="flex justify-center items-center overflow-hidden gap-10 min-w-max pt-8"
     >
-      <!-- <img
-      :src="REVIEW_5"
-      alt="REVIEW_5"
-      class="w-[260px] h-[225px] xl:w-[350px] xl:h-[303px] filter drop-shadow-review"
-    /> -->
-      <div class="absolute bottom-[20%] text-base">
-        <p class="w-[270px] h-[60px] overflow-hidden">{{ reviews.r1.content }}</p>
-        <p class="text-center mt-7">{{ reviews.r1.writer }}</p>
+      <div
+        v-for="r in reviews"
+        :key="r.writer"
+        class="relative bg-review-5 w-[260px] h-[225px] lg:w-[350px] lg:h-[303px] bg-cover bg-center bg-no-repeat flex justify-center items-center filter drop-shadow-review"
+      >
+        <div class="absolute bottom-[5%] text-xs md:text-base">
+          <p
+            class="content w-[230px] h-[60px] lg:w-[300px] lg:h-[60px] overflow-hidden overflow-ellipsis"
+          >
+            {{ r.content }}
+          </p>
+          <p class="text-center mt-3 md:mt-5">{{ r.writer }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -18,5 +33,14 @@
 
 <script setup>
 import reviews from '@/components/main/service/review-card/reviews.json';
-const REVIEW_5 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg';
+const REVIEW_5 =
+  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg';
 </script>
+
+<style scoped>
+.content {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+</style>

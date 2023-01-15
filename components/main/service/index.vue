@@ -1,5 +1,7 @@
 <template>
-  <div class="h-screen flex flex-col items-center justify-center bg-service bg-cover py-52">
+  <div
+    class="h-screen flex flex-col items-center justify-center bg-service bg-cover pt-60"
+  >
     <!-- title -->
     <h1
       class="title opacity-0 text-3xl md:text-4xl xl:text-7xl md:leading-none font-bold text-center whitespace-pre-line md:whitespace-nowrap"

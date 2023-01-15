@@ -4,7 +4,7 @@
     autoHeight
     :grabCursor="true"
     :centeredSlides="true"
-    :slidesPerView="'1'"
+    :slidesPerView="'auto'"
     :mousewheel="true"
     :modules="modules"
   >
