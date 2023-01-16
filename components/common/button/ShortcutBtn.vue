@@ -5,7 +5,9 @@
     @click="$emit('click', $event)"
   >
     <p>{{ text }}</p>
+    <!-- <slot name="icon" /> -->
     <img class="shortcut-btn-icon" :src="ARROW_GRAY" />
+    <!-- <object type="image/svg+xml" :data="ARROW_GRAY" class="hover:filter-mint" /> -->
   </button>
 </template>
 
