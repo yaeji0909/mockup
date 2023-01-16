@@ -54,6 +54,7 @@ module.exports = {
         mint: '0px 0px 5px rgba(67, 227, 217, 0.5);',
         red: '0px 0px 5px rgba(67, 227, 217, 0.5);',
         service: '-5px 5px 40px rgba(0, 0, 0, 0.15);',
+        recruit: '0px 4px 8px rgba(14, 31, 53, 0.12);',
       },
       dropShadow: {
         review: '10px 6px 6px #ededed',
