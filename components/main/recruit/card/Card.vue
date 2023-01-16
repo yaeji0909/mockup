@@ -22,12 +22,16 @@
         class="bg-white w-[260px] h-[180px] md:w-[304px] md:h-[210px] lg:w-[372px] lg:h-[260px] rounded-[20px] shadow-recruit px-[35px] py-[30px]"
       >
         <div class="flex justify-between items-center">
-          <p class="text-xl font-medium text-gray-sub">{{ r.department }}</p>
-          <p class="w-[60px] h-[30px] border rounded-full text-base flex justify-center items-center">{{ r.career }}</p>
+          <p class="text-xs md:text-base lg:text-xl font-medium text-gray-sub">{{ r.department }}</p>
+          <p
+            class="text-xs md:text-sm lg:text-base w-[60px] h-[30px] border rounded-full flex justify-center items-center"
+          >
+            {{ r.career }}
+          </p>
         </div>
-        <h3 class="text-3xl font-bold text-black pt-[13px]">{{ r.title }}</h3>
-        <p class="text-base text-gray-caption pt-[10px]">{{ r.location }}</p>
-        <h3 class="text-3xl font-bold text-primary-aqua pt-[23px]">{{ r.dueDate }}</h3>
+        <h3 class="text-xl md:text-2xl xl:text-3xl font-bold text-black pt-[13px]">{{ r.title }}</h3>
+        <p class="text-xs md:text-sm xl:text-base text-gray-caption pt-[10px]">{{ r.location }}</p>
+        <h3 class="text-xl md:text-2xl xl:text-3xl font-bold text-primary-aqua pt-[23px]">{{ r.dueDate }}</h3>
       </div>
     </section>
   </div>
