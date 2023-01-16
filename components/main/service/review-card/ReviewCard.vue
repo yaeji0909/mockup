@@ -8,7 +8,7 @@
     </div>
     <div class="review-card flex justify-center items-center overflow-hidden gap-10 min-w-max pt-8">
       <div
-        v-for="r in reviews"
+        v-for="r in review"
         :key="r.writer"
         class="relative bg-review-5 w-[260px] h-[225px] lg:w-[350px] lg:h-[303px] bg-cover bg-center bg-no-repeat flex justify-center items-center filter drop-shadow-review"
       >
@@ -25,22 +25,10 @@
 
 <script setup>
 import reviews from '@/components/main/service/review-card/reviews.json';
-import { gsap } from 'gsap';
 
 const REVIEW_5 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg';
 
-/**
- * gsap animation marquee
- */
-// gsap.to('.review-card', {
-//   duration: 5,
-//   ease: 'none',
-//   x: '-=500', //move each box 500px to left
-//   modifiers: {
-//     x: gsap.utils.unitize((x) => parseFloat(x) % 500), //force x value to be between 0 and 500 using modulus
-//   },
-//   repeat: -1,
-// });
+const { review } = reviews;
 </script>
 
 <style scoped>

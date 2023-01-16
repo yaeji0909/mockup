@@ -1,7 +1,7 @@
 <template>
   <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-10">
     <div
-      v-for="n in news"
+      v-for="n in newsList"
       :key="n.title"
       class="flex flex-col text-left w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0"
     >
@@ -37,6 +37,8 @@ import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { ref } from 'vue';
 
 const THUMBNAIL_IMG = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg';
+
+const { newsList } = news;
 
 /**
  * 자세히 보기 이동
