@@ -1,16 +1,20 @@
 <template>
   <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-10">
-    <div v-for="n in news" :key="n.title" class="flex flex-col text-left w-[372px] mb-10">
+    <div
+      v-for="n in news"
+      :key="n.title"
+      class="flex flex-col text-left w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0"
+    >
       <img
         :src="n.imgUrl"
         alt="THUMBNAIL_IMG"
-        class="h-[200px] w-full md:h-[300px] md:w-[704px] lg:h-[240px] lg:w-[372px] rounded-[20px] hover:scale-110 transition ease-in-out duration-300"
+        class="h-[200px] w-[335px] sm:w-[700px] md:h-[300px] lg:h-[240px] lg:w-[372px] rounded-[20px] object-cover hover:scale-105 transition ease-in-out duration-300"
       />
       <p class="text-primary-aqua text-base font-medium pt-5">{{ n.date }}</p>
       <h4 class="news-title text-black text-2xl font-bold pt-3 overflow-hidden">
         {{ n.title }}
       </h4>
-      <div>
+      <div v-if="largerThanSm">
         <CommonButtonShortcutBtn
           :text="$t('button.moreDetail')"
           color="gray-caption"
@@ -29,6 +33,7 @@
 
 <script setup>
 import news from '/components/main/news/card/news.json';
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { ref } from 'vue';
 
 const THUMBNAIL_IMG = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg';
@@ -47,6 +52,12 @@ const slideChanged = url => {
 const moveTo = () => {
   window.open(redirectUrl.value || redirectUrl);
 };
+
+/**
+ * 모바일 자세히 보기 버튼
+ */
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 </script>
 
 <style scoped>
