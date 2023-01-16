@@ -4,7 +4,12 @@
     <p class="desc opacity-0 text-base md:text-xl">{{ $t('news.sub') }}</p>
     <MainNewsCard />
     <div class="mt-28">
-      <CommonButton :text="$t('news.more')" bdColor="primary-aqua" textColor="primary-aqua" @click="ClickBtn()" />
+      <CommonButton
+        :text="$t('news.more')"
+        bdColor="primary-aqua"
+        textColor="primary-aqua"
+        @click="router.push('/news')"
+      />
     </div>
   </div>
 </template>
@@ -12,13 +17,7 @@
 <script setup>
 import { gsap } from 'gsap';
 
-/**
- * click button
- */
 const router = useRouter();
-function ClickBtn() {
-  router.push('/news');
-}
 
 /**
  * gsap animation
