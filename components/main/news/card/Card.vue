@@ -19,11 +19,11 @@
           :text="$t('button.moreDetail')"
           color="gray-caption"
           hoverColor="black"
-          class="shortcut-btn pt-7"
+          class="pt-7"
           @click="moveTo"
         >
           <!-- <template #icon>
-            <img class="shortcut-btn-icon" :src="ARROW_GRAY" />
+            <img class="news-shortcut-btn-icon" :src="ARROW_GRAY" />
           </template> -->
         </CommonButtonShortcutBtn>
       </div>
@@ -37,8 +37,6 @@ import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { ref } from 'vue';
 
 const THUMBNAIL_IMG = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg';
-const ARROW_GRAY = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_gray.svg';
-const ARROW_BLACK = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_black.svg';
 
 /**
  * 자세히 보기 이동
@@ -54,7 +52,7 @@ const moveTo = () => {
 };
 
 /**
- * 모바일 자세히 보기 버튼
+ * 모바일 자세히 보기 버튼 삭제
  */
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
