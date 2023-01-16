@@ -23,6 +23,9 @@
     <swiper-slide>
       <MainNews />
     </swiper-slide>
+    <swiper-slide>
+      <MainRecruitHeader />
+    </swiper-slide>
   </swiper>
 </template>
 
