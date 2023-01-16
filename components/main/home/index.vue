@@ -1,7 +1,7 @@
 <template>
   <header class="relative flex items-center h-screen overflow-hidden">
     <main class="relative z-30 p-5 text-2xl mx-1 md:mx-8 xl:mx-80">
-      <section class="title opacity-0">
+      <section class="home-title opacity-0">
         <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">
           {{ $t('home.title1') }}
         </h1>
@@ -14,7 +14,7 @@
           {{ $t('home.title3') }}
         </h1>
       </section>
-      <section class="sub-title opacity-0 mt-5">
+      <section class="home-sub-title opacity-0 mt-5">
         <p class="text-xs md:text-xl xl:text-2xl font-medium text-white">
           {{ $t('home.desc1') }}
         </p>
@@ -25,7 +25,7 @@
           {{ $t('home.desc3') }}
         </p>
       </section>
-      <section class="buttons opacity-0 mt-14 gap-4 md:gap-10 text-white flex">
+      <section class="download-buttons opacity-0 mt-14 gap-4 md:gap-10 text-white flex">
         <CommonButton class="g-btn" :text="$t('button.googlePlay')" :icon="true" @click="ClickBtn(GOOGLE_PLAY_URL)">
           <template #icon>
             <img :src="GOOGLE_PLAY_ICON" />
@@ -70,9 +70,9 @@ onMounted(() => {
    * gsap animation
    */
   let tl = gsap.timeline(); //create the timeline
-  tl.to('.title', { opacity: 1, y: -100, ease: 'power0', duration: 0.7 }) //start sequencing
-    .to('.sub-title', { opacity: 1, y: -60, ease: 'power0', duration: 0.7 })
-    .to('.buttons', { opacity: 1, y: -30, ease: 'power0', duration: 0.7 });
+  tl.to('.home-title', { opacity: 1, y: -100, ease: 'power0', duration: 0.7 }) //start sequencing
+    .to('.home-sub-title', { opacity: 1, y: -60, ease: 'power0', duration: 0.7 })
+    .to('.download-buttons', { opacity: 1, y: -30, ease: 'power0', duration: 0.7 });
 });
 
 /**
