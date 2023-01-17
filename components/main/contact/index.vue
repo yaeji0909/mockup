@@ -3,7 +3,9 @@
     <section
       class="flex-col justify-center items-center bg-contact-header bg-cover bg-right bg-no-repeat text-center py-40 xl:py-32"
     >
-      <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold text-white whitespace-pre-line">
+      <h1
+        class="text-3xl md:text-4xl xl:text-7xl font-bold text-white whitespace-pre-line"
+      >
         <span class="text-primary-aqua">{{ $t('contact.natureMobility') }}</span
         >{{ $t('contact.title') }}
       </h1>
@@ -15,7 +17,7 @@
         class="mt-8"
       />
     </section>
-    <section>
+    <section class="mt-[30px] md:mt-[50px] xl:mt-[85px]">
       <MainContactMapCard />
     </section>
   </div>

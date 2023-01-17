@@ -1,20 +1,36 @@
 <template>
-  <div class="flex justify-center gap-10">
+  <div class="flex flex-col xl:flex-row justify-center items-center gap-10">
     <div
       v-for="map in mapList"
       :key="map.title"
-      class="bg-secondary-beige w-[372px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px] rounded-[20px]"
+      class="bg-secondary-beige flex items-end p-5 w-[340px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px] rounded-[20px]"
     >
-      <div class="bg-white w-[300px] h-[270px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px] rounded-[20px]">
-        <h3>{{ map.title }}</h3>
-        <h5>{{ map.addr }}</h5>
-        <div v-for="(info, idx) in infoList" :key="idx" class="flex gap-2">
-          <div class="h-5">
-            <img :src="info" alt="PHONE" />
-            <p>{{ map.phone }}</p>
+      <div
+        class="info-box bg-white w-[340px] md:w-[704px] xl:w-[372px] rounded-[20px] px-5 py-[25px]"
+      >
+        <h3 class="text-xl :text-2xl font-bold">{{ map.title }}</h3>
+        <h5 class="text-xs pt-5">{{ map.addr }}</h5>
+        <section
+          v-if="hover"
+          class="bg-gray-bg rounded-[10px] mt-[25px] px-[12px] py-[15px]"
+        >
+          <div class="h-5 flex gap-3">
+            <img :src="PHONE" alt="PHONE" class="w-3" />
+            <p class="text-2xs">{{ map.phone }}</p>
           </div>
-        </div>
-        <!-- <MainContactMapInfoCard /> -->
+          <div class="h-5 flex gap-3 mt-2">
+            <img :src="TEL" alt="TEL" class="w-3" />
+            <p class="text-2xs">{{ map.tel }}</p>
+          </div>
+          <div class="h-5 flex gap-3 mt-2">
+            <img :src="EMAIL" alt="EMAIL" class="w-3" />
+            <p class="text-2xs">{{ map.email }}</p>
+          </div>
+          <div class="h-5 flex gap-3 mt-2">
+            <img :src="TIME" alt="TIME" class="w-3" />
+            <p class="text-2xs">{{ map.time }}</p>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -22,12 +38,15 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
-// import InfoCard from '/components/main/contact/map/InfoCard';
 
-const PHONE = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_map_phone.svg';
-const TEL = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_map_tel.svg';
-const EMAIL = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_map_mail.svg';
-const TIME = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_map_time.svg';
+const PHONE =
+  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_map_phone.svg';
+const TEL =
+  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_map_tel.svg';
+const EMAIL =
+  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_map_mail.svg';
+const TIME =
+  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_map_time.svg';
 
 const { t } = useI18n();
 
@@ -59,4 +78,19 @@ const mapList = [
     time: t('contact.helmetOfficeTime'),
   },
 ];
+
+/**
+ * hover event
+ */
+const hover = ref(false);
+
+onMounted(() => {
+  const el = document.querySelector('.info-box');
+  el.addEventListener('mouseenter', (e) => {
+    hover.value = true;
+  });
+  el.addEventListener('mouseleave', (e) => {
+    hover.value = false;
+  });
+});
 </script>
