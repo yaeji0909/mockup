@@ -23,4 +23,10 @@
 
 <script setup>
 const ZZIMCAR_URL = 'https://zzimcar.com/';
+/**
+ * click button
+ */
+function ClickBtn(param) {
+  window.open(param);
+}
 </script>
