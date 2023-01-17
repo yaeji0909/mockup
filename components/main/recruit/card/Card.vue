@@ -1,7 +1,18 @@
 <template>
   <div class="bg-secondary-beige h-screen">
     <!-- status -->
-    <swiper :grabCursor="true" :slidesPerView="5" :modules="modules" class="board w-[900px]">
+    <swiper
+      :grabCursor="true"
+      :slidesPerView="'auto'"
+      :centeredSlides="largerThanSm ? false : true"
+      :modules="modules"
+      :breakpoints="{
+        320: { slidesPerView: 'auto' },
+        768: { slidesPerView: 'auto' },
+        1024: { slidesPerView: 'auto' },
+      }"
+      class="board"
+    >
       <swiper-slide
         v-for="(board, idx) in recruitBoardList"
         :key="board.department"
@@ -19,7 +30,6 @@
     <!-- card -->
     <swiper
       :grabCursor="true"
-      :slidesPerView="auto"
       :centeredSlides="largerThanSm ? false : true"
       :spaceBetween="30"
       :modules="modules"
@@ -28,6 +38,7 @@
         320: { slidesPerView: 'auto' },
         768: { slidesPerView: 'auto' },
         1024: { slidesPerView: 'auto' },
+        1920: { slidesPerView: 'auto' },
       }"
       class="card"
     >
@@ -97,40 +108,48 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 :deep(.swiper) {
   padding: 0px 30px;
 }
+:deep(.board > .swiper-wrapper) {
+  display: flex;
+  justify-content: center;
+}
 :deep(.swiper-pagination) {
   bottom: 0%;
   width: 100%;
 }
-/* fix width */
+/* fix board && card width */
 @media (min-width: 1025px) {
+  :deep(.swiper.card) {
+    width: 1210px;
+  }
   :deep(.swiper-slide.board) {
+    width: 120px !important;
     height: 50px;
+    margin-top: 2rem;
   }
   :deep(.swiper-slide.card) {
     width: 372px !important;
-    /* width: 30% !important; */
     height: 260px !important;
     padding: 30px 35px;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   :deep(.swiper-slide.board) {
+    width: 120px !important;
     height: 50px;
   }
   :deep(.swiper-slide.card) {
     width: 304px !important;
-    /* width: 30% !important; */
     height: 210px !important;
     padding: 20px 25px;
   }
 }
 @media (max-width: 767px) {
   :deep(.swiper-slide.board) {
+    width: 120px !important;
     height: 50px;
   }
   :deep(.swiper-slide.card) {
     width: 260px !important;
-    /* width: 30% !important; */
     height: 180px !important;
     padding: 15px 20px;
   }
