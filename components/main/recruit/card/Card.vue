@@ -23,23 +23,14 @@
       :centeredSlides="largerThanSm ? false : true"
       :spaceBetween="30"
       :modules="modules"
-      :pagination="{
-        clickable: true,
-      }"
+      :pagination="{ clickable: true }"
       :breakpoints="{
-        320: {
-          slidesPerView: 'auto',
-        },
-        768: {
-          slidesPerView: 'auto',
-        },
-        1024: {
-          slidesPerView: 'auto',
-        },
+        320: { slidesPerView: 'auto' },
+        768: { slidesPerView: 'auto' },
+        1024: { slidesPerView: 'auto' },
       }"
       class="card"
     >
-      <!-- <div class="flex justify-center gap-10 pt-12"> -->
       <swiper-slide
         v-for="r in recruit"
         :key="r.title"
@@ -65,7 +56,6 @@
           {{ r.dueDate }}
         </h3>
       </swiper-slide>
-      <!-- </div> -->
     </swiper>
   </div>
 </template>
