@@ -10,7 +10,6 @@
       `border border-${bdColor}` || 'border',
       `text-${textColor}` || 'text-white',
     ]"
-    @click="$emit('click', $event)"
   >
     <slot name="icon" />
     <p>{{ text }}</p>
