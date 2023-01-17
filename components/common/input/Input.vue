@@ -26,6 +26,4 @@ onMounted(() => {
     show = false;
   }
 });
-
-console.log(props.onError);
 </script>

@@ -4,17 +4,15 @@
       <!-- Dropdown toggle button -->
       <button
         @click="clickHandler"
-        class="flex items-center p-2 text-base bg-transparent text-xs text-black flex justify-center items-center w-24"
+        class="flex items-center p-2 bg-transparent text-xs text-black flex justify-center items-center w-24"
         :class="[
           border ? 'border-b border-gray' : 'border:none',
           props.title === 'FAMILY SITE' && 'w-36  text-gray-sub',
         ]"
       >
-        <span
-          class="mr-1"
-          :class="props.title === 'FAMILY SITE' ? 'mr-8' : 'mr-1'"
-          >{{ title }}</span
-        >
+        <span class="mr-1" :class="props.title === 'FAMILY SITE' && 'mr-8'">{{
+          title
+        }}</span>
         <nuxt-img
           class="w-4 h-4"
           :src="
@@ -95,6 +93,4 @@ onMounted(() => {
     show = false;
   }
 });
-
-console.log(props.onError);
 </script>
