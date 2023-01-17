@@ -58,9 +58,11 @@
         <Input />
       </div>
     </div>
+    <!-- footer select box  -->
     <div class="w-[500px] mt-5 border-2 rounded-xl bg-gray-bg">
       <h1 class="text-center my-5 font-bold">FooterSelectBox</h1>
       <div class="p-2">
+        <FooterSelectBox title="회사소개" />
         <FooterSelectBox title="FAMILY SITE" :border="true" />
       </div>
     </div>

@@ -1,7 +1,6 @@
 <template>
   <div
-    class="bg-black text-white"
-    :class="showMenu && 'bg-white h-screen text-black'"
+    :class="showMenu ? ' h-screen text-black bg-white' : 'bg-black text-white'"
     ref="navigationBox"
   >
     <nav
@@ -14,8 +13,10 @@
           />
         </NuxtLink>
 
-        <!-- Mobile menu button -->
-        <div class="hidden xs:block sm:pl-40 md:hidden text-white text-xs">
+        <div
+          class="hidden xs:block sm:pl-40 md:hidden text-xs"
+          :class="showMenu || color === 'white' ? ' text-black' : 'text-white'"
+        >
           <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;</button>
           <span>|</span>
           <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
@@ -29,8 +30,7 @@
           </button>
           <div @click="showMenuHandler" class="flex md:hidden">
             <CommonNavigationBarHamburger
-              :color="props.color ? 'black' : 'white'"
-              :changedColor="showMenu ? 'black' : ''"
+              :color="showMenu || color === 'white' ? 'black' : 'white'"
               :showMenu="showMenu"
             />
           </div>
@@ -46,6 +46,7 @@
           class="mx-3 hover:text-primary-aqua cursor-pointer font-semibold text-xs md:text-xl xl:tex-=2xl"
           v-for="value in menu"
           :key="value"
+          :class="color === 'white' && 'text-black'"
         >
           {{ value }}
         </li>
@@ -57,7 +58,7 @@
       </div>
       <div
         v-if="langBtnIsClicked"
-        class="bg-white w-11 h-[52px] absolute top-11 right-10 z-10 rounded-sm flex flex-col justify-center text-black"
+        class="bg-white w-11 h-[52px] absolute top-14 right-11 z-10 rounded-sm flex flex-col justify-center text-black sm:hidden"
       >
         <button class="text-xs hover:text-primary-aqua p-1">KOR</button>
         <button class="text-xs hover:text-primary-aqua p-1">ENG</button>
@@ -92,13 +93,7 @@ const langBtnClickHandler = () => {
   langBtnIsClicked.value = !langBtnIsClicked.value;
 };
 
-const logoColor = reactive({
-  main: "white",
-  lang: "",
-});
-
 const changeColor = (prevValue) => {
-  console.log("parents", showMenu.value);
   if (prevValue === true) {
     logoColor.main = "mint";
     logoColor.lang = "-black";
@@ -113,10 +108,16 @@ watch(showMenu, (newValue) => {
   changeColor(newValue);
 });
 
+const logoColor = reactive({
+  main: "white",
+  lang: "",
+});
+
 onMounted(() => {
   if (props.color === "white") {
     logoColor.main = "mint";
     logoColor.lang = "-black";
+    console.log(navigationBox.value.classList);
     navigationBox.value.classList.add("bg-white");
     navigationBox.value.classList.add("text-black");
   }
