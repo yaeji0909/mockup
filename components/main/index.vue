@@ -2,7 +2,6 @@
   <swiper
     :direction="'vertical'"
     autoHeight
-    :grabCursor="true"
     :centeredSlides="true"
     :slidesPerView="'auto'"
     :mousewheel="true"
@@ -25,6 +24,9 @@
     </swiper-slide>
     <swiper-slide>
       <MainRecruitHeader />
+    </swiper-slide>
+    <swiper-slide>
+      <MainContact />
     </swiper-slide>
   </swiper>
 </template>

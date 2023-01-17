@@ -64,6 +64,7 @@ module.exports = {
         phone: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
         'service-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
         'review-5': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
+        'contact-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
       },
     },
     plugins: [],
