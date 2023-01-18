@@ -19,7 +19,8 @@
           <img :src="PIN" alt="PIN" />
         </div>
         <h3 class="text-xl :text-2xl font-bold">{{ map.title }}</h3>
-        <h5 class="text-xs pt-5">{{ map.addr }}</h5>
+        <h5 class="text-xs pt-5">{{ map.addr[0] }}</h5>
+        <h5 v-if="map.addr[1]" class="text-xs pt-3">{{ map.addr[1] }}</h5>
         <section v-if="map.hover" class="bg-gray-bg rounded-[10px] mt-[25px] px-[12px] py-[15px]">
           <div class="h-5 flex gap-3">
             <img :src="PHONE" alt="PHONE" class="w-3" />
@@ -57,7 +58,7 @@ const { t } = useI18n();
 const mapList = ref([
   {
     title: t('contact.headOffice'),
-    addr: t('contact.headOfficeAddr'),
+    addr: [t('contact.headOfficeAddr')],
     phone: '064 759 8186',
     tel: '070 4009 2030',
     email: '본사 메일',
@@ -77,7 +78,7 @@ const mapList = ref([
   },
   {
     title: t('contact.helmetOffice'),
-    addr: t('contact.helmetOfficeAddr'),
+    addr: [t('contact.helmetOfficeAddr')],
     phone: '02 6929 2401',
     tel: '070 4848 5497',
     email: '헬멧사업부 메일',
