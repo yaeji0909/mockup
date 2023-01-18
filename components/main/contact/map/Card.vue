@@ -3,9 +3,18 @@
     <div
       v-for="map in mapList"
       :key="map.title"
-      class="bg-secondary-beige flex items-end p-5 w-[340px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px] rounded-[20px]"
+      class="relative flex items-end p-5 w-[340px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px] rounded-[20px]"
     >
-      <div class="info-box relative bg-white w-[340px] md:w-[704px] xl:w-[372px] rounded-[20px] px-5 py-[25px]">
+      <GMapMap
+        :center="map.center"
+        :zoom="17"
+        class="absolute z-20 bottom-0 w-[340px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px]"
+      >
+        <GMapMarker :key="map.title" :position="map.center" />
+      </GMapMap>
+      <div
+        class="info-box relative absolute z-20 bottom-0 bg-white w-[340px] md:w-[704px] xl:w-[372px] rounded-[20px] px-5 py-[25px]"
+      >
         <div v-if="!map.hover" class="absolute top-[-35%] left-[40%]">
           <img :src="PIN" alt="PIN" />
         </div>
@@ -54,6 +63,7 @@ const mapList = ref([
     email: '본사 메일',
     time: t('contact.headOfficeTime'),
     hover: false,
+    center: { lat: 33.442416, lng: 126.571329 },
   },
   {
     title: t('contact.branchOffice'),
@@ -63,6 +73,7 @@ const mapList = ref([
     email: '지사 메일',
     time: t('contact.branchOfficeTime'),
     hover: false,
+    center: { lat: 37.510219, lng: 127.042997 },
   },
   {
     title: t('contact.helmetOffice'),
@@ -72,6 +83,7 @@ const mapList = ref([
     email: '헬멧사업부 메일',
     time: t('contact.helmetOfficeTime'),
     hover: false,
+    center: { lat: 37.48029, lng: 126.884312 },
   },
 ]);
 
