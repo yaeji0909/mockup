@@ -1,11 +1,9 @@
 <template>
   <div class="h-screen bg-white">
     <section
-      class="flex-col justify-center items-center bg-contact-header bg-cover bg-right bg-no-repeat text-center py-40 xl:py-32"
+      class="h-1/3 flex flex-col justify-center items-center bg-contact-header bg-cover bg-right bg-no-repeat text-center"
     >
-      <h1
-        class="text-3xl md:text-4xl xl:text-7xl font-bold text-white whitespace-pre-line"
-      >
+      <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold text-white whitespace-pre-line">
         <span class="text-primary-aqua">{{ $t('contact.natureMobility') }}</span
         >{{ $t('contact.title') }}
       </h1>
@@ -17,8 +15,11 @@
         class="mt-8"
       />
     </section>
-    <section class="mt-[30px] md:mt-[50px] xl:mt-[85px]">
+    <section class="py-[30px] md:py-[50px] xl:py-[85px]">
       <MainContactMapCard />
+    </section>
+    <section class="fixed bottom-0 w-screen">
+      <CommonFooter />
     </section>
   </div>
 </template>
