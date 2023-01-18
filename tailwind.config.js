@@ -24,7 +24,7 @@ module.exports = {
         base: ['1rem', '1.25rem'], // 16px
         xl: ['1.125rem', '1.5rem'], // 18px
         '2xl': ['1.3125rem', '1.875rem'], // 21px
-        '3xl': ['1.625rem', 'auto'], // 26px
+        '3xl': ['1.625rem', '2.5rem'], // 26px
         '4xl': ['1.875rem', '2.5rem'], // 30px
         '5xl': ['2rem', '2.875rem'], // 32px
         '6xl': ['3rem', '3.75rem'], // 48px
@@ -61,11 +61,16 @@ module.exports = {
         review: '10px 6px 6px #ededed',
       },
       backgroundImage: {
-        service: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-bg.svg)',
-        phone: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
-        'service-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
-        'review-5': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
-        'contact-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
+        service:
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-bg.svg)',
+        phone:
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
+        'service-header':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
+        'review-5':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
+        'contact-header':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
       },
     },
     plugins: [],
