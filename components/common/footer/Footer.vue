@@ -7,9 +7,7 @@
             <img class="w-[184px] md:w-[120px] xl:w-[184px]" :src="NATURE_LOGO" alt="NATURE_LOGO" />
             <div class="flex gap-4 mt-7 md:mt-0">
               <CommonFooterSelectBox title="회사소개" />
-            </div>
-            <div class="flex gap-4 mt-7 md:mt-0">
-              <button>{{ $t('footer.company') }}</button>
+              <!-- <button>{{ $t('footer.company') }}</button> -->
               <button>{{ $t('footer.recruit') }}</button>
               <button>{{ $t('footer.condition') }}</button>
               <button>{{ $t('footer.privacy') }}</button>
