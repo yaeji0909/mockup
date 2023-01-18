@@ -3,12 +3,12 @@
     <div
       v-for="map in mapList"
       :key="map.title"
-      class="relative flex items-end p-5 w-[340px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px] rounded-[20px]"
+      class="relative flex justify-center items-end p-5 w-[340px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px]"
     >
       <GMapMap
         :center="map.center"
         :zoom="17"
-        class="absolute z-20 bottom-0 w-[340px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px]"
+        class="absolute z-20 bottom-0 w-[340px] h-[460px] md:w-[704px] md:h-[340px] xl:w-[372px] xl:h-[460px] rounded-[20px] overflow-hidden"
       >
         <GMapMarker :key="map.title" :position="map.center" />
       </GMapMap>
