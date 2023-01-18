@@ -58,7 +58,12 @@
     "branchOfficeTime": "9:00~18:00 (월~금) (점심 11:40~13:00)",
     "helmetOffice": "헬멧사업부",
     "helmetOfficeAddr": "서울특별시 금천구 벚꽃로 286 삼성리더스타워 1112-2호",
-    "helmetOfficeTime": "9:00~18:00 (월~금) (점심 11:40~13:00)"
+    "helmetOfficeTime": "9:00~18:00 (월~금) (점심 11:40~13:00)",
+    "confirmMsg": "문의 접수하시겠습니까?",
+    "confirm": "확인",
+    "cancel": "취소",
+    "successMsg": "정상적으로 접수되었습니다.",
+    "successSubMsg": "조금만 기다려주시면 \n 순차적으로 답변드리겠습니다."
   },
   "button": {
     "googlePlay": "Google Play",
