@@ -7,7 +7,7 @@
         <span class="text-primary-aqua">{{ $t('contact.natureMobility') }}</span
         >{{ $t('contact.title') }}
       </h1>
-      <CommonButton bgColor="none" :text="$t('contact.contact')" :icon="false" @click="open = !open" class="mt-8" />
+      <CommonButton bgColor="none" :text="$t('contact.contact')" :icon="false" @click="open = true" class="mt-8" />
     </section>
     <section class="py-[30px] md:py-[50px] xl:py-[85px]">
       <MainContactMapCard />
@@ -15,12 +15,8 @@
     <section class="fixed bottom-0 w-screen">
       <CommonFooter />
     </section>
-    <section
-      v-if="open"
-      @click="open = false"
-      class="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-    >
-      <CommonDialogContact />
+    <section v-if="open" class="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <CommonDialogContact @close="open = false" />
     </section>
   </div>
 </template>
