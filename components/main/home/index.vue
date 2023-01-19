@@ -38,6 +38,9 @@
         </CommonButton>
       </section>
     </main>
+    <section class="text-white absolute z-20 bottom-[5%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <CommonButtonAnimationBtn />
+    </section>
     <video autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none brightness-50">
       <source :src="MAIN_VIDEO" type="video/mp4" />
     </video>
