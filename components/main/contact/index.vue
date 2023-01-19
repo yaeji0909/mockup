@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-white">
+  <div class="h-screen bg-white relative">
     <section
       class="h-1/3 relative flex flex-col justify-center items-center bg-contact-header bg-cover bg-right bg-no-repeat text-center"
     >
@@ -15,9 +15,11 @@
     <section class="fixed bottom-0 w-screen">
       <CommonFooter />
     </section>
-    <section v-if="open" class="absolute z-30 top-1/2">
-      <!-- <CommonDialogAlert /> -->
-      <!-- <CommonDialogSuccess /> -->
+    <section
+      v-if="open"
+      @click="open = false"
+      class="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+    >
       <CommonDialogContact />
     </section>
   </div>

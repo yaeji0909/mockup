@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     /* Module Options */
   },
   build: {
-    transpile: ['@fawmi/vue-google-maps'],
+    transpile: ['@fawmi/vue-google-maps', '@intlify/nuxt3'],
   },
   runtimeConfig: {
     public: { GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY },

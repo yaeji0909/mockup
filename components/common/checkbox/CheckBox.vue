@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- tailwind 적용(체크 색상 변경 안됨) -->
-    <label class="flex items-center gap-1 select-none">
+    <!-- <label class="flex items-center gap-1 select-none">
       <input
         type="checkbox"
         id="check"
@@ -9,7 +9,7 @@
         class="w-[20px] h-[20px] rounded border border-gray-border text-white accent-primary-aqua"
       />
       <label for="check">{{ text }}</label>
-    </label>
+    </label> -->
     <!-- style tag로 적용 -->
     <div class="check-wrap">
       <label class="check-label">
@@ -58,7 +58,7 @@ const props = defineProps({
 }
 .check:before {
   position: absolute;
-  content: "";
+  content: '';
   left: 50%;
   transform: translateX(-50%) rotate(40deg);
   transition: 0.2s;
