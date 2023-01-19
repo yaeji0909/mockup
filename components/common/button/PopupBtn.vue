@@ -6,7 +6,6 @@
         ? 'bg-gray-bg text-gray-caption hover:bg-gray-border '
         : 'bg-primary-aqua text-white hover:bg-primary-mint',
     ]"
-    @click="$emit('click', $event)"
   >
     {{ text }}
   </button>

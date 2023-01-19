@@ -2,6 +2,8 @@
   <div>
     <CommonNavigationBar />
     <slot />
-    <CommonFooter />
+    <!-- <CommonFooter /> -->
   </div>
 </template>
+
+<style scoped></style>

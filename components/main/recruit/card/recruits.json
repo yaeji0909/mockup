@@ -1,0 +1,32 @@
+{
+  "recruit": [
+    {
+      "department": "경영지원",
+      "career": "무관",
+      "title": "내륙 및 해외 렌트카 사업 제휴(영업) 및 운영/ 관리 채용",
+      "location": "서울(강남구 선정릉)",
+      "dueDate": "D-7"
+    },
+    {
+      "department": "전략마케팅",
+      "career": "경력",
+      "title": "마케팅 커뮤니케이션 기획",
+      "location": "서울(강남구 선정릉)",
+      "dueDate": "D-21"
+    },
+    {
+      "department": "개발",
+      "career": "경력",
+      "title": "백엔드",
+      "location": "서울(강남구 선정릉)",
+      "dueDate": "D-30"
+    },
+    {
+      "department": "전략마케팅",
+      "career": "경력",
+      "title": "마케팅 커뮤니케이션 기획",
+      "location": "서울(강남구 선정릉)",
+      "dueDate": "D-21"
+    }
+  ]
+}

@@ -1,16 +1,9 @@
 <template>
-  <div
-    :class="showMenu ? ' h-screen text-black bg-white' : 'bg-black text-white'"
-    ref="navigationBox"
-  >
-    <nav
-      class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
-    >
+  <div :class="showMenu ? ' h-screen text-black bg-white' : 'bg-black text-white'" ref="navigationBox">
+    <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
       <div class="flex items-center justify-between">
         <NuxtLink to="/">
-          <nuxt-img
-            :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`"
-          />
+          <nuxt-img :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`" />
         </NuxtLink>
 
         <div
@@ -68,9 +61,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref, reactive } from "vue";
+import { onMounted, ref, reactive } from 'vue';
 
-const menu = ["Service", "Company", "News", "Recruit", "Contact"];
+const menu = ['Service', 'Company', 'News', 'Recruit', 'Contact'];
 
 const showMenu = ref(false);
 const langBtnIsClicked = ref(false);
@@ -93,33 +86,33 @@ const langBtnClickHandler = () => {
   langBtnIsClicked.value = !langBtnIsClicked.value;
 };
 
-const changeColor = (prevValue) => {
+const changeColor = prevValue => {
   if (prevValue === true) {
-    logoColor.main = "mint";
-    logoColor.lang = "-black";
+    logoColor.main = 'mint';
+    logoColor.lang = '-black';
   }
   if (prevValue === false) {
-    logoColor.main = "white";
-    logoColor.lang = "";
+    logoColor.main = 'white';
+    logoColor.lang = '';
   }
 };
 
-watch(showMenu, (newValue) => {
+watch(showMenu, newValue => {
   changeColor(newValue);
 });
 
 const logoColor = reactive({
-  main: "white",
-  lang: "",
+  main: 'white',
+  lang: '',
 });
 
 onMounted(() => {
-  if (props.color === "white") {
-    logoColor.main = "mint";
-    logoColor.lang = "-black";
+  if (props.color === 'white') {
+    logoColor.main = 'mint';
+    logoColor.lang = '-black';
     console.log(navigationBox.value.classList);
-    navigationBox.value.classList.add("bg-white");
-    navigationBox.value.classList.add("text-black");
+    navigationBox.value.classList.add('bg-white');
+    navigationBox.value.classList.add('text-black');
   }
 });
 </script>
