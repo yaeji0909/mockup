@@ -6,29 +6,19 @@
         {{ $t('company.sub') }}
       </h5>
     </div>
-    <div
-      class="flex flex-col xl:flex-row justify-between mt-10 xl:mt-20 gap-4 md:gap-6"
-    >
+    <div class="flex flex-col xl:flex-row justify-between mt-10 xl:mt-20 gap-4 md:gap-6">
       <h1
         class="text-4xl md:text-6xl xl:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-aqua to-primary-mint"
       >
         2022
       </h1>
-      <div>
+      <div class="xl:w-[700px]">
         <div v-for="year in historyList" :key="year.month">
-          <div
-            :class="[
-              'flex items-center gap-5 font-medium border-b w-fit',
-              year.month === '05' ? 'py-5' : 'py-3',
-            ]"
-          >
+          <div :class="['flex items-baseline gap-5 font-medium border-b w-fit', year.month === '05' ? 'py-5' : 'py-3']">
             <h3 class="text-base md:text-xl xl:text-3xl">
               {{ year.month }}
             </h3>
-            <div
-              v-if="year.month === '05'"
-              class="flex items-center text-base md:text-2xl xl:text-5xl"
-            >
+            <div v-if="year.month === '05'" class="flex items-center text-base md:text-2xl xl:text-5xl">
               <h3 class="mr-2">{{ $t('company.2022.05-1') }}</h3>
               <div class="relative">
                 <img
@@ -46,7 +36,7 @@
               </div>
               <h3 class="ml-2">{{ $t('company.2022.05-3') }}</h3>
             </div>
-            <h3 v-else class="text-xs md:text-base xl:text-2xl">
+            <h3 v-else class="text-xs md:text-base xl:text-2xl whitespace-pre-line">
               {{ year.content }}
             </h3>
           </div>
@@ -59,10 +49,8 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 
-const STAR =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/history_star.svg';
-const FEATHER =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/history_feather.svg';
+const STAR = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/history_star.svg';
+const FEATHER = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/history_feather.svg';
 
 const { t } = useI18n();
 const historyList = ref([
