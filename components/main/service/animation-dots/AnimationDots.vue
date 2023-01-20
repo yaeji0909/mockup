@@ -11,6 +11,7 @@
       clickable: true,
     }"
     @slideChange="e => onSlideChange(e)"
+    class="service"
   >
     <!-- 1 -->
     <swiper-slide
@@ -92,7 +93,7 @@ let number = ref('01');
  */
 onMounted(() => {
   // add line
-  const el = document.querySelector('.swiper-pagination');
+  const el = document.querySelector('.service .swiper-pagination');
   const line = document.createElement('div');
   el.prepend(line);
   // add number
@@ -141,7 +142,7 @@ const onSlideChange = e => {
   border: solid 1px #d5dde5;
   margin: 20px 0 30px 0;
 }
-/* nymber */
+/* number */
 :deep(.swiper-pagination-vertical > p) {
   font-size: 18px;
   color: #37d1c7;
