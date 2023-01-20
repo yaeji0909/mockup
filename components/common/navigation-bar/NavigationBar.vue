@@ -40,6 +40,7 @@
           v-for="value in menu"
           :key="value"
           :class="color === 'white' && 'text-black'"
+          @click="e => moveTo(e, value)"
         >
           {{ value }}
         </li>
@@ -71,6 +72,7 @@ const navigationBox = ref(null);
 
 const props = defineProps({
   color: String,
+  elementTop: Array,
 });
 
 // const checkEmit = (value) => {
@@ -115,6 +117,25 @@ onMounted(() => {
     navigationBox.value.classList.add('text-black');
   }
 });
+/**
+ * navigation scroll
+ */
+const moveTo = (e, value) => {
+  console.log('props.elementTop', props.elementTop);
+  console.log('e', e, 'value', value);
+
+  if (e.target.innerText === 'Service') {
+    window.scrollTo({ top: props.elementTop[0], behavior: 'smooth' });
+  } else if (e.target.innerText === 'Company') {
+    window.scrollTo({ top: props.elementTop[1], behavior: 'smooth' });
+  } else if (e.target.innerText === 'News') {
+    window.scrollTo({ top: props.elementTop[2], behavior: 'smooth' });
+  } else if (e.target.innerText === 'Recruit') {
+    window.scrollTo({ top: props.elementTop[3], behavior: 'smooth' });
+  } else if (e.target.innerText === 'Contact') {
+    window.scrollTo({ top: props.elementTop[4], behavior: 'smooth' });
+  }
+};
 </script>
 
 <style scoped>
