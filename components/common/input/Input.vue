@@ -31,7 +31,6 @@ onMounted(() => {
     show = false;
   }
 });
-console.log('props.value', props.value);
 
 watch(
   () => props.value,
