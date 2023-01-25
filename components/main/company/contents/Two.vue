@@ -1,5 +1,5 @@
 <template>
-  <section class="w-[375px] md:w-[704px] xl:w-[1200px] m-auto">
+  <section class="w-[355px] md:w-[704px] xl:w-[1200px] m-auto">
     <article class="flex flex-col xl:flex-row justify-between gap-4 md:gap-6">
       <h1
         class="text-4xl md:text-6xl xl:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-aqua to-primary-mint"
@@ -12,7 +12,7 @@
             <h3 class="text-base md:text-xl xl:text-3xl">
               {{ year.month }}
             </h3>
-            <h3 class="text-xs md:text-base xl:text-2xl whitespace-pre-line py-3">
+            <h3 class="text-xs md:text-base xl:text-2xl whitespace-pre-line py-2 xl:py-3">
               {{ year.content }}
             </h3>
           </div>

@@ -1,5 +1,5 @@
 <template>
-  <section class="w-[375px] md:w-[704px] xl:w-[1200px] m-auto">
+  <section class="w-[355px] md:w-[704px] xl:w-[1200px] m-auto">
     <div>
       <h1 class="text-4xl md:text-6xl xl:text-7xl font-bold">Company</h1>
       <h5 class="text-base xl:text-xl mt-[5px] md:mt-[10px]">
@@ -14,7 +14,12 @@
       </h1>
       <div class="xl:w-[700px]">
         <div v-for="year in historyList" :key="year.month">
-          <div :class="['flex items-baseline gap-5 font-medium border-b w-fit', year.month === '05' ? 'py-5' : 'py-3']">
+          <div
+            :class="[
+              'flex items-baseline gap-5 font-medium border-b w-fit',
+              year.month === '05' ? 'py-2 xl:py-5' : 'py-2 xl:py-3',
+            ]"
+          >
             <h3 class="text-base md:text-xl xl:text-3xl">
               {{ year.month }}
             </h3>
@@ -24,7 +29,7 @@
                 <img
                   :src="STAR"
                   alt="STAR"
-                  class="absolute top-[-10%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+                  class="absolute top-[5%] lg:top-[0%] xl:top-[-10%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
                 />
                 <div class="flex items-center">
                   <img :src="FEATHER" alt="FEATHER" />

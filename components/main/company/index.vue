@@ -37,6 +37,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Mousewheel } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
 const modules = [Pagination, Mousewheel];
 
@@ -96,6 +97,8 @@ onMounted(() => {
   // add line
   const line = document.createElement('div');
   line.setAttribute('style', 'margin:1.5rem');
+  line.className = 'line';
+
   parentEl.prepend(line);
 
   // add year
@@ -109,7 +112,7 @@ onMounted(() => {
   years.map(year => {
     const childEl = document.createElement('p');
     childEl.className = `year-${year} year`;
-    childEl.setAttribute('style', 'margin:0.5rem');
+    childEl.setAttribute('style', 'margin:0.5rem; font-size:18px');
     childEl.textContent = year;
 
     boxEl.append(childEl);
@@ -127,6 +130,24 @@ onMounted(() => {
 
   parentEl.insertBefore(bulletOne, null);
   parentEl.insertBefore(bulletTwo, null);
+
+  // change pagination position
+  const breakpoints = useBreakpoints(breakpointsTailwind);
+  const largerThanSm = breakpoints.greater('sm'); // only larger than sm
+  if (!largerThanSm.value) {
+    const pagination = document.querySelector('.company .swiper-pagination-vertical');
+    pagination.classList.add('sm');
+    const line = document.querySelector('.company .swiper-pagination-vertical .line');
+    line.classList.add('sm');
+    const bullets = [...document.querySelectorAll('.company .swiper-pagination-bullet')];
+    bullets.map(bullet => {
+      bullet.classList.add('sm');
+    });
+    const years = [...document.querySelectorAll('.company .swiper-pagination-vertical > div > p')];
+    years.map(year => {
+      year.classList.add('sm');
+    });
+  }
 });
 </script>
 
@@ -141,12 +162,23 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
 }
+:deep(.swiper-pagination-vertical.sm) {
+  top: 86%;
+}
 /* line */
 :deep(.swiper-pagination-vertical > div) {
   position: absolute;
   height: 280px;
   border: solid 1px #d5dde5;
   top: 3%;
+}
+:deep(.swiper-pagination-vertical .line.sm) {
+  margin: 1rem 0 !important;
+}
+/* year */
+:deep(.swiper-pagination-vertical > div > p.sm) {
+  font-size: 14px;
+  margin: 0 !important;
 }
 /* bullet */
 :deep(.swiper-pagination-bullet) {
@@ -155,6 +187,9 @@ onMounted(() => {
   background: #d5dde5;
   margin: 1.5rem 0 !important;
   opacity: 1;
+}
+:deep(.swiper-pagination-bullet.sm) {
+  margin: 1rem 0 !important;
 }
 :deep(.swiper-pagination-bullet:hover) {
   background: #37d1c7;
