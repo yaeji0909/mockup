@@ -62,11 +62,18 @@ module.exports = {
         history: '0px 8px 20px rgba(55, 209, 199, 0.8)',
       },
       backgroundImage: {
-        service: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-bg.svg)',
-        phone: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
-        'service-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
-        'review-5': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
-        'contact-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
+        service:
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-bg.svg)',
+        phone:
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
+        'service-header':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
+        'review-5':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
+        'contact-header':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
+        'news-search':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg')",
       },
     },
     plugins: [],
