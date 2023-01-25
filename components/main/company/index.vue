@@ -53,6 +53,7 @@ const onSlideChange = e => {
 
 const changeYearColor = (years, idx) => {
   const elList = document.querySelectorAll('.year');
+  const bulletList = document.querySelectorAll('.company .swiper-pagination-bullet');
 
   if (idx === 0) {
     elList[0].setAttribute('style', 'margin:0.5rem; color: #37D1C7');
@@ -64,17 +65,25 @@ const changeYearColor = (years, idx) => {
   } else if (idx === 1) {
     elList[1].setAttribute('style', 'margin:0.5rem; color: #37D1C7');
     elList[2].setAttribute('style', 'margin:0.5rem; color: #37D1C7');
+    bulletList[2].classList.add('swiper-pagination-bullet-active');
     // non-active color
     elList[0].setAttribute('style', 'margin:0.5rem; color: #F2F5FC');
     elList[3].setAttribute('style', 'margin:0.5rem; color: #F2F5FC');
     elList[4].setAttribute('style', 'margin:0.5rem; color: #F2F5FC');
+    // remove non-active bullet
+    bulletList[3].classList.remove('swiper-pagination-bullet-active');
+    bulletList[4].classList.remove('swiper-pagination-bullet-active');
   } else if (idx === 2) {
     elList[3].setAttribute('style', 'margin:0.5rem; color: #37D1C7');
     elList[4].setAttribute('style', 'margin:0.5rem; color: #37D1C7');
+    bulletList[3].classList.add('swiper-pagination-bullet-active');
+    bulletList[4].classList.add('swiper-pagination-bullet-active');
     // non-active color
     elList[0].setAttribute('style', 'margin:0.5rem; color: #F2F5FC');
     elList[1].setAttribute('style', 'margin:0.5rem; color: #F2F5FC');
     elList[2].setAttribute('style', 'margin:0.5rem; color: #F2F5FC');
+    // remove non-active bullet
+    bulletList[2].classList.remove('swiper-pagination-bullet-active');
   }
 };
 
@@ -93,7 +102,7 @@ onMounted(() => {
   const boxEl = document.createElement('div');
   boxEl.setAttribute(
     'style',
-    'display:flex; flex-direction:column; position:absolute; right:1rem; border: none; color: #F2F5FC; font-weight: 700',
+    'display:flex; flex-direction:column; position:absolute; right:1rem; border: none; color: #F2F5FC; font-weight: 700; gap:0.7rem',
   );
   parentEl.prepend(boxEl);
   const years = ['2022', '2021', '2020', '2019', '2018'];
@@ -106,7 +115,18 @@ onMounted(() => {
     boxEl.append(childEl);
   });
 
+  // first setting
   changeYearColor(2022, 0);
+
+  //add bullets
+  const bulletOne = document.createElement('span');
+  const bulletTwo = document.createElement('span');
+
+  bulletOne.className = `swiper-pagination-bullet one`;
+  bulletTwo.className = `swiper-pagination-bullet two`;
+
+  parentEl.insertBefore(bulletOne, null);
+  parentEl.insertBefore(bulletTwo, null);
 });
 </script>
 
