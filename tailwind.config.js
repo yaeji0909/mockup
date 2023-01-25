@@ -72,8 +72,6 @@ module.exports = {
           "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
         'contact-header':
           "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
-        'news-search':
-          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg')",
       },
     },
     plugins: [],

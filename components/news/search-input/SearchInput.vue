@@ -26,11 +26,6 @@
 <script setup>
 import { ref, onMounted, watch, defineProps } from 'vue';
 
-const SEARCH_BK =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg';
-const SEARCH_MINT =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg';
-
 const show = ref(false);
 const props = defineProps({
   onError: Boolean,
