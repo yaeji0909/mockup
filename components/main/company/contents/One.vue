@@ -19,8 +19,8 @@
               {{ year.month }}
             </h3>
             <div v-if="year.month === '05'" class="flex items-center text-base md:text-2xl xl:text-5xl">
-              <h3 class="mr-2">{{ $t('company.2022.05-1') }}</h3>
-              <div class="relative">
+              <h3 class="mr-2 min-w-max">{{ $t('company.2022.05-1') }}</h3>
+              <div class="relative min-w-max">
                 <img
                   :src="STAR"
                   alt="STAR"
@@ -34,7 +34,7 @@
                   <img :src="FEATHER" alt="FEATHER" class="-scale-x-100" />
                 </div>
               </div>
-              <h3 class="ml-2">{{ $t('company.2022.05-3') }}</h3>
+              <h3 class="ml-2 min-w-max">{{ $t('company.2022.05-3') }}</h3>
             </div>
             <h3 v-else class="text-xs md:text-base xl:text-2xl whitespace-pre-line">
               {{ year.content }}
