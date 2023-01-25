@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-[100px] w-[375px] md:w-[704px] xl:w-[1200px] m-auto">
+  <section class="w-[375px] md:w-[704px] xl:w-[1200px] m-auto">
     <div>
       <h1 class="text-4xl md:text-6xl xl:text-7xl font-bold">Company</h1>
       <h5 class="text-base xl:text-xl mt-[5px] md:mt-[10px]">
