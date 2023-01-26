@@ -5,10 +5,14 @@
         <NewsShearchInput />
       </div>
       <div class="mt-[40px] xl:mt-[50px] border border-gray-sub" />
+      <ClientOnly>
+        <MainNewsCard :news="newsList" />
+      </ClientOnly>
     </main>
   </div>
 </template>
 
 <script setup>
 import NewsShearchInput from '/components/news/search-input/SearchInput';
+import { newsList } from '/components/news/news.json';
 </script>

@@ -3,7 +3,7 @@
     <h1 class="news-title opacity-0 text-4xl md:text-6xl xl:text-7xl font-bold">News</h1>
     <p class="news-desc opacity-0 text-base md:text-xl">{{ $t('news.sub') }}</p>
     <ClientOnly>
-      <MainNewsCard />
+      <MainNewsCard :news="newsList" />
       <div class="mt-28">
         <CommonButton
           :text="$t('news.more')"
@@ -18,6 +18,9 @@
 
 <script setup>
 import { gsap } from 'gsap';
+import news from '/components/main/news/card/news.json';
+
+const { newsList } = news;
 
 const router = useRouter();
 
