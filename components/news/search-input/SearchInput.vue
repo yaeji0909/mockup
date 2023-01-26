@@ -17,9 +17,7 @@
       :modelValue="value"
       @update:modelValue="value = $event"
     />
-    <button
-      class="md:w-[40px] md:h-[40px] md:w-[58px] md:h-[58px] px-4 mx-4"
-    ></button>
+    <button class="w-[40px] h-[40px] md:w-[58px] md:h-[58px] px-4 mx-4"></button>
   </div>
 </template>
 
@@ -34,7 +32,7 @@ const props = defineProps({
 });
 
 const debouncedSearch = () => {
-  return debounce(1000, (keyword) => {
+  return debounce(1000, keyword => {
     onSearch(keyword);
   });
 };
@@ -52,11 +50,9 @@ const total = ref(12);
 
 <style scoped>
 button {
-  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg')
-    no-repeat center;
+  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg') no-repeat center;
 }
 .search-bar:focus-within button {
-  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg')
-    no-repeat center;
+  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg') no-repeat center;
 }
 </style>
