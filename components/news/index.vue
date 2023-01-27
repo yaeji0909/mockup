@@ -7,7 +7,7 @@
       <div class="mt-[40px] xl:mt-[50px] border border-gray-sub" />
       <ClientOnly>
         <MainNewsCard :news="newsList" :isNewsPage="true" />
-        <CommonPagination />
+        <CommonPagination class="mt-40" />
       </ClientOnly>
     </main>
   </div>
