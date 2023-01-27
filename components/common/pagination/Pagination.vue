@@ -1,23 +1,24 @@
 <template>
   <div class="flex justify-center items-center">
-    <!-- <button class=""><img :src="PAGE_GRAY" alt="PAGE_GRAY" /></button>
-    <ul>
-      <li v-for="(number, idx) in numbers" :key="idx">
-        <button>{{ number }}</button>
+    <button :class="[{ 'is-disabled': previousButtonDisabled }]" :disabled="previousButtonDisabled" @click="previous">
+      <img :src="PAGE_GRAY" alt="PAGE_GRAY" />
+    </button>
+    <span class="ml-2 mr-4"></span>
+    <ul class="flex justify-center items-center gap-2 text-xs md:text-base font-medium">
+      <li
+        v-for="number in pageList"
+        :key="number"
+        class="flex justify-center items-center w-[40px] h-[40px] rounded-[6px] active:bg-primary-aqua active:text-white"
+      >
+        <button :class="[{ 'is-active': currentPage === number }]" @click="change(number)">
+          {{ number }}
+        </button>
       </li>
     </ul>
-    <button class=""><img :src="PAGE_BK" alt="PAGE_BK" /></button> -->
-    <ul class="pagination" v-if="pageCount > 1">
-      <li v-if="showFirstPageIndex"><a href="#" @click="currentPage = 1">1</a></li>
-      <li v-if="showLessDots"><a href="#" @click="currentPage = startPaginatorIndex - 1">...</a></li>
-      <li v-for="n in pageRange" :key="n" :class="{ active: n == currentPage }">
-        <a href="#" @click="currentPage = n">{{ n }}</a>
-      </li>
-      <li v-if="showMoreDots"><a href="#" @click="currentPage = endPaginatorIndex + 1">...</a></li>
-      <li v-if="showLastPageIndex" @click="currentPage = pageCount">
-        <a href="#">{{ pageCount }}</a>
-      </li>
-    </ul>
+    <span class="ml-4 mr-2"></span>
+    <button :class="[{ 'is-disabled': nextButtonDisabled }]" :disabled="nextButtonDisabled" @click="next">
+      <img :src="PAGE_BK" alt="PAGE_BK" />
+    </button>
   </div>
 </template>
 
@@ -28,57 +29,75 @@ const PAGE_BK = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pa
 const PAGE_GRAY = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_gray.svg';
 
 const props = defineProps({
-  // totalPage: Number,
-  // currentPage: Number,
+  // 현재 페이지
+  currentPage: {
+    type: Number,
+    default: 1,
+  },
+  // 총 페이지
+  totalPage: {
+    type: Number,
+    default: 5,
+  },
+  // 보여줄 페이지 수
+  pageDisplayCount: {
+    type: Number,
+    default: 5,
+  },
 });
 
-const currentPage = ref(1);
-const pageCount = ref(10);
+// 현재 페이지의 그룹 번호 (현재 페이지 / 보여줄 페이지의 수)
+const currentPageGroup = computed(() => Math.ceil(props.currentPage / props.pageDisplayCount));
 
-const startPaginatorIndex = computed(() => {
-  // plus 1 so we get 1, 11, 21...
-  let startIndex = Math.floor(currentPage.value / 10) * 10 + 1;
-  // startIndex can be greater than the currentPage if the currentPage is divisible by 10
-  if (startIndex > currentPage.value) {
-    startIndex = Math.floor((currentPage.value - 1) / 10) * 10 + 1;
-  }
-  return startIndex;
-});
-const endPaginatorIndex = computed(() => {
-  let endIndex = Math.ceil(currentPage.value / 10) * 10;
-  // when endIndex is greater than the pageCount we're at the end of our range
-  if (endIndex > pageCount.value) {
-    endIndex = pageCount.value;
-  }
-  return endIndex;
+// 마지막 페이지 번호
+const lastPageNumber = computed(() => {
+  const lastNumber = currentPageGroup.value * props.pageDisplayCount;
+  if (lastNumber > props.totalPage) return props.totalPage;
+  return lastNumber;
 });
 
-const showLessDots = computed(() => {
-  if (currentPage.value > 10) {
-    return true;
+// 첫번째 페이지 번호
+const firstPageNumber = computed(() => {
+  // 끝 번호가 26,27 이렇게 끝날 경우 페이지를 [26,27] 이렇게 보여줘야 하기에 존재하는 로직
+  if (lastPageNumber.value == props.totalPage) {
+    const multipleOfPageDisplayCount = lastPageNumber.value % props.pageDisplayCount === 0;
+    return multipleOfPageDisplayCount
+      ? lastPageNumber.value - props.pageDisplayCount + 1
+      : lastPageNumber.value - (lastPageNumber.value % props.pageDisplayCount) + 1;
   }
-  return false;
-});
-const showMoreDots = computed(() => {
-  if (pageCount.value > 11 && endPaginatorIndex !== pageCount.value) {
-    return true;
-  }
-  return false;
+  return lastPageNumber.value - (props.pageDisplayCount - 1);
 });
 
-const showFirstPageIndex = computed(() => {
-  if (currentPage.value > 10) {
-    return true;
+// 페이지 리스트 (pageDisplayCount가 5일 경우 [1~5], [6~10]...)
+const pageList = computed(() => {
+  const list = [];
+  for (let i = firstPageNumber.value; i <= lastPageNumber.value; i++) {
+    list.push(i);
   }
-  return false;
+  return list;
 });
-const showLastPageIndex = computed(() => {
-  if (pageCount.value > 10 && endPaginatorIndex !== pageCount.value) {
-    return true;
-  }
-  return false;
-});
-const pageRange = computed(() => {
-  return _.range(startPaginatorIndex, endPaginatorIndex + 1);
-});
+
+// 다음 버튼 비활성화 조건
+const nextButtonDisabled = computed(() => lastPageNumber.value >= props.totalPage);
+
+// 이전 버튼 비활성화 조건
+const previousButtonDisabled = computed(() => firstPageNumber.value <= 1);
+
+const emit = defineEmits(['change']);
+
+// 사용자가 번호를 변경하는 경우 상위 컴포넌트로 값 전달
+const change = clickNumber => {
+  if (clickNumber === props.currentPage) return false;
+  emit('change', clickNumber);
+};
+
+// 이전 버튼 클릭 시 이전 페이지의 첫번째 값으로 설정
+const previous = () => {
+  emit('change', firstPageNumber.value - props.pageDisplayCount);
+};
+
+// 다음 버튼 클릭 시 이후 페이지의 첫번째 값으로 설정
+const next = () => {
+  emit('change', lastPageNumber.value + 1);
+};
 </script>
