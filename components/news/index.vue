@@ -6,8 +6,13 @@
       </div>
       <div class="mt-[40px] xl:mt-[50px] border border-gray-sub" />
       <ClientOnly>
-        <MainNewsCard :news="newsList" :isNewsPage="true" />
-        <CommonPagination class="mt-40" />
+        <MainNewsCard :news="news" :isNewsPage="true" />
+        <CommonPagination
+          class="mt-40"
+          :news="news"
+          :currentPage="currentPage"
+          @change="changePage"
+        />
       </ClientOnly>
     </main>
   </div>
@@ -16,4 +21,13 @@
 <script setup>
 import NewsShearchInput from '/components/news/search-input/SearchInput';
 import { total, newsList } from '/components/news/news.json';
+import { newsList2 } from '/components/news/news2.json';
+
+let news = ref(newsList);
+let currentPage = ref(1);
+const changePage = (param) => {
+  if (param === 1) news.value = newsList;
+  if (param === 2) news.value = newsList2;
+  currentPage.value = param;
+};
 </script>

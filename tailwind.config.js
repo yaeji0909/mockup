@@ -72,6 +72,12 @@ module.exports = {
           "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
         'contact-header':
           "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
+        'pagination-bk':
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_bk.svg)',
+        'pagination-gray':
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_gray.svg)',
+        'pagination-mint':
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_mint.svg)',
       },
     },
     plugins: [],
