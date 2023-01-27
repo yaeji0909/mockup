@@ -11,11 +11,6 @@
 </template>
 
 <script setup>
-const ARROW_GRAY = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_gray.svg';
-const ARROW_WHITE = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_white.svg';
-const ARROW_BLACK = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_black.svg';
-const ARROW_MINT = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_mint.svg';
-
 const props = defineProps({
   text: String,
   color: String,
@@ -37,6 +32,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* hoverColor black */
 .shortcut-btn-icon {
   width: 20px;
   height: 20px;
@@ -49,6 +45,7 @@ onMounted(() => {
   background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_black.svg') no-repeat
     center;
 }
+/* hoverColor aqua-mint */
 .shortcut-btn-icon-color {
   width: 20px;
   height: 20px;
