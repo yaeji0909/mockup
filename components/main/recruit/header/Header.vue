@@ -15,9 +15,6 @@
         class="recruit-shortcut-btn pt-7"
         @click="router.push('/recruit')"
       >
-        <!-- <template #icon>
-          <img class="shortcut-btn-icon" :src="ARROW_WHITE" />
-        </template> -->
       </CommonButtonShortcutBtn>
     </div>
     <MainRecruitCard />
