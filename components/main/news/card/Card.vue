@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-10">
+  <div class="mt-16 flex flex-col flex-wrap md:flex-row items-center justify-center gap-10">
     <div
       v-for="n in props.news"
       :key="n.title"
@@ -40,7 +40,6 @@ const THUMBNAIL_IMG = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/im
 const props = defineProps({
   news: Object,
 });
-console.log('props.news', props.news);
 
 /**
  * 자세히 보기 이동

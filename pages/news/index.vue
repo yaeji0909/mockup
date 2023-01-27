@@ -4,6 +4,9 @@
     <main class="w-[335px] md:w-[710px] xl:w-[1200px] m-auto">
       <News />
     </main>
+    <div class="mt-[100px]">
+      <CommonFooter />
+    </div>
   </div>
 </template>
 
