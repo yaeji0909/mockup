@@ -1,20 +1,33 @@
 <template>
-  <div class="mt-16 flex flex-col flex-wrap md:flex-row items-center justify-center gap-10">
+  <div
+    class="mt-16"
+    :class="
+      isNewsPage
+        ? 'grid md:grid-rows-3 xl:grid-rows-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-14 gap-x-6 xl:gap-x-10'
+        : 'flex flex-col md:flex-row items-center justify-center gap-10'
+    "
+  >
     <div
       v-for="n in props.news"
       :key="n.title"
-      class="flex flex-col text-left w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0"
+      class="flex flex-col text-left"
+      :class="isNewsPage ? '' : 'w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0'"
     >
       <img
         :src="n.imgUrl"
         alt="THUMBNAIL_IMG"
-        class="h-[200px] w-[335px] sm:w-[700px] md:h-[300px] lg:h-[240px] lg:w-[372px] rounded-[20px] object-cover hover:scale-105 transition ease-in-out duration-300"
+        class="rounded-[20px] object-cover hover:scale-105 transition ease-in-out duration-300"
+        :class="
+          isNewsPage
+            ? 'h-[200px] xl:h-[240px]'
+            : 'h-[200px] w-[335px] sm:w-[700px] md:h-[300px] lg:h-[240px] lg:w-[372px]'
+        "
       />
       <p class="text-primary-aqua text-base font-medium pt-5">{{ n.date }}</p>
       <h4 class="news-title text-black text-2xl font-bold pt-3 overflow-hidden">
         {{ n.title }}
       </h4>
-      <div v-if="largerThanSm">
+      <div v-if="largerThanSm && !isNewsPage">
         <CommonButtonShortcutBtn
           :text="$t('button.moreDetail')"
           color="gray-caption"
@@ -39,6 +52,7 @@ const THUMBNAIL_IMG = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/im
 
 const props = defineProps({
   news: Object,
+  isNewsPage: Boolean,
 });
 
 /**
