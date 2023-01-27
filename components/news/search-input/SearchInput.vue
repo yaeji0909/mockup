@@ -52,6 +52,7 @@ const total = ref(12);
 <style scoped>
 button {
   background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg') no-repeat center;
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .search-bar:focus-within button {
   background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg') no-repeat center;
