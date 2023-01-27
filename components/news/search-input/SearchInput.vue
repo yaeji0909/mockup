@@ -1,6 +1,6 @@
 <template>
   <div
-    class="search-bar flex items-center min-w-[335px] max-w-[800px] rounded-[50px] m-auto border border-gray-border focus-within:shadow-mint focus-within:border-primary-aqua"
+    class="search-bar flex items-center min-w-[335px] max-w-[800px] rounded-[50px] m-auto border border-gray-border focus-within:shadow-mint focus-within:border-primary-aqua transition"
   >
     <div
       class="flex justify-center items-center w-[90px] px-[15px] ml-[25px] mr-[15px] text-gray-sub text-xs md:text-xl font-medium border-r border-gray-border"
@@ -17,9 +17,7 @@
       :modelValue="value"
       @update:modelValue="value = $event"
     />
-    <button
-      class="w-[40px] h-[40px] md:w-[58px] md:h-[58px] px-4 mx-4"
-    ></button>
+    <button class="w-[40px] h-[40px] md:w-[58px] md:h-[58px] px-4 mx-4"></button>
   </div>
 </template>
 
@@ -35,7 +33,7 @@ const props = defineProps({
 });
 
 const debouncedSearch = () => {
-  return debounce(1000, (keyword) => {
+  return debounce(1000, keyword => {
     onSearch(keyword);
   });
 };
@@ -53,11 +51,10 @@ const total = ref(12);
 
 <style scoped>
 button {
-  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg')
-    no-repeat center;
+  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg') no-repeat center;
 }
 .search-bar:focus-within button {
-  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg')
-    no-repeat center;
+  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg') no-repeat center;
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 </style>
