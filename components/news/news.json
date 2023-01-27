@@ -6,63 +6,72 @@
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/test.jpg",
       "date": "2022.10.26",
       "title": "[뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": ""
     },
     {
       "pid": 2,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
       "date": "2022.10.12",
       "title": "[서울신문] 네이처모빌리티는 어떻게 제주에 안착했을까",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": ""
     },
     {
       "pid": 3,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
       "date": "2022.06.02",
       "title": "[한겨례] 네이처모빌리티 ‘찜카’, ‘아기 유니콘 2022’ 1위로 뽑혀",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": ""
     },
     {
       "pid": 4,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/test.jpg",
-      "date": "2022.10.26",
-      "title": "[뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "date": "2023.01.14",
+      "title": "제주 렌터카 '100만원 바가지'에 분노…창업 후 400억 '잭팟' [방준식의 레저 스타트업]",
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": "https://www.hankyung.com/life/article/202209136303i"
     },
     {
       "pid": 5,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
       "date": "2022.10.12",
       "title": "[서울신문] 네이처모빌리티는 어떻게 제주에 안착했을까",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": ""
     },
     {
       "pid": 6,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
       "date": "2022.06.02",
       "title": "[한겨례] 네이처모빌리티 ‘찜카’, ‘아기 유니콘 2022’ 1위로 뽑혀",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": ""
     },
     {
       "pid": 7,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/test.jpg",
       "date": "2022.10.26",
       "title": "[뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": ""
     },
     {
       "pid": 8,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
       "date": "2022.10.12",
       "title": "[서울신문] 네이처모빌리티는 어떻게 제주에 안착했을까",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": ""
     },
     {
       "pid": 9,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
       "date": "2022.06.02",
       "title": "[한겨례] 네이처모빌리티 ‘찜카’, ‘아기 유니콘 2022’ 1위로 뽑혀",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것."
+      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
+      "newsUrl": ""
     }
   ]
 }
