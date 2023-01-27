@@ -10,8 +10,9 @@
     <div
       v-for="n in props.news"
       :key="n.title"
-      class="flex flex-col text-left"
+      class="flex flex-col text-left cursor-pointer"
       :class="isNewsPage ? '' : 'w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0'"
+      @click="moveToNews(n.newsUrl)"
     >
       <img
         :src="n.imgUrl"
@@ -34,11 +35,7 @@
           hoverColor="black"
           class="pt-7"
           @click="moveTo"
-        >
-          <!-- <template #icon>
-            <img class="news-shortcut-btn-icon" :src="ARROW_GRAY" />
-          </template> -->
-        </CommonButtonShortcutBtn>
+        />
       </div>
     </div>
   </div>
@@ -73,6 +70,14 @@ const moveTo = () => {
  */
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
+
+/**
+ * 해당 뉴스 링크로 이동
+ */
+const moveToNews = url => {
+  if (!url) return;
+  window.open(url);
+};
 </script>
 
 <style scoped>
