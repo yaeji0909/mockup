@@ -6,8 +6,7 @@
   >
     <p>{{ text }}</p>
     <!-- <slot name="icon" /> -->
-    <img class="shortcut-btn-icon" :src="ARROW_GRAY" />
-    <!-- <object type="image/svg+xml" :data="ARROW_GRAY" class="hover:filter-mint" /> -->
+    <button :class="hoverColor === 'black' ? 'shortcut-btn-icon' : 'shortcut-btn-icon-color'" />
   </button>
 </template>
 
@@ -36,3 +35,30 @@ onMounted(() => {
   });
 });
 </script>
+
+<style scoped>
+.shortcut-btn-icon {
+  width: 20px;
+  height: 20px;
+  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_gray.svg') no-repeat
+    center;
+}
+.shortcut-btn:hover .shortcut-btn-icon {
+  width: 20px;
+  height: 20px;
+  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_black.svg') no-repeat
+    center;
+}
+.shortcut-btn-icon-color {
+  width: 20px;
+  height: 20px;
+  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_white.svg') no-repeat
+    center;
+}
+.shortcut-btn:hover .shortcut-btn-icon-color {
+  width: 20px;
+  height: 20px;
+  background: url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/shortcut_arrow_mint.svg') no-repeat
+    center;
+}
+</style>
