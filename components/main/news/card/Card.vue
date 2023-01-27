@@ -9,9 +9,11 @@
   >
     <div
       v-for="n in props.news"
-      :key="n.title"
+      :key="n.pid"
       class="flex flex-col text-left cursor-pointer"
-      :class="isNewsPage ? '' : 'w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0'"
+      :class="
+        isNewsPage ? '' : 'w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0'
+      "
       @click="moveToNews(n.newsUrl)"
     >
       <img
@@ -45,7 +47,8 @@
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { ref } from 'vue';
 
-const THUMBNAIL_IMG = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg';
+const THUMBNAIL_IMG =
+  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg';
 
 const props = defineProps({
   news: Object,
@@ -57,7 +60,7 @@ const props = defineProps({
  */
 let redirectUrl = ref('https://train.zzimcar.com/');
 
-const slideChanged = url => {
+const slideChanged = (url) => {
   redirectUrl = url;
 };
 
@@ -74,7 +77,7 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 /**
  * 해당 뉴스 링크로 이동
  */
-const moveToNews = url => {
+const moveToNews = (url) => {
   if (!url) return;
   window.open(url);
 };
