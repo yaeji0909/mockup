@@ -23,6 +23,24 @@
         <button @click="change(number)">{{ number }}</button>
       </li>
     </ul>
+
+    <template v-if="showMoreDots">
+      <button
+        class="flex justify-center items-center w-[26px] h-[26px] md:w-[34px] md:h-[34px] xl:w-[40px] xl:h-[40px] rounded-[6px] text-xs md:text-base font-medium"
+        :disabled="true"
+      >
+        ...
+      </button>
+
+      <button
+        :disabled="nextButtonDisabled"
+        class="flex justify-center items-center w-[26px] h-[26px] md:w-[34px] md:h-[34px] xl:w-[40px] xl:h-[40px] rounded-[6px] text-xs md:text-base font-medium active:bg-primary-aqua active:text-white"
+        @click="change(totalPage)"
+      >
+        {{ totalPage }}
+      </button>
+    </template>
+
     <span class="ml-4 mr-2"></span>
     <button
       :class="[
@@ -54,7 +72,7 @@ const props = defineProps({
   // 보여줄 페이지 수
   pageDisplayCount: {
     type: Number,
-    default: 5,
+    default: 3,
   },
 });
 
@@ -84,8 +102,6 @@ const lastPageNumber = computed(() => {
   if (lastNumber > props.totalPage) return props.totalPage;
   return lastNumber;
 });
-console.log('firstPageNumber', firstPageNumber.value);
-console.log('lastPageNumber', lastPageNumber.value);
 
 // 페이지 리스트 (pageDisplayCount가 5일 경우 [1~5], [6~10]...)
 const pageList = computed(() => {
@@ -95,7 +111,6 @@ const pageList = computed(() => {
   }
   return list;
 });
-console.log('pageList.value', pageList.value);
 
 // 다음 버튼 비활성화 조건
 const nextButtonDisabled = computed(
@@ -103,7 +118,7 @@ const nextButtonDisabled = computed(
 );
 
 // 이전 버튼 비활성화 조건
-const previousButtonDisabled = computed(() => firstPageNumber.value <= 1);
+const previousButtonDisabled = computed(() => props.currentPage <= 1);
 
 // 사용자가 번호를 변경하는 경우 상위 컴포넌트로 값 전달
 const emit = defineEmits(['change']);
@@ -112,27 +127,29 @@ const change = (clickNumber) => {
   emit('change', clickNumber);
 };
 
-// 이전 버튼 클릭 시 이전 페이지의 첫번째 값으로 설정
+// 이전 버튼 클릭
 const previous = () => {
-  emit('change', firstPageNumber.value - props.pageDisplayCount);
+  emit('change', props.currentPage - 1);
 };
 
-// 다음 버튼 클릭 시 이후 페이지의 첫번째 값으로 설정
+// 다음 버튼 클릭
 const next = () => {
-  emit('change', lastPageNumber.value + 1);
+  emit('change', props.currentPage + 1);
 };
 
-// // ...버튼
-// const showLessDots = computed(() => {
-//   if (props.currentPage > 10) {
-//     return true;
+// ...버튼
+const showMoreDots = computed(() => {
+  // if (props.currentPage < 10) {
+  if (props.currentPage < props.totalPage && props.totalPage > 3) {
+    return true;
+  }
+  return false;
+});
+
+// watch(
+//   () => props.currentPage,
+//   (newValue, oldValue) => {
+//     console.log('newValue', newValue, 'oldValue', oldValue);
 //   }
-//   return false;
-// });
-// const showMoreDots = computed(() => {
-//   if (this.pageCount > 11 && this.endPaginatorIndex !== this.pageCount) {
-//     return true;
-//   }
-//   return false;
-// });
+// );
 </script>
