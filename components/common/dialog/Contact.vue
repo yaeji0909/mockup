@@ -1,5 +1,5 @@
 <template>
-  <form
+  <div
     :class="[
       !largerThanSm
         ? 'h-screen w-screen rounded-none'
@@ -43,7 +43,8 @@
           v-else
           :placeholder="input.placeholder"
           class="mt-[10px] w-full"
-          v-model:input.content="value"
+          :value="input.content"
+          @input="(e) => (input.content = e.target.value)"
         />
       </div>
       <CheckBox :text="$t('dialog.agreeText')" />
@@ -58,7 +59,7 @@
     </section>
     <!-- <CommonDialogAlert /> -->
     <!-- <CommonDialogSuccess /> -->
-  </form>
+  </div>
 </template>
 
 <script setup>
@@ -66,13 +67,12 @@ import CheckBox from '/components/common/checkbox/CheckBox';
 import SelectBox from '/components/common/selectbox/SelectBox';
 import { useI18n } from 'vue-i18n';
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+import { ref, watch, onMounted } from 'vue';
 
 const CLOSE =
   'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_close.svg';
 const ARROW =
   'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_arrow.svg';
-
-const company = ref('');
 
 /**
  * setting forma
@@ -116,11 +116,6 @@ const inputList = ref([
     content: '',
   },
 ]);
-
-/**
- * setting input
- */
-const content = ref('');
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
