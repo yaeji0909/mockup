@@ -1,6 +1,5 @@
 <template>
   <div>
-    <CommonNavigationBar class="fixed z-10 w-screen" :elementTop="elementTop" />
     <swiper
       :direction="'vertical'"
       autoHeight
@@ -10,7 +9,7 @@
       :modules="modules"
       :watchOverflow="true"
       :speed="300"
-      @progress="e => getIndex(e)"
+      @progress="(e) => getIndex(e)"
     >
       <swiper-slide id="home">
         <MainHome />
@@ -66,7 +65,7 @@ const getElementTop = () => {
   // elementTop.value.push(home, service, serviceAnimationDots, serviceHeader, news, recruit, contact);
 };
 
-const getIndex = e => {
+const getIndex = (e) => {
   // console.log('e', e);
 };
 // console.log('elementTop.value', elementTop.value);

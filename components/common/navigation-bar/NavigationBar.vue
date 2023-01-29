@@ -1,9 +1,21 @@
 <template>
-  <div :class="showMenu ? ' h-screen text-black bg-white' : 'bg-black text-white'" ref="navigationBox">
-    <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
+  <div
+    :class="[
+      showMenu || color === 'white'
+        ? 'text-black bg-white opacity-0'
+        : 'bg-black text-white',
+      largerThanSm ? 'h-screen' : 'h-auto',
+    ]"
+    ref="navigationBox"
+  >
+    <nav
+      class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
+    >
       <div class="flex items-center justify-between">
         <NuxtLink to="/">
-          <nuxt-img :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`" />
+          <nuxt-img
+            :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`"
+          />
         </NuxtLink>
 
         <div
@@ -40,7 +52,7 @@
           v-for="value in menu"
           :key="value"
           :class="color === 'white' && 'text-black'"
-          @click="e => moveTo(e, value)"
+          @click="(e) => moveTo(e, value)"
         >
           {{ value }}
         </li>
@@ -62,9 +74,12 @@
 </template>
 
 <script setup>
-import { onMounted, ref, reactive } from 'vue';
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
 const menu = ['Service', 'Company', 'News', 'Recruit', 'Contact'];
+
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 
 const showMenu = ref(false);
 const langBtnIsClicked = ref(false);
@@ -88,7 +103,7 @@ const langBtnClickHandler = () => {
   langBtnIsClicked.value = !langBtnIsClicked.value;
 };
 
-const changeColor = prevValue => {
+const changeColor = (prevValue) => {
   if (prevValue === true) {
     logoColor.main = 'mint';
     logoColor.lang = '-black';
@@ -99,7 +114,7 @@ const changeColor = prevValue => {
   }
 };
 
-watch(showMenu, newValue => {
+watch(showMenu, (newValue) => {
   changeColor(newValue);
 });
 
