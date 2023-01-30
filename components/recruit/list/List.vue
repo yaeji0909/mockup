@@ -9,14 +9,24 @@
         @click="moveToRecruit(recruit.recruitUrl)"
       >
         <div class="flex-row items-center lg:flex pb-[20px] md:pb-0">
-          <h3 class="text-base md:text-xl xl:text-2xl font-medium w-40 text-left pb-[20px] md:pb-0">
+          <h3
+            class="text-base md:text-xl xl:text-2xl font-medium w-40 text-left pb-[20px] md:pb-0"
+          >
             {{ recruit.department }}
           </h3>
           <div class="text-left md:w-[40rem] lg:w-[30rem] xl:w-[60rem]">
-            <h1 class="text-2xl xl:text-3xl font-bold pb-[10px] truncate">{{ recruit.title }}</h1>
+            <h1 class="text-2xl xl:text-3xl font-bold pb-[10px] truncate">
+              {{ recruit.title }}
+            </h1>
             <div class="flex items-center gap-[15px]">
-              <h5 class="text-base md:text-xl xl:text-2xl font-medium text-primary-aqua">D-7</h5>
-              <h5 class="text-xs md:text-sm xl:text-base text-gray-sub">{{ recruit.startAt }} ~ {{ recruit.endAt }}</h5>
+              <h5
+                class="text-base md:text-xl xl:text-2xl font-medium text-primary-aqua"
+              >
+                D-{{ recruit.dDay }}
+              </h5>
+              <h5 class="text-xs md:text-sm xl:text-base text-gray-sub">
+                {{ recruit.startAt }} ~ {{ recruit.endAt }}
+              </h5>
             </div>
           </div>
         </div>
@@ -43,8 +53,27 @@ const props = defineProps({
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 
-const moveToRecruit = url => {
+/**
+ * 해당 공고로 이동
+ */
+const moveToRecruit = (url) => {
   console.log('리크루트로 이동');
   if (!url) return;
 };
+
+/**
+ * d-day 계산 (endAt - today)
+ */
+const diffDay = (due) => {
+  const diff = new Date(due) - new Date();
+  const remainDay = Math.floor(diff / (1000 * 60 * 60 * 24));
+  return `${remainDay}`;
+};
+
+props.recruits.map((d) => {
+  d.dDay = diffDay(d.endAt);
+});
+
+diffDay();
+setInterval(diffDay, 1000 * 60 * 60 * 24);
 </script>
