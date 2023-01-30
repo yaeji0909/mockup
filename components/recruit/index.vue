@@ -5,12 +5,8 @@
     </div>
     <div class="flex-col md:flex md:justify-between md:flex-row pt-[60px] md:pt-20">
       <div class="flex gap-[20px]">
-        <CommonSelectBox
-          :placeholder="$t('recruit.department.all')"
-          class="w-60"
-          :value="{ departCountObj, careerCountObj }"
-        />
-        <CommonSelectBox :placeholder="$t('recruit.career.all')" class="w-60" />
+        <CommonSelectBox :placeholder="$t('recruit.department.all')" class="w-60" :value="departCountObj" />
+        <CommonSelectBox :placeholder="$t('recruit.career.all')" class="w-60" :value="careerCountObj" />
       </div>
       <CommonFooterSelectBox />
     </div>
@@ -58,28 +54,28 @@ const cs = departList.filter(d => d === 'CS').length;
 for (const key in departCountObj) {
   if (key === 'support') {
     departCountObj[key].count = support;
-    departCountObj[key].depart = '경영지원';
+    departCountObj[key].label = '경영지원';
   } else if (key === 'planning') {
     departCountObj[key].count = planning;
-    departCountObj[key].depart = '경영기획';
+    departCountObj[key].label = '경영기획';
   } else if (key === 'development') {
     departCountObj[key].count = development;
-    departCountObj[key].depart = '개발';
+    departCountObj[key].label = '개발';
   } else if (key === 'design') {
     departCountObj[key].count = design;
-    departCountObj[key].depart = '디자인';
+    departCountObj[key].label = '디자인';
   } else if (key === 'marketing') {
     departCountObj[key].count = margketing;
-    departCountObj[key].depart = '전략마케팅';
+    departCountObj[key].label = '전략마케팅';
   } else if (key === 'sales') {
     departCountObj[key].count = sales;
-    departCountObj[key].depart = '사업/제휴영업';
+    departCountObj[key].label = '사업/제휴영업';
   } else if (key === 'helmet') {
     departCountObj[key].count = helmet;
-    departCountObj[key].depart = '헬멧사업부';
+    departCountObj[key].label = '헬멧사업부';
   } else if (key === 'cs') {
     departCountObj[key].count = cs;
-    departCountObj[key].depart = 'CS';
+    departCountObj[key].label = 'CS';
   }
 }
 console.log('departCountObj', departCountObj);
@@ -103,16 +99,16 @@ const experienced = careerList.filter(d => d === '경력').length;
 for (const key in careerCountObj) {
   if (key === 'all') {
     careerCountObj[key].count = all;
-    careerCountObj[key].career = '전체';
+    careerCountObj[key].label = '전체';
   } else if (key === 'nonRelevant') {
     careerCountObj[key].count = nonRelevant;
-    careerCountObj[key].career = '무관';
+    careerCountObj[key].label = '무관';
   } else if (key === 'newcomer') {
     careerCountObj[key].count = newcomer;
-    careerCountObj[key].career = '신입';
+    careerCountObj[key].label = '신입';
   } else if (key === 'experienced') {
     careerCountObj[key].count = experienced;
-    careerCountObj[key].career = '경력';
+    careerCountObj[key].label = '경력';
   }
 }
 console.log('careerCountObj', careerCountObj);

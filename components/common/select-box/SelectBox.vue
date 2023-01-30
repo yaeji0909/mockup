@@ -18,10 +18,14 @@
       >
         <ul class="p-1" v-for="option in options" :key="option">
           <li
-            @click="changeOption"
-            class="text-left block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub"
+            @click="e => changeOption(e)"
+            class="text-left block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub cursor-pointer"
           >
-            {{ option }}
+            <div class="text-xs text-gray-sub">
+              <p>
+                {{ option.label }} <span>({{ option.count }}건)</span>
+              </p>
+            </div>
           </li>
         </ul>
       </div>
@@ -33,17 +37,15 @@
 import { gsap } from 'gsap';
 import { ref, onMounted } from 'vue';
 
-const options = ['Option1', 'Option2', 'Option3'];
-const show = ref(false);
-const text = ref(props.placeholder);
-
 const props = defineProps({
   onError: Boolean,
   placeholder: String,
   value: Object,
 });
 
-console.log('props.value', props.value);
+const options = ref(props.value);
+const show = ref(false);
+const text = ref(props.placeholder);
 
 const clickHandler = () => {
   show.value = !show.value;
@@ -51,8 +53,7 @@ const clickHandler = () => {
 };
 
 const changeOption = e => {
-  const value = e.target.innerHTML;
-  text.value = value;
+  text.value = e.target.innerText;
   show.value = false;
 };
 
