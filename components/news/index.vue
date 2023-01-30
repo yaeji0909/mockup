@@ -1,13 +1,13 @@
 <template>
   <div>
     <main class="w-[335px] md:w-[710px] xl:w-[1200px] m-auto">
-      <div class="pt-40">
+      <div class="pt-20">
         <CommonInputSearch :total="total" />
       </div>
       <div class="mt-[40px] xl:mt-[50px] border border-gray-sub" />
       <ClientOnly>
         <MainNewsCard :news="news" :isNewsPage="true" />
-        <CommonPagination class="mt-40" :news="news" :currentPage="currentPage" @change="changePage" />
+        <CommonPagination class="mt-32" :news="news" :currentPage="currentPage" @change="changePage" />
       </ClientOnly>
     </main>
   </div>
