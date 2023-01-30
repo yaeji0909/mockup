@@ -18,13 +18,13 @@
       >
         <ul class="p-1" v-for="option in options" :key="option">
           <li
-            @click="e => changeOption(e)"
+            @click="(e) => changeOption(e)"
             class="text-left block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub cursor-pointer"
           >
             <div class="text-xs text-gray-sub">
-              <p>
+              <div>
                 {{ option.label }} <span>({{ option.count }}건)</span>
-              </p>
+              </div>
             </div>
           </li>
         </ul>
@@ -40,10 +40,10 @@ import { ref, onMounted } from 'vue';
 const props = defineProps({
   onError: Boolean,
   placeholder: String,
-  value: Object,
+  options: Object,
 });
 
-const options = ref(props.value);
+const options = ref(props.options);
 const show = ref(false);
 const text = ref(props.placeholder);
 
@@ -53,11 +53,11 @@ const clickHandler = () => {
 };
 
 const emit = defineEmits(['changeOptions']);
-const changeOption = e => {
+const changeOption = (e) => {
   text.value = e.target.innerText;
   show.value = false;
 
-  emit('changeOptions', e.target.innerText);
+  emit('changeOptions', e.target.innerText, props.options);
 };
 
 onMounted(() => {

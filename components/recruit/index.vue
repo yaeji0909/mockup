@@ -3,20 +3,31 @@
     <div class="pt-20">
       <CommonInputSearch :total="total" />
     </div>
-    <div class="flex-col md:flex md:justify-between md:flex-row pt-[60px] md:pt-20">
+    <div
+      class="flex-col md:flex md:justify-between md:flex-row pt-[60px] md:pt-20"
+    >
       <div class="flex gap-[20px]">
         <CommonSelectBox
           :placeholder="$t('recruit.department.all')"
           class="w-60"
-          :value="departCountObj"
+          :options="departCountObj"
           @changeOptions="changeOptions"
         />
-        <CommonSelectBox :placeholder="$t('recruit.career.all')" class="w-60" :value="careerCountObj" />
+        <CommonSelectBox
+          :placeholder="$t('recruit.career.all')"
+          class="w-60"
+          :options="careerCountObj"
+          @changeOptions="changeOptions"
+        />
       </div>
       <CommonFooterSelectBox :title="$t('recruit.filterSort.newest')" />
     </div>
     <RecruitList :total="total" :recruits="recruits" />
-    <CommonPagination class="mt-20" :currentPage="currentPage" @change="changePage" />
+    <CommonPagination
+      class="mt-20"
+      :currentPage="currentPage"
+      @change="changePage"
+    />
   </div>
 </template>
 
@@ -28,7 +39,7 @@ const { t } = useI18n();
 
 let recruits = ref(recruitList);
 let currentPage = ref(1);
-const changePage = param => {
+const changePage = (param) => {
   if (param === 1) recruits.value = recruitList;
   currentPage.value = param;
 };
@@ -36,7 +47,7 @@ const changePage = param => {
 /**
  * 직군 select setting
  */
-const departList = recruits.value.map(r => r.department);
+const departList = recruits.value.map((r) => r.department);
 const departCountObj = {
   all: {},
   support: {},
@@ -50,14 +61,28 @@ const departCountObj = {
 };
 
 const allDepart = departList.length;
-const support = departList.filter(d => d === t('recruit.department.managementSupport')).length;
-const planning = departList.filter(d => d === t('recruit.department.managementPlanning')).length;
-const development = departList.filter(d => d === t('recruit.department.development')).length;
-const design = departList.filter(d => d === t('recruit.department.design')).length;
-const margketing = departList.filter(d => d === t('recruit.department.margketing')).length;
-const sales = departList.filter(d => d === t('recruit.department.sales')).length;
-const helmet = departList.filter(d => d === t('recruit.department.helmet')).length;
-const cs = departList.filter(d => d === t('recruit.department.cs')).length;
+const support = departList.filter(
+  (d) => d === t('recruit.department.managementSupport')
+).length;
+const planning = departList.filter(
+  (d) => d === t('recruit.department.managementPlanning')
+).length;
+const development = departList.filter(
+  (d) => d === t('recruit.department.development')
+).length;
+const design = departList.filter(
+  (d) => d === t('recruit.department.design')
+).length;
+const margketing = departList.filter(
+  (d) => d === t('recruit.department.margketing')
+).length;
+const sales = departList.filter(
+  (d) => d === t('recruit.department.sales')
+).length;
+const helmet = departList.filter(
+  (d) => d === t('recruit.department.helmet')
+).length;
+const cs = departList.filter((d) => d === t('recruit.department.cs')).length;
 
 for (const key in departCountObj) {
   if (key === 'all') {
@@ -89,12 +114,11 @@ for (const key in departCountObj) {
     departCountObj[key].label = t('recruit.department.cs');
   }
 }
-// console.log('departCountObj', departCountObj);
 
 /**
  * 경력 select setting
  */
-const careerList = recruits.value.map(r => r.career);
+const careerList = recruits.value.map((r) => r.career);
 const careerCountObj = {
   all: {},
   nonRelevant: {},
@@ -103,9 +127,9 @@ const careerCountObj = {
 };
 
 const allCareer = careerList.length;
-const nonRelevant = careerList.filter(d => d === '무관').length;
-const newcomer = careerList.filter(d => d === '신입').length;
-const experienced = careerList.filter(d => d === '경력').length;
+const nonRelevant = careerList.filter((d) => d === '무관').length;
+const newcomer = careerList.filter((d) => d === '신입').length;
+const experienced = careerList.filter((d) => d === '경력').length;
 
 for (const key in careerCountObj) {
   if (key === 'all') {
@@ -122,16 +146,33 @@ for (const key in careerCountObj) {
     careerCountObj[key].label = '경력';
   }
 }
-// console.log('careerCountObj', careerCountObj);
 
-const changeOptions = param => {
-  const depart = param.split(' ')[0];
-  console.log("t('recruit.department.all')", t('recruit.department.all'));
-  console.log("depart.includes(t('recruit.department.all'))", depart.includes(t('recruit.department.all')));
-  if (depart.includes(t('recruit.department.all'))) {
+/**
+ * filter list according to selected option
+ */
+const changeOptions = (param, options) => {
+  const param1 = param.split(' ')[0];
+  const param2 = param.split(' ')[1];
+  // console.log('param', param, 'param1', param1, 'param2', param2);
+  // console.log('options', options);
+  const text1 = t('recruit.department.all').split(' ')[0];
+  // console.log('text1', text1);
+  // console.log(t('recruit.department.all').includes('전체'));
+
+  if (options.all.label === '전체 직군') {
+    // 직군 (영문 버전 추가 필요)
+    filterSort('department', param1, text1);
+  } else {
+    // 경력
+    filterSort('career', param1, text1);
+  }
+};
+
+const filterSort = (division, paramFirst, textFirst) => {
+  if (paramFirst === textFirst) {
     recruits.value = recruitList;
   } else {
-    const res = [...recruitList].filter(r => r.department === depart);
+    const res = [...recruitList].filter((r) => r[division] === paramFirst);
     recruits.value = res;
   }
 };
