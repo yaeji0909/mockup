@@ -10,13 +10,13 @@
         <CommonSelectBox
           :placeholder="$t('recruit.department.all')"
           class="w-60"
-          :options="departCountObj"
+          :options="departOptions"
           @changeOptions="changeOptions"
         />
         <CommonSelectBox
           :placeholder="$t('recruit.career.all')"
           class="w-60"
-          :options="careerCountObj"
+          :options="careerOptions"
           @changeOptions="changeOptions"
         />
       </div>
@@ -48,17 +48,6 @@ const changePage = (param) => {
  * 직군 select setting
  */
 const departList = recruits.value.map((r) => r.department);
-const departCountObj = {
-  all: {},
-  support: {},
-  planning: {},
-  development: {},
-  design: {},
-  marketing: {},
-  sales: {},
-  helmet: {},
-  cs: {},
-};
 
 const allDepart = departList.length;
 const support = departList.filter(
@@ -84,47 +73,23 @@ const helmet = departList.filter(
 ).length;
 const cs = departList.filter((d) => d === t('recruit.department.cs')).length;
 
-for (const key in departCountObj) {
-  if (key === 'all') {
-    departCountObj[key].text =
-      t('recruit.department.all') + ' ' + `(${allDepart + '건'})`;
-  } else if (key === 'support') {
-    departCountObj[key].text =
-      t('recruit.department.support') + ' ' + `(${support + '건'})`;
-  } else if (key === 'planning') {
-    departCountObj[key].text =
-      t('recruit.department.planning') + ' ' + `(${planning + '건'})`;
-  } else if (key === 'development') {
-    departCountObj[key].text =
-      t('recruit.department.development') + ' ' + `(${development + '건'})`;
-  } else if (key === 'design') {
-    departCountObj[key].text =
-      t('recruit.department.design') + ' ' + `(${design + '건'})`;
-  } else if (key === 'marketing') {
-    departCountObj[key].text =
-      t('recruit.department.marketing') + ' ' + `(${marketing + '건'})`;
-  } else if (key === 'sales') {
-    departCountObj[key].text =
-      t('recruit.department.sales') + ' ' + `(${sales + '건'})`;
-  } else if (key === 'helmet') {
-    departCountObj[key].text =
-      t('recruit.department.helmet') + ' ' + `(${helmet + '건'})`;
-  } else if (key === 'cs') {
-    departCountObj[key].text =
-      t('recruit.department.cs') + ' ' + `(${cs + '건'})`;
-  }
-}
+const departOptions = [];
+departOptions.push(
+  t('recruit.department.all') + ' ' + `(${allDepart + '건'})`,
+  t('recruit.department.support') + ' ' + `(${support + '건'})`,
+  t('recruit.department.planning') + ' ' + `(${planning + '건'})`,
+  t('recruit.department.development') + ' ' + `(${development + '건'})`,
+  t('recruit.department.design') + ' ' + `(${design + '건'})`,
+  t('recruit.department.marketing') + ' ' + `(${marketing + '건'})`,
+  t('recruit.department.sales') + ' ' + `(${sales + '건'})`,
+  t('recruit.department.helmet') + ' ' + `(${helmet + '건'})`,
+  t('recruit.department.cs') + ' ' + `(${cs + '건'})`
+);
 
 /**
  * 경력 select setting
  */
 const careerList = recruits.value.map((r) => r.career);
-const careerCountObj = {
-  all: {},
-  nonRelevant: {},
-  newcomer: {},
-  experienced: {},
-};
 
 const allCareer = careerList.length;
 const nonRelevant = careerList.filter(
@@ -137,27 +102,19 @@ const experienced = careerList.filter(
   (d) => d === t('recruit.career.experienced')
 ).length;
 
-for (const key in careerCountObj) {
-  if (key === 'all') {
-    careerCountObj[key].text =
-      t('recruit.career.all') + ' ' + `(${allCareer + '건'})`;
-  } else if (key === 'nonRelevant') {
-    careerCountObj[key].text =
-      t('recruit.career.nonRelevant') + ' ' + `(${nonRelevant + '건'})`;
-  } else if (key === 'newcomer') {
-    careerCountObj[key].text =
-      t('recruit.career.newcomer') + ' ' + `(${newcomer + '건'})`;
-  } else if (key === 'experienced') {
-    careerCountObj[key].text =
-      t('recruit.career.experienced') + ' ' + `(${experienced + '건'})`;
-  }
-}
+const careerOptions = [];
+careerOptions.push(
+  t('recruit.career.all') + ' ' + `(${allCareer + '건'})`,
+  t('recruit.career.nonRelevant') + ' ' + `(${nonRelevant + '건'})`,
+  t('recruit.career.newcomer') + ' ' + `(${newcomer + '건'})`,
+  t('recruit.career.experienced') + ' ' + `(${experienced + '건'})`
+);
 
 /**
  * filter list according to selected option
  */
 const changeOptions = (param, options) => {
-  if (options.all.text.includes('직군')) {
+  if (options[0].includes('직군')) {
     // 직군 (영문 버전 추가 필요)
     filterSort('department', param.split(' ')[0]);
   } else {

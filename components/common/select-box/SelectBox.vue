@@ -21,7 +21,7 @@
             @click="(e) => changeOption(e)"
             class="text-left block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub cursor-pointer"
           >
-            <p class="text-xs text-gray-sub">{{ option.text }}</p>
+            <p class="text-xs text-gray-sub">{{ option }}</p>
           </li>
         </ul>
       </div>
@@ -36,7 +36,7 @@ import { ref, onMounted } from 'vue';
 const props = defineProps({
   onError: Boolean,
   placeholder: String,
-  options: Object,
+  options: Array,
 });
 
 const options = ref(props.options);
