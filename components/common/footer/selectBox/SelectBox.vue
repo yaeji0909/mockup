@@ -58,7 +58,6 @@ const props = defineProps({
   fontColor: String,
   options: Array,
 });
-console.log('props.title', props.title);
 
 const options = ref(['Option1', 'Option2']);
 options.value = props.options;
