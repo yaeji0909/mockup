@@ -8,7 +8,7 @@
         <CommonSelectBox :placeholder="$t('recruit.department.all')" class="w-60" :value="departCountObj" />
         <CommonSelectBox :placeholder="$t('recruit.career.all')" class="w-60" :value="careerCountObj" />
       </div>
-      <CommonFooterSelectBox />
+      <CommonFooterSelectBox :title="$t('recruit.filterSort.newest')" />
     </div>
     <RecruitList :total="total" :recruits="recruits" />
     <CommonPagination class="mt-20" :currentPage="currentPage" @change="changePage" />
@@ -25,7 +25,7 @@ const changePage = param => {
   currentPage.value = param;
 };
 
-console.log('recruits', recruits.value);
+// console.log('recruits', recruits.value);
 
 /**
  * 직군 select setting
@@ -78,7 +78,7 @@ for (const key in departCountObj) {
     departCountObj[key].label = 'CS';
   }
 }
-console.log('departCountObj', departCountObj);
+// console.log('departCountObj', departCountObj);
 
 /**
  * 경력 select setting
@@ -111,5 +111,5 @@ for (const key in careerCountObj) {
     careerCountObj[key].label = '경력';
   }
 }
-console.log('careerCountObj', careerCountObj);
+// console.log('careerCountObj', careerCountObj);
 </script>

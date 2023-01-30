@@ -98,6 +98,10 @@
       "nonRelevant": "경력 무관",
       "newcomer": "신입",
       "experienced": "경력"
+    },
+    "filterSort": {
+      "newest": "최신 등록일순",
+      "byDeadline": "공고 마감일순"
     }
   },
   "contact": {
