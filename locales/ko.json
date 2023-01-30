@@ -83,9 +83,9 @@
     "cs": "CS",
     "desc": "네이처모빌리티의 미래를 함께 이끌어갈 \n 당신을 기다립니다.",
     "department": {
-      "all": "전체직군 (건)",
-      "managementPlanning": "경영기획",
+      "all": "전체 직군",
       "managementSupport": "경영지원",
+      "managementPlanning": "경영기획",
       "development": "개발",
       "design": "디자인",
       "margketing": "전략마케팅",
@@ -94,7 +94,7 @@
       "cs": "CS"
     },
     "career": {
-      "all": "전체",
+      "all": "전체 경력",
       "nonRelevant": "경력 무관",
       "newcomer": "신입",
       "experienced": "경력"

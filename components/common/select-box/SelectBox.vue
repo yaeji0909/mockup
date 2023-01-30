@@ -52,9 +52,12 @@ const clickHandler = () => {
   gsap.fromTo('#drop-box', { y: -3 }, { y: 0 });
 };
 
+const emit = defineEmits(['changeOptions']);
 const changeOption = e => {
   text.value = e.target.innerText;
   show.value = false;
+
+  emit('changeOptions', e.target.innerText);
 };
 
 onMounted(() => {

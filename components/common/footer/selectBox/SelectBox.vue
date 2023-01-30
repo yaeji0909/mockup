@@ -54,7 +54,6 @@ const props = defineProps({
   border: Boolean,
   fontColor: String,
 });
-console.log('props.title', props.title);
 
 if (props.title === '회사소개') {
   options.value = ['회사소개', '보도자료'];
@@ -77,7 +76,6 @@ const clickHandler = () => {
     } else {
       gsap.fromTo('#drop-box', { y: 3 }, { y: 0 });
     }
-    // gsap.fromTo('#drop-box', { y: 3 }, { y: 0 });
   }
 };
 
