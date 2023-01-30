@@ -101,11 +101,11 @@ const optionClickHandler = (e, option) => {
     window.open(SEIRA_URL);
   }
   if (value === '최신 등록일순') {
-    emit('changeFilter', 'newest');
+    emit('changeFilter', 'registerAt');
     text.value = value;
   }
   if (value === '공고 마감일순') {
-    emit('changeFilter', 'byDeadline');
+    emit('changeFilter', 'endAt');
     text.value = value;
   }
   show.value = false;

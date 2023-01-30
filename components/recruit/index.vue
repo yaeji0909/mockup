@@ -118,22 +118,22 @@ careerOptions.push(
 );
 
 /**
- * filter list according to selected option
+ * filter list method according to selected option
  */
 const changeOptions = (param, options) => {
   if (options[0].includes('직군')) {
     // 직군 (영문 버전 추가 필요)
-    filterSort('department', param.split(' ')[0]);
+    filterOption('department', param.split(' ')[0]);
   } else {
     // 경력
-    filterSort('career', param.split(' ')[0]);
+    filterOption('career', param.split(' ')[0]);
   }
 };
 
 /**
  * filter sort function
  */
-const filterSort = (division, paramFirst) => {
+const filterOption = (division, paramFirst) => {
   // 영문 버전 추가 필요
   if (paramFirst === '전체') {
     recruits.value = recruitList;
@@ -146,19 +146,10 @@ const filterSort = (division, paramFirst) => {
 /**
  * latest sort method
  */
-const changeFilter = (param) => {
-  if (param === 'newest') {
-    // 최신 등록일순
-    const res = [...recruitList].sort(
-      (a, b) => new Date(a.registerAt) - new Date(b.registerAt)
-    );
-    recruits.value = res;
-  } else {
-    // 공고 마감일순
-    const res = [...recruitList].sort(
-      (a, b) => new Date(a.endAt) - new Date(b.endAt)
-    );
-    recruits.value = res;
-  }
+const changeFilter = (date) => {
+  const res = [...recruitList].sort(
+    (a, b) => new Date(a[date]) - new Date(b[date])
+  );
+  recruits.value = res;
 };
 </script>
