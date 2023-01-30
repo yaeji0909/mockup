@@ -1,0 +1,60 @@
+{
+  "total": 5,
+  "recruitList": [
+    {
+      "pid": 1,
+      "count": 1,
+      "department": "경영지원",
+      "title": "경영지원실 내륙 및 해외 렌트카 사업 제휴(영업) 및 운영/ 관리 채용",
+      "registerAt": "2023.01.28 09:00",
+      "startAt": "2023.01.30 09:00",
+      "endAt": "2023.02.15 18:00",
+      "career": "무관",
+      "recruitUrl": ""
+    },
+    {
+      "pid": 2,
+      "count": 1,
+      "department": "전략마케팅",
+      "title": "마케팅 커뮤니케이션 기획 채용",
+      "registerAt": "2023.01.28 09:00",
+      "startAt": "2023.01.30 09:00",
+      "endAt": "2023.02.15 18:00",
+      "career": "경력",
+      "recruitUrl": ""
+    },
+    {
+      "pid": 3,
+      "count": 2,
+      "department": "개발",
+      "title": "백엔드 채용",
+      "registerAt": "2023.01.28 09:00",
+      "startAt": "2023.01.30 09:00",
+      "endAt": "2023.02.15 18:00",
+      "career": "경력",
+      "recruitUrl": ""
+    },
+    {
+      "pid": 4,
+      "count": 2,
+      "department": "개발",
+      "title": "웹 디자이너 UI/UX 디자인 채용",
+      "registerAt": "2023.01.28 09:00",
+      "startAt": "2023.01.30 09:00",
+      "endAt": "2023.02.15 18:00",
+      "career": "경력",
+      "recruitUrl": ""
+    },
+    {
+      "pid": 5,
+      "count": 1,
+      "department": "CS",
+      "title": "찜카 CS 업무 및 제휴사 커뮤니케이션 채용",
+      "registerAt": "2023.01.28 09:00",
+      "startAt": "2023.01.30 09:00",
+      "endAt": "2023.02.15 18:00",
+      "career": "경력",
+      "recruitUrl": ""
+    }
+  ]
+}
