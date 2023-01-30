@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pt-20">
-      <CommonInputSearch :total="total" />
+      <CommonInputSearch :total="total" @input="searchInput" />
     </div>
     <div
       class="flex-col md:flex md:justify-between md:flex-row pt-[60px] md:pt-20"
@@ -151,5 +151,17 @@ const changeFilter = (date) => {
     (a, b) => new Date(a[date]) - new Date(b[date])
   );
   recruits.value = res;
+};
+
+/**
+ * 검색
+ */
+const searchInput = (e) => {
+  const res = [...recruitList].filter((r) => r.title.includes(e.target.value));
+  recruits.value = res;
+
+  // 색상 변경
+  // document.querySelector
+  console.log('recruit.value', recruit.value);
 };
 </script>
