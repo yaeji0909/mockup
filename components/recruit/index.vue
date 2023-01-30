@@ -20,7 +20,14 @@
           @changeOptions="changeOptions"
         />
       </div>
-      <CommonFooterSelectBox :title="$t('recruit.filterSort.newest')" />
+      <CommonFooterSelectBox
+        :title="$t('recruit.filterSort.newest')"
+        :options="[
+          $t('recruit.filterSort.newest'),
+          $t('recruit.filterSort.byDeadline'),
+        ]"
+        @changeFilter="changeFilter"
+      />
     </div>
     <RecruitList :total="total" :recruits="recruits" />
     <CommonPagination
@@ -132,6 +139,25 @@ const filterSort = (division, paramFirst) => {
     recruits.value = recruitList;
   } else {
     const res = [...recruitList].filter((r) => r[division] === paramFirst);
+    recruits.value = res;
+  }
+};
+
+/**
+ * latest sort method
+ */
+const changeFilter = (param) => {
+  if (param === 'newest') {
+    // 최신 등록일순
+    const res = [...recruitList].sort(
+      (a, b) => new Date(a.registerAt) - new Date(b.registerAt)
+    );
+    recruits.value = res;
+  } else {
+    // 공고 마감일순
+    const res = [...recruitList].sort(
+      (a, b) => new Date(a.endAt) - new Date(b.endAt)
+    );
     recruits.value = res;
   }
 };
