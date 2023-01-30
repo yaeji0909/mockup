@@ -153,23 +153,18 @@ for (const key in careerCountObj) {
 const changeOptions = (param, options) => {
   const param1 = param.split(' ')[0];
   const param2 = param.split(' ')[1];
-  // console.log('param', param, 'param1', param1, 'param2', param2);
-  // console.log('options', options);
-  const text1 = t('recruit.department.all').split(' ')[0];
-  // console.log('text1', text1);
-  // console.log(t('recruit.department.all').includes('전체'));
 
   if (options.all.label === '전체 직군') {
     // 직군 (영문 버전 추가 필요)
-    filterSort('department', param1, text1);
+    filterSort('department', param1);
   } else {
     // 경력
-    filterSort('career', param1, text1);
+    filterSort('career', param1);
   }
 };
 
-const filterSort = (division, paramFirst, textFirst) => {
-  if (paramFirst === textFirst) {
+const filterSort = (division, paramFirst) => {
+  if (paramFirst === '전체') {
     recruits.value = recruitList;
   } else {
     const res = [...recruitList].filter((r) => r[division] === paramFirst);
