@@ -19,7 +19,7 @@
         <ul class="p-1" v-for="option in options" :key="option">
           <li
             @click="changeOption"
-            class="block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub"
+            class="text-left block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub"
           >
             {{ option }}
           </li>
@@ -32,19 +32,25 @@
 <script setup>
 import { gsap } from 'gsap';
 import { ref, onMounted } from 'vue';
+
 const options = ['Option1', 'Option2', 'Option3'];
 const show = ref(false);
-const text = ref('문의 유형을 선택해 주세요.');
+const text = ref(props.placeholder);
+
 const props = defineProps({
   onError: Boolean,
+  placeholder: String,
+  value: Object,
 });
+
+console.log('props.value', props.value);
 
 const clickHandler = () => {
   show.value = !show.value;
   gsap.fromTo('#drop-box', { y: -3 }, { y: 0 });
 };
 
-const changeOption = (e) => {
+const changeOption = e => {
   const value = e.target.innerHTML;
   text.value = value;
   show.value = false;
