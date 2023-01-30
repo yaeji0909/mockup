@@ -62,10 +62,10 @@ const departCountObj = {
 
 const allDepart = departList.length;
 const support = departList.filter(
-  (d) => d === t('recruit.department.managementSupport')
+  (d) => d === t('recruit.department.support')
 ).length;
 const planning = departList.filter(
-  (d) => d === t('recruit.department.managementPlanning')
+  (d) => d === t('recruit.department.planning')
 ).length;
 const development = departList.filter(
   (d) => d === t('recruit.department.development')
@@ -73,8 +73,8 @@ const development = departList.filter(
 const design = departList.filter(
   (d) => d === t('recruit.department.design')
 ).length;
-const margketing = departList.filter(
-  (d) => d === t('recruit.department.margketing')
+const marketing = departList.filter(
+  (d) => d === t('recruit.department.marketing')
 ).length;
 const sales = departList.filter(
   (d) => d === t('recruit.department.sales')
@@ -86,32 +86,32 @@ const cs = departList.filter((d) => d === t('recruit.department.cs')).length;
 
 for (const key in departCountObj) {
   if (key === 'all') {
-    departCountObj[key].count = allDepart;
-    departCountObj[key].label = t('recruit.department.all');
+    departCountObj[key].text =
+      t('recruit.department.all') + ' ' + `(${allDepart + '건'})`;
   } else if (key === 'support') {
-    departCountObj[key].count = support;
-    departCountObj[key].label = t('recruit.department.managementSupport');
+    departCountObj[key].text =
+      t('recruit.department.support') + ' ' + `(${support + '건'})`;
   } else if (key === 'planning') {
-    departCountObj[key].count = planning;
-    departCountObj[key].label = t('recruit.department.managementPlanning');
+    departCountObj[key].text =
+      t('recruit.department.planning') + ' ' + `(${planning + '건'})`;
   } else if (key === 'development') {
-    departCountObj[key].count = development;
-    departCountObj[key].label = t('recruit.department.development');
+    departCountObj[key].text =
+      t('recruit.department.development') + ' ' + `(${development + '건'})`;
   } else if (key === 'design') {
-    departCountObj[key].count = design;
-    departCountObj[key].label = t('recruit.department.design');
+    departCountObj[key].text =
+      t('recruit.department.design') + ' ' + `(${design + '건'})`;
   } else if (key === 'marketing') {
-    departCountObj[key].count = margketing;
-    departCountObj[key].label = t('recruit.department.margketing');
+    departCountObj[key].text =
+      t('recruit.department.marketing') + ' ' + `(${marketing + '건'})`;
   } else if (key === 'sales') {
-    departCountObj[key].count = sales;
-    departCountObj[key].label = t('recruit.department.sales');
+    departCountObj[key].text =
+      t('recruit.department.sales') + ' ' + `(${sales + '건'})`;
   } else if (key === 'helmet') {
-    departCountObj[key].count = helmet;
-    departCountObj[key].label = t('recruit.department.helmet');
+    departCountObj[key].text =
+      t('recruit.department.helmet') + ' ' + `(${helmet + '건'})`;
   } else if (key === 'cs') {
-    departCountObj[key].count = cs;
-    departCountObj[key].label = t('recruit.department.cs');
+    departCountObj[key].text =
+      t('recruit.department.cs') + ' ' + `(${cs + '건'})`;
   }
 }
 
@@ -139,17 +139,17 @@ const experienced = careerList.filter(
 
 for (const key in careerCountObj) {
   if (key === 'all') {
-    careerCountObj[key].count = allCareer;
-    careerCountObj[key].label = t('recruit.career.all');
+    careerCountObj[key].text =
+      t('recruit.career.all') + ' ' + `(${allCareer + '건'})`;
   } else if (key === 'nonRelevant') {
-    careerCountObj[key].count = nonRelevant;
-    careerCountObj[key].label = t('recruit.career.nonRelevant');
+    careerCountObj[key].text =
+      t('recruit.career.nonRelevant') + ' ' + `(${nonRelevant + '건'})`;
   } else if (key === 'newcomer') {
-    careerCountObj[key].count = newcomer;
-    careerCountObj[key].label = t('recruit.career.newcomer');
+    careerCountObj[key].text =
+      t('recruit.career.newcomer') + ' ' + `(${newcomer + '건'})`;
   } else if (key === 'experienced') {
-    careerCountObj[key].count = experienced;
-    careerCountObj[key].label = t('recruit.career.experienced');
+    careerCountObj[key].text =
+      t('recruit.career.experienced') + ' ' + `(${experienced + '건'})`;
   }
 }
 
@@ -157,7 +157,7 @@ for (const key in careerCountObj) {
  * filter list according to selected option
  */
 const changeOptions = (param, options) => {
-  if (options.all.label === '전체 직군') {
+  if (options.all.text.includes('직군')) {
     // 직군 (영문 버전 추가 필요)
     filterSort('department', param.split(' ')[0]);
   } else {

@@ -21,11 +21,7 @@
             @click="(e) => changeOption(e)"
             class="text-left block px-4 py-2 text-base text-gray-sub hover:bg-primary-aqua hover:bg-opacity-10 rounded-[10px] hover:text-gray-sub cursor-pointer"
           >
-            <div class="text-xs text-gray-sub">
-              <div>
-                {{ option.label }} <span>({{ option.count }}건)</span>
-              </div>
-            </div>
+            <p class="text-xs text-gray-sub">{{ option.text }}</p>
           </li>
         </ul>
       </div>

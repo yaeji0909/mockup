@@ -84,11 +84,11 @@
     "desc": "네이처모빌리티의 미래를 함께 이끌어갈 \n 당신을 기다립니다.",
     "department": {
       "all": "전체 직군",
-      "managementSupport": "경영지원",
-      "managementPlanning": "경영기획",
+      "support": "경영지원",
+      "planning": "경영기획",
       "development": "개발",
       "design": "디자인",
-      "margketing": "전략마케팅",
+      "marketing": "전략마케팅",
       "sales": "사업/제휴영업",
       "helmet": "헬멧사업부",
       "cs": "CS"
