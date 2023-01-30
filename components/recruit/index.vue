@@ -127,23 +127,29 @@ const careerCountObj = {
 };
 
 const allCareer = careerList.length;
-const nonRelevant = careerList.filter((d) => d === '무관').length;
-const newcomer = careerList.filter((d) => d === '신입').length;
-const experienced = careerList.filter((d) => d === '경력').length;
+const nonRelevant = careerList.filter(
+  (d) => d === t('recruit.career.nonRelevant')
+).length;
+const newcomer = careerList.filter(
+  (d) => d === t('recruit.career.newcomer')
+).length;
+const experienced = careerList.filter(
+  (d) => d === t('recruit.career.experienced')
+).length;
 
 for (const key in careerCountObj) {
   if (key === 'all') {
     careerCountObj[key].count = allCareer;
-    careerCountObj[key].label = '전체';
+    careerCountObj[key].label = t('recruit.career.all');
   } else if (key === 'nonRelevant') {
     careerCountObj[key].count = nonRelevant;
-    careerCountObj[key].label = '무관';
+    careerCountObj[key].label = t('recruit.career.nonRelevant');
   } else if (key === 'newcomer') {
     careerCountObj[key].count = newcomer;
-    careerCountObj[key].label = '신입';
+    careerCountObj[key].label = t('recruit.career.newcomer');
   } else if (key === 'experienced') {
     careerCountObj[key].count = experienced;
-    careerCountObj[key].label = '경력';
+    careerCountObj[key].label = t('recruit.career.experienced');
   }
 }
 
@@ -151,19 +157,20 @@ for (const key in careerCountObj) {
  * filter list according to selected option
  */
 const changeOptions = (param, options) => {
-  const param1 = param.split(' ')[0];
-  const param2 = param.split(' ')[1];
-
   if (options.all.label === '전체 직군') {
     // 직군 (영문 버전 추가 필요)
-    filterSort('department', param1);
+    filterSort('department', param.split(' ')[0]);
   } else {
     // 경력
-    filterSort('career', param1);
+    filterSort('career', param.split(' ')[0]);
   }
 };
 
+/**
+ * filter sort function
+ */
 const filterSort = (division, paramFirst) => {
+  // 영문 버전 추가 필요
   if (paramFirst === '전체') {
     recruits.value = recruitList;
   } else {

@@ -95,7 +95,7 @@
     },
     "career": {
       "all": "전체 경력",
-      "nonRelevant": "경력 무관",
+      "nonRelevant": "무관",
       "newcomer": "신입",
       "experienced": "경력"
     },
