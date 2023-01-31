@@ -5,7 +5,7 @@
         <CommonInputSearch :total="total" @input="searchInput" />
       </div>
       <div
-        class="flex-col md:flex md:justify-between md:flex-row pt-[60px] md:pt-20"
+        class="flex-col md:flex md:justify-between md:flex-row pt-[60px] md:pt-20 w-[335px] md:w-[710px] xl:w-[1200px] m-auto"
       >
         <div class="flex gap-[20px]">
           <CommonSelectBox
@@ -30,7 +30,7 @@
           @changeFilter="changeFilter"
         />
       </div>
-      <div>
+      <div class="w-[335px] md:w-[710px] xl:w-[1200px] m-auto">
         <RecruitList
           :total="total"
           :recruits="recruits"
@@ -44,7 +44,7 @@
       </div>
     </section>
     <section class="xl:pt-[140px] md:pt-[180px] xl:pt-[200px]">
-      <div class="text-left">
+      <div class="text-left w-[335px] md:w-[710px] xl:w-[1200px] m-auto">
         <h5 class="text-2xl font-medium text-primary-aqua">
           {{ $t('recruit.benefit.companyCulture') }}
         </h5>
