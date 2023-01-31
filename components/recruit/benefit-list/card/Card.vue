@@ -122,17 +122,23 @@ const benefitList = ref([
 <style scoped>
 /* marquee */
 .benefit-card {
-  animation: marquee 50s infinite;
+  animation: marquee 50s linear infinite;
 }
 .benefit-card:hover {
   animation-play-state: paused;
 }
 @keyframes marquee {
-  from {
+  /* from {
     transform: translateX(0);
   }
   to {
     transform: translateX(-50%);
+  } */
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
   }
 }
 </style>
