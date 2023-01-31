@@ -102,6 +102,38 @@
     "filterSort": {
       "newest": "최신 등록일순",
       "byDeadline": "공고 마감일순"
+    },
+    "benefit": {
+      "companyCulture": "사내문화",
+      "companyCultureDesc": "자율적이고 수평적인 환경 속에서 \n 언제나 최고의 팀워크를 이끌어내고자 \n 네이처모빌리티는 항상 노력하겠습니다.",
+      "outfit": "자유로운 복장",
+      "outfitDesc": "입고 싶은 옷 \n 내 마음대로 자유롭게",
+      "exciting": "신나는 업무 분위기",
+      "excitingDesc": "트렌디한 음악이 \n 공존하는 공간",
+      "horizontal": "수평적 문화",
+      "horizontalDesc": "직급 관계없이 \n ‘님’으로 상호존대",
+      "vacation": "자유로운 휴가",
+      "vacationDesc": "최고의 복지는 휴식 \n 자유로운 연차 사용",
+      "commute": "자율 출퇴근제",
+      "commuteDesc": "8~17시, 9~18시, 10~19시 \n 자율적인 출퇴근 시간",
+      "early": "한달에 한번, 조기퇴근",
+      "earlyDesc": "매달 마지막주 \n 금요일에는 4시 퇴근",
+      "snack": "맛있는 간식제공",
+      "snackDesc": "입이 심심할땐 음료와 \n 달달구리 간식으로 파워업",
+      "lunch": "여유로운 점심시간",
+      "lunchDesc": "1시간 20분 점심시간으로 \n 여유롭게 즐기는 식사",
+      "card": "행복한 법카데이",
+      "cardDesc": "매주 월,금: 아침 커피 제공 \n 매주 금요일: 점심 식대 제공",
+      "selfDevelopement": "자기계발비 지원",
+      "selfDevelopementDesc": "업무관련 컨퍼런스, \n 강의, 서적 지원",
+      "expenditure": "각종 경조사비 지원",
+      "expenditureDesc": "기쁜날, 슬픈날도 \n 함께해야 깐부니깐",
+      "holiday": "명절 선물",
+      "holidayDesc": "1년 2번! 명절에는 \n 백화점 상품권 제공",
+      "discount": "찜카 할인혜택",
+      "discountDesc": "임지원 30% 할인 \n 지인은 20% 할인",
+      "more": "더 많은 혜택 준비중",
+      "moreDesc": "내년엔 더 많은 복지 혜택들이 \n 준비중이니 기대해주세요~"
     }
   },
   "contact": {
