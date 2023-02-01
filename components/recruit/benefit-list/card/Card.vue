@@ -2,27 +2,20 @@
   <div
     class="benefit-card flex flex-col gap-4 pt-[80px] xl:pt-[100px] gap-[24px] md:gap-[20px] lg:gap-[32px] xl:gap-[40px]"
   >
-    <div
-      v-for="(b, idx) in benefitList"
-      :key="idx"
-      class="flex gap-6"
-      :class="idx === 1 ? '-translate-x-[14%]' : ''"
-    >
+    <div v-for="(b, idx) in benefitList" :key="idx" class="flex gap-6" :class="idx === 1 ? '-translate-x-[14%]' : ''">
       <div v-for="benefit in b.benefits" :key="benefit.title">
         <div
           class="flex-col justify-center items-center w-[210px] h-[210px] md:w-[245px] md:h-[245px] lg:w-[280px] lg:h-[280px] xl:w-[350px] xl:h-[350px] bg-gray-bg rounded-[12px] md:rounded-[14px] lg:rounded-[16px] xl:rounded-[20px]"
         >
           <nuxt-img
             :src="benefit.src"
-            class="m-auto w-[120px] md:w-[140px] lg:w-[160px] xl:w-[200px]"
+            class="m-auto w-[120px] h-[120px] md:w-[140px] md:h-[140px] lg:w-[160px] lg:h-[160px] xl:w-[200px] xl:h-[160px]"
           />
           <div>
             <h4 class="text-2xs md:text-2xl font-medium">
               {{ benefit.title }}
             </h4>
-            <h5
-              class="text-[10px] md:text-base pt-[3px] md:pt-[4px] xl:pt-[5px] whitespace-pre-line leading-4"
-            >
+            <h5 class="text-[10px] md:text-base pt-[3px] md:pt-[4px] xl:pt-[5px] whitespace-pre-line leading-4">
               {{ benefit.desc }}
             </h5>
           </div>
@@ -122,23 +115,23 @@ const benefitList = ref([
 <style scoped>
 /* marquee */
 .benefit-card {
-  animation: marquee 50s linear infinite;
+  animation: marquee 10s linear infinite;
 }
 .benefit-card:hover {
   animation-play-state: paused;
 }
 @keyframes marquee {
-  /* from {
+  from {
     transform: translateX(0);
   }
   to {
     transform: translateX(-50%);
-  } */
-  0% {
+  }
+  /* 0% {
     left: 0;
   }
   100% {
     left: -100%;
-  }
+  } */
 }
 </style>
