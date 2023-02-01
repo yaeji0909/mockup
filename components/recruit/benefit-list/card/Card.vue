@@ -5,11 +5,11 @@
     <div v-for="(b, idx) in benefitList" :key="idx" class="flex gap-6" :class="idx === 1 ? '-translate-x-[14%]' : ''">
       <div v-for="benefit in b.benefits" :key="benefit.title">
         <div
-          class="flex-col justify-center items-center w-[210px] h-[210px] md:w-[245px] md:h-[245px] lg:w-[280px] lg:h-[280px] xl:w-[350px] xl:h-[350px] bg-gray-bg rounded-[12px] md:rounded-[14px] lg:rounded-[16px] xl:rounded-[20px]"
+          class="flex flex-col justify-center items-center w-[210px] h-[210px] md:w-[245px] md:h-[245px] lg:w-[280px] lg:h-[280px] xl:w-[350px] xl:h-[350px] bg-gray-bg rounded-[12px] md:rounded-[14px] lg:rounded-[16px] xl:rounded-[20px]"
         >
           <nuxt-img
             :src="benefit.src"
-            class="m-auto w-[120px] h-[120px] md:w-[140px] md:h-[140px] lg:w-[160px] lg:h-[160px] xl:w-[200px] xl:h-[160px]"
+            class="w-[120px] h-[120px] md:w-[140px] md:h-[140px] lg:w-[160px] lg:h-[160px] xl:w-[200px] xl:h-[160px]"
           />
           <div>
             <h4 class="text-2xs md:text-2xl font-medium">
