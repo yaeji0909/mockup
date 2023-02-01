@@ -30,7 +30,7 @@ import { useNoticeStore } from '/stores/notice';
 import { storeToRefs } from 'pinia';
 
 /**
- * get notice info with the same id as route.params.id from pinia store
+ * get notice info with the same id[] as route.params.id from pinia store
  */
 const noticeStore = useNoticeStore();
 const { noticeList } = storeToRefs(noticeStore);
