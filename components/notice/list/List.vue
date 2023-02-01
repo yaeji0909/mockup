@@ -11,7 +11,7 @@
           v-for="notice in notices"
           :key="notice.pid"
           class="border-b border-gray-border p-[30px] cursor-pointer"
-          @click="moveToRecruit(notice.recruitUrl)"
+          @click="moveToNoticeDetail(notice.pid)"
         >
           <div class="flex justify-between items-center pb-[20px] md:pb-0">
             <h3 class="text-xl md:text-2xl xl:text-3xl font-bold text-left w-[90%]">
@@ -31,4 +31,14 @@
 const props = defineProps({
   notices: Array,
 });
+
+/**
+ * 상세 이동
+ */
+const router = useRouter();
+
+const moveToNoticeDetail = id => {
+  if (!id) return;
+  router.push(`/notice/detail/${id}`);
+};
 </script>
