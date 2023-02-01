@@ -15,7 +15,10 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  buildModules: ['nuxt-gsap-module'],
+  buildModules: [
+    'nuxt-gsap-module',
+    ['@pinia/nuxt', { disableVuex: false, autoImports: ['defineStore', 'definePiniaStore'] }],
+  ],
   gsap: {
     /* Module Options */
   },

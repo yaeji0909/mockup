@@ -5,3 +5,9 @@
     </NuxtLayout>
   </div>
 </template>
+
+<script setup>
+import { createPinia, setActivePinia } from 'pinia';
+const pinia = createPinia();
+setActivePinia(pinia);
+</script>
