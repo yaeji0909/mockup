@@ -30,8 +30,16 @@
       <div class="absolute top-[-200px]">
         <nuxt-img :src="MAN" class="w-[212px] h-[237px]" />
       </div>
-      <div class="min-w-max xl:w-90%">
+      <div class="relative min-w-max xl:w-90%">
         <nuxt-img :src="BG" class="relative" />
+        <div>
+          <div class="eye-left">
+            <div class="pupil"></div>
+          </div>
+          <div class="eye-right">
+            <div class="pupil"></div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -42,4 +50,63 @@ const BUBBLE_LEFT = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/imag
 const BUBBLE_RIGHT = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/speech-bubble-right.svg';
 const MAN = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/ideal-talent.svg';
 const BG = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/ideal-talent-bg.svg';
+
+onMounted(() => {
+  const pupil = document.querySelectorAll('.pupil');
+
+  document.addEventListener('mousemove', e => {
+    let x = (e.clientX * 100) / window.innerWidth - 50;
+    let y = (e.clientY * 100) / window.innerHeight - 50;
+
+    pupil.forEach(item => {
+      item.style.left = x + '%';
+      item.style.top = y + '%';
+    });
+  });
+});
 </script>
+
+<style scoped>
+.eye-left {
+  width: 56px;
+  height: 56px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.1s;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  overflow: hidden;
+  z-index: 10;
+}
+.eye-right {
+  width: 56px;
+  height: 56px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.1s;
+  position: absolute;
+  left: 34%;
+  top: 30%;
+  overflow: hidden;
+  z-index: 10;
+}
+.pupil {
+  width: 24px;
+  height: 24px;
+  background: black;
+  border-radius: 50%;
+  position: relative;
+  transform: translate(50%, 50%);
+}
+.pupil:after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+</style>
