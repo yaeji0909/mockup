@@ -9,12 +9,12 @@
       </h1>
       <CommonButton
         bgColor="none"
+        textColor="white"
         :text="$t('service.zzimcarDirect')"
         :icon="false"
         @click="ClickBtn(ZZIMCAR_URL)"
         class="mt-8"
-      >
-      </CommonButton>
+      />
     </div>
     <MainServiceReviewCard />
     <!-- <MainCompanyReviewCard /> -->

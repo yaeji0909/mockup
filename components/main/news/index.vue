@@ -6,9 +6,10 @@
       <MainNewsCard :news="newsList" />
       <div class="mt-28">
         <CommonButton
-          :text="$t('news.more')"
           bdColor="primary-aqua"
           textColor="primary-aqua"
+          :text="$t('news.more')"
+          :icon="false"
           @click="router.push('/news')"
         />
       </div>
