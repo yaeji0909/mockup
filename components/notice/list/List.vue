@@ -2,8 +2,8 @@
   <div class="pt-[60px] md:pt-[80px]">
     <hr class="bg-gray-sub h-[2px]" />
     <section class="flex justify-between px-[30px] bg-gray-bg p-[30px] font-medium">
-      <p class="text-center w-[90%]">제목</p>
-      <p class="text-center w-[10%]">등록일</p>
+      <p class="text-center w-[90%]">{{ $t('notice.title') }}</p>
+      <p class="text-center w-[10%]">{{ $t('notice.registerAt') }}</p>
     </section>
     <section>
       <ul class="w-full text-black">
