@@ -3,9 +3,7 @@
     <div class="w-[335px] md:w-[710px] xl:w-[1200px] m-auto">
       <section v-for="info in infoList" :key="info.pid">
         <div>
-          <div
-            class="flex justify-center items-center text-base xl:text-xl font-medium"
-          >
+          <div class="flex justify-center items-center text-base xl:text-xl font-medium">
             <h3 class="p-[10px]">{{ $t('notice.notice') }}</h3>
             <div class="border-r w-[2px] h-[12px]" />
             <h3 class="p-[10px]">{{ info.date }}</h3>
@@ -17,7 +15,7 @@
           </div>
         </div>
         <hr class="bg-gray-sub h-[2px] my-[40px] md:my-[60px]" />
-        <div>
+        <div class="text-base md:text-sm xl:text-xl text-black">
           <div v-html="info.contents" />
         </div>
       </section>
@@ -52,9 +50,7 @@ const { noticeList } = storeToRefs(noticeStore);
 
 const route = useRoute();
 
-const infoList = noticeList.value.filter(
-  (n) => n.pid === Number(route.params.id)
-);
+const infoList = noticeList.value.filter(n => n.pid === Number(route.params.id));
 
 /**
  * move to notice list
