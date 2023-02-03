@@ -32,7 +32,12 @@ let totalNewsList = ref([...newsList, ...newsList2]);
  * 검색
  */
 const searchInput = e => {
-  // const filteredList = changeTextColor(e, totalNewsList.value);
-  // news.value = filteredList;
+  const filteredList = changeTextColor(e, totalNewsList.value);
+
+  if (!e.target.value) {
+    news.value = newsList;
+  } else {
+    news.value = filteredList;
+  }
 };
 </script>
