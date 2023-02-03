@@ -67,6 +67,7 @@
 import { total, recruitList } from '/components/recruit/list/recruit.json';
 import { useI18n } from 'vue-i18n';
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+import { changeTextColor } from '/composables/input.js';
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
@@ -147,8 +148,8 @@ const filterOption = (division, paramFirst) => {
   if (paramFirst === '전체') {
     recruits.value = recruitList;
   } else {
-    const res = [...recruitList].filter(r => r[division] === paramFirst);
-    recruits.value = res;
+    const filteredList = [...recruitList].filter(r => r[division] === paramFirst);
+    recruits.value = filteredList;
   }
 };
 
@@ -156,29 +157,15 @@ const filterOption = (division, paramFirst) => {
  * latest sort method
  */
 const changeFilter = date => {
-  const res = [...recruitList].sort((a, b) => new Date(a[date]) - new Date(b[date]));
-  recruits.value = res;
+  const filteredList = [...recruitList].sort((a, b) => new Date(a[date]) - new Date(b[date]));
+  recruits.value = filteredList;
 };
 
 /**
  * 검색
  */
 const searchInput = e => {
-  const text = e.target.value;
-  const filteredList = [...recruitList].filter(r => r.title.includes(text));
+  const filteredList = changeTextColor(e, recruitList);
   recruits.value = filteredList;
-
-  for (const item of filteredList) {
-    // text 없을때 색상 초기화
-    item.colorTitle = '';
-    // if (text === '') return;
-    // title에서 text의 시작 index
-    const startIdx = item.title.indexOf(text);
-    // title에서 text의 마지막 index
-    const endIdx = startIdx + text.length;
-    if (startIdx >= 0 && endIdx >= 0)
-      item.colorTitle = `
-    ${item.title.substr(0, startIdx)}<span class="text-primary-aqua">${text}</span>${item.title.substr(endIdx)}`;
-  }
 };
 </script>
