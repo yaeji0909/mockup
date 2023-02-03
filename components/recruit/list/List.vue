@@ -70,13 +70,4 @@ props.recruits.map(d => {
 
 diffDay();
 setInterval(diffDay, 1000 * 60 * 60 * 24);
-
-/**
- * 검색어 색상 변경
- */
-let list = ref([]);
-onMounted(() => {
-  const elements = document.querySelectorAll('.recruit-title');
-  list.value = [...elements];
-});
 </script>
