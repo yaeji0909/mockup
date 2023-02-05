@@ -1,12 +1,35 @@
 <template>
-  <div :class="[!largerThanSm ? 'h-screen w-screen rounded-none' : 'h-[750px] bg-white rounded-[20px] overflow-auto']">
+  <div
+    :class="[
+      !largerThanSm
+        ? 'h-screen w-screen rounded-none'
+        : 'h-[750px] bg-white rounded-[20px] overflow-auto',
+    ]"
+  >
     <section>
       <div class="flex justify-between items-center px-5 py-6">
-        <img v-if="!largerThanSm" :src="ARROW" alt="CLOSE" class="w-[20px]" @click="$emit('close')" />
-        <h1 :class="['text-xl md:text-4xl xl:text-5xl font-bold', !largerThanSm ? 'm-auto ' : '']">
+        <img
+          v-if="!largerThanSm"
+          :src="ARROW"
+          alt="CLOSE"
+          class="w-[20px]"
+          @click="$emit('close')"
+        />
+        <h1
+          :class="[
+            'text-xl md:text-4xl xl:text-5xl font-bold',
+            !largerThanSm ? 'm-auto ' : '',
+          ]"
+        >
           {{ $t('dialog.title') }}
         </h1>
-        <img v-if="largerThanSm" :src="CLOSE" alt="CLOSE" class="w-[19px] cursor-pointer" @click="$emit('close')" />
+        <img
+          v-if="largerThanSm"
+          :src="CLOSE"
+          alt="CLOSE"
+          class="w-[19px] cursor-pointer"
+          @click="$emit('close')"
+        />
       </div>
       <hr v-if="!largerThanSm" class="border-gray-border" />
     </section>
@@ -21,13 +44,19 @@
           :placeholder="input.placeholder"
           class="mt-[10px] w-full"
           :value="input.content"
-          @input="e => (input.content = e.target.value)"
+          @input="(e) => (input.content = e.target.value)"
         />
       </div>
       <CommonCheckBox :text="$t('dialog.agreeText')" />
     </section>
     <section class="px-5 pb-6 flex justify-center">
-      <CommonButton :text="$t('dialog.submit')" bgColor="primary-aqua" :icon="false" class="w-1/2" />
+      <CommonButton
+        :text="$t('dialog.submit')"
+        bgColor="primary-aqua"
+        textColor="white"
+        :icon="false"
+        class="w-1/2"
+      />
     </section>
     <!-- <CommonDialogAlert /> -->
     <!-- <CommonDialogSuccess /> -->
@@ -39,8 +68,10 @@ import { useI18n } from 'vue-i18n';
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { ref, watch, onMounted } from 'vue';
 
-const CLOSE = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_close.svg';
-const ARROW = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_arrow.svg';
+const CLOSE =
+  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_close.svg';
+const ARROW =
+  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_arrow.svg';
 
 /**
  * setting forma
