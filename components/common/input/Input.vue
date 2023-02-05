@@ -7,6 +7,7 @@
       :class="onError && 'focus:border-error focus:shadow-error'"
       :value="value"
       @input="$emit('input', $event)"
+      :disabled="disabled"
     />
   </div>
 </template>
@@ -19,6 +20,7 @@ const props = defineProps({
   onError: Boolean,
   placeholder: String,
   value: String,
+  disabled: Boolean,
 });
 
 const debouncedSearch = () => {

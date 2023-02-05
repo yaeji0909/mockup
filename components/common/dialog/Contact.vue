@@ -38,16 +38,36 @@
         <label for="company" class="text-base xl:text-xl font-medium">
           {{ input.label }}
         </label>
-        <CommonSelectBox v-if="input.label === '문의 유형'" />
-        <CommonInput
-          v-else
-          :placeholder="input.placeholder"
-          class="mt-[10px] w-full"
-          :value="input.content"
-          @input="(e) => (input.content = e.target.value)"
-        />
+        <div v-if="input.label === '문의 유형'">
+          <CommonSelectBox
+            :placeholder="$t('dialog.type')"
+            :options="inquiryList"
+            class="mt-[10px] w-full"
+            @changeOptions="changeOptions"
+          />
+        </div>
+        <div v-else>
+          <CommonInput
+            :placeholder="input.placeholder"
+            :value="input.content"
+            class="mt-[10px] w-full"
+            :disabled="input.label === '개인정보수집 동의' ? true : false"
+            @input="(e) => (input.content = e.target.value)"
+          />
+          <CommonCheckBox
+            v-if="input.label === '개인정보수집 동의'"
+            :text="$t('dialog.agreeText')"
+            :value="input.privacy"
+            class="mt-[10px] w-full"
+            @toggleCheck="(e) => changeCheck(e)"
+          />
+        </div>
       </div>
-      <CommonCheckBox :text="$t('dialog.agreeText')" />
+      <!-- <CommonCheckBox
+        :text="$t('dialog.agreeText')"
+        :value="checkValue"
+        @toggleCheck="(e) => changeCheck(e)"
+      /> -->
     </section>
     <section class="px-5 pb-6 flex justify-center">
       <CommonButton
@@ -56,6 +76,7 @@
         textColor="white"
         :icon="false"
         class="w-1/2"
+        @click="submit"
       />
     </section>
     <!-- <CommonDialogAlert /> -->
@@ -113,9 +134,43 @@ const inputList = ref([
     label: t('dialog.privacy'),
     placeholder: t('dialog.privacyText'),
     content: '',
+    privacy: false,
   },
 ]);
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
+
+/**
+ * filter list method according to selected option
+ */
+const inquiryList = ref(['제휴', '광고', '입점']);
+
+const changeOptions = (type, options) => {
+  inputList.value[4].content = type;
+};
+
+/**
+ * check box
+ */
+const changeCheck = (check) => {
+  inputList.value[6].privacy = check;
+};
+
+/**
+ * 문의 하기 제출
+ */
+const submit = () => {
+  const reqObj = {
+    company: inputList.value[0].content,
+    name: inputList.value[1].content,
+    mobile: inputList.value[2].content,
+    email: inputList.value[3].content,
+    type: inputList.value[4].content,
+    content: inputList.value[5].content,
+    privacy: inputList.value[6].privacy,
+  };
+
+  console.log('reqObj', reqObj);
+};
 </script>
