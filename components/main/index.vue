@@ -53,35 +53,19 @@ const modules = [Mousewheel];
  * nav bar scroll move
  */
 let swiper = ref(null);
+const route = useRoute();
 
 onMounted(() => {
   swiper = document.querySelector('.main-swiper').swiper;
+
+  // 메인 페이지 이외에서 스크롤 이동
+  if (route.query.isMain === 'false') {
+    swiper.slideTo(route.query.slide);
+  }
 });
 
-const scrollTo = el => {
-  if (el === 'Service') {
-    swiper.slideTo(1);
-  } else if (el === 'Company') {
-    swiper.slideTo(4);
-  } else if (el === 'News') {
-    swiper.slideTo(5);
-  } else if (el === 'Recruit') {
-    swiper.slideTo(6);
-  } else if (el === 'Contact') {
-    swiper.slideTo(7);
-  }
-};
-
-/**
- * 메인 페이지 이외의 스크롤 이동
- */
-const router = useRouter();
-
-const pageScoll = param => {
-  console.log('다른 페이지에서 이동', param);
-  // 여기서 메인 페이지로 이동 후 스크롤 이동
-  if (value === '회사소개') {
-    router.push('/');
-  }
+// 메인 페이지에서 스크롤 이동
+const scrollTo = (slide) => {
+  swiper.slideTo(slide);
 };
 </script>

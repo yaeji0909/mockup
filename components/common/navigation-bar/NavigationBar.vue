@@ -1,9 +1,17 @@
 <template>
-  <div class="bg-black text-white" :class="showMenu && 'bg-white h-screen text-black'" ref="navigationBox">
-    <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
+  <div
+    class="bg-black text-white"
+    :class="showMenu && 'bg-white h-screen text-black'"
+    ref="navigationBox"
+  >
+    <nav
+      class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
+    >
       <div class="flex items-center justify-between">
         <NuxtLink to="/">
-          <nuxt-img :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`" />
+          <nuxt-img
+            :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`"
+          />
         </NuxtLink>
 
         <!-- Mobile menu button -->
@@ -37,10 +45,10 @@
         <li
           class="mx-3 hover:text-primary-aqua cursor-pointer font-semibold text-xs md:text-xl xl:tex-=2xl"
           v-for="value in menu"
-          :key="value"
-          @click="$emit('scrollTo', value)"
+          :key="value.slide"
+          @click="(e) => clickNav(value.slide)"
         >
-          {{ value }}
+          {{ value.nav }}
         </li>
       </ul>
       <div class="hidden md:block text-xs">
@@ -62,7 +70,13 @@
 <script setup>
 import { onMounted, ref, reactive } from 'vue';
 
-const menu = ['Service', 'Company', 'News', 'Recruit', 'Contact'];
+const menu = [
+  { slide: 1, nav: 'Service' },
+  { slide: 4, nav: 'Company' },
+  { slide: 5, nav: 'News' },
+  { slide: 6, nav: 'Recruit' },
+  { slide: 7, nav: 'Contact' },
+];
 
 const showMenu = ref(false);
 const langBtnIsClicked = ref(false);
@@ -90,7 +104,7 @@ const logoColor = reactive({
   lang: '',
 });
 
-const changeColor = prevValue => {
+const changeColor = (prevValue) => {
   console.log('parents', showMenu.value);
   if (prevValue === true) {
     logoColor.main = 'mint';
@@ -102,7 +116,7 @@ const changeColor = prevValue => {
   }
 };
 
-watch(showMenu, newValue => {
+watch(showMenu, (newValue) => {
   changeColor(newValue);
 });
 
@@ -114,6 +128,18 @@ onMounted(() => {
     navigationBox.value.classList.add('text-black');
   }
 });
+
+const emit = defineEmits(['scrollTo']);
+const route = useRoute();
+const router = useRouter();
+
+const clickNav = (slide) => {
+  if (route.path === '/') {
+    emit('scrollTo', slide);
+  } else {
+    router.push({ path: '/', query: { slide, isMain: false } });
+  }
+};
 </script>
 
 <style scoped>
