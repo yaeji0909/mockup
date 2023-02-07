@@ -8,7 +8,7 @@
       class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
     >
       <div class="flex items-center justify-between">
-        <NuxtLink to="/">
+        <NuxtLink to="/" @click="moveToSlideOne">
           <nuxt-img
             :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`"
           />
@@ -129,6 +129,9 @@ onMounted(() => {
   }
 });
 
+/**
+ * nav bar scroll move emit
+ */
 const emit = defineEmits(['scrollTo']);
 const route = useRoute();
 const router = useRouter();
@@ -139,6 +142,10 @@ const clickNav = (slide) => {
   } else {
     router.push({ path: '/', query: { slide, isMain: false } });
   }
+};
+
+const moveToSlideOne = () => {
+  emit('scrollTo', 0);
 };
 </script>
 
