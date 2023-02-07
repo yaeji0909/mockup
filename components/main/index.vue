@@ -1,6 +1,10 @@
 <template>
   <div>
-    <CommonNavigationBar class="fixed z-20 w-screen" @scrollTo="scrollTo" />
+    <CommonNavigationBar
+      class="fixed z-20 w-screen"
+      @scrollTo="scrollTo"
+      :color="color"
+    />
 
     <Swiper
       :direction="'vertical'"
@@ -12,7 +16,7 @@
       :watchOverflow="true"
       :speed="300"
       class="main-swiper"
-      ref="mainSwiper"
+      @slideChange="(e) => onSlideChange(e)"
     >
       <SwiperSlide id="home">
         <MainHome />
@@ -67,5 +71,27 @@ onMounted(() => {
 // 메인 페이지에서 스크롤 이동
 const scrollTo = (slide) => {
   swiper.slideTo(slide);
+};
+
+/**
+ * change navigation bar color
+ */
+const color = ref('black');
+const onSlideChange = (e) => {
+  if (
+    e.activeIndex === 0 ||
+    e.activeIndex === 3 ||
+    e.activeIndex === 4 ||
+    e.activeIndex === 6 ||
+    e.activeIndex === 7
+  ) {
+    color.value = 'black';
+  } else if (
+    e.activeIndex === 1 ||
+    e.activeIndex === 2 ||
+    e.activeIndex === 5
+  ) {
+    color.value = 'white';
+  }
 };
 </script>

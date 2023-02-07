@@ -1,7 +1,11 @@
 <template>
   <div
-    class="bg-black text-white"
-    :class="showMenu && 'bg-white h-screen text-black'"
+    :class="[
+      showMenu && 'h-screen ',
+      props.color === 'white'
+        ? 'bg-transparent text-black'
+        : 'bg-transparent text-white',
+    ]"
     ref="navigationBox"
   >
     <nav
@@ -15,7 +19,14 @@
         </NuxtLink>
 
         <!-- Mobile menu button -->
-        <div class="hidden xs:block sm:pl-40 md:hidden text-white text-xs">
+        <div
+          class="hidden xs:block sm:pl-40 md:hidden text-xs"
+          :class="
+            props.color === 'white'
+              ? 'bg-transparent text-black'
+              : 'bg-transparent text-white'
+          "
+        >
           <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;</button>
           <span>|</span>
           <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
@@ -29,7 +40,7 @@
           </button>
           <div @click="showMenuHandler" class="flex md:hidden">
             <CommonNavigationBarHamburger
-              :color="props.color ? 'black' : 'white'"
+              :color="props.color === 'white' ? 'black' : 'white'"
               :changedColor="showMenu ? 'black' : ''"
               :showMenu="showMenu"
             />
@@ -84,6 +95,7 @@ const navigationBox = ref(null);
 
 const props = defineProps({
   color: String,
+  logoColor: String,
 });
 
 // const checkEmit = (value) => {
@@ -124,8 +136,6 @@ onMounted(() => {
   if (props.color === 'white') {
     logoColor.main = 'mint';
     logoColor.lang = '-black';
-    navigationBox.value.classList.add('bg-white');
-    navigationBox.value.classList.add('text-black');
   }
 });
 
@@ -143,6 +153,22 @@ const clickNav = (slide) => {
     router.push({ path: '/', query: { slide, isMain: false } });
   }
 };
+
+/**
+ * change logo color according to props.color
+ */
+watch(
+  () => props.color,
+  (newValue, oldValue) => {
+    if (newValue === 'white') {
+      logoColor.main = 'mint';
+      logoColor.lang = '-black';
+    } else {
+      logoColor.main = 'white';
+      logoColor.lang = '';
+    }
+  }
+);
 
 const moveToSlideOne = () => {
   emit('scrollTo', 0);
