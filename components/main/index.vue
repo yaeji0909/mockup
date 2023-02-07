@@ -71,4 +71,17 @@ const scrollTo = el => {
     swiper.slideTo(7);
   }
 };
+
+/**
+ * 메인 페이지 이외의 스크롤 이동
+ */
+const router = useRouter();
+
+const pageScoll = param => {
+  console.log('다른 페이지에서 이동', param);
+  // 여기서 메인 페이지로 이동 후 스크롤 이동
+  if (value === '회사소개') {
+    router.push('/');
+  }
+};
 </script>
