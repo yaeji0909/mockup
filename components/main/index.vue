@@ -1,6 +1,8 @@
 <template>
   <div>
-    <swiper
+    <CommonNavigationBar class="fixed z-20 w-screen" @scrollTo="scrollTo" />
+
+    <Swiper
       :direction="'vertical'"
       autoHeight
       :centeredSlides="true"
@@ -9,33 +11,34 @@
       :modules="modules"
       :watchOverflow="true"
       :speed="300"
-      @progress="(e) => getIndex(e)"
+      class="main-swiper"
+      ref="mainSwiper"
     >
-      <swiper-slide id="home">
+      <SwiperSlide id="home">
         <MainHome />
-      </swiper-slide>
-      <swiper-slide id="service">
+      </SwiperSlide>
+      <SwiperSlide id="service">
         <MainService />
-      </swiper-slide>
-      <swiper-slide id="serviceAnimationDots">
+      </SwiperSlide>
+      <SwiperSlide id="serviceAnimationDots">
         <MainServiceAnimationDots />
-      </swiper-slide>
-      <swiper-slide id="serviceHeader">
+      </SwiperSlide>
+      <SwiperSlide id="serviceHeader">
         <MainServiceHeader />
-      </swiper-slide>
-      <swiper-slide id="">
+      </SwiperSlide>
+      <SwiperSlide id="">
         <MainCompany />
-      </swiper-slide>
-      <swiper-slide id="news">
+      </SwiperSlide>
+      <SwiperSlide id="news">
         <MainNews />
-      </swiper-slide>
-      <swiper-slide id="recruit">
+      </SwiperSlide>
+      <SwiperSlide id="recruit">
         <MainRecruitHeader />
-      </swiper-slide>
-      <swiper-slide id="contact">
+      </SwiperSlide>
+      <SwiperSlide id="contact">
         <MainContact />
-      </swiper-slide>
-    </swiper>
+      </SwiperSlide>
+    </Swiper>
   </div>
 </template>
 
@@ -47,26 +50,25 @@ import 'swiper/css';
 const modules = [Mousewheel];
 
 /**
- * get elementTop
+ * nav bar scroll move
  */
-const elementTop = ref([]);
+let swiper = ref(null);
 
 onMounted(() => {
-  getElementTop();
+  swiper = document.querySelector('.main-swiper').swiper;
 });
-const getElementTop = () => {
-  // const home = document.getElementById('home').offsetTop;
-  // const service = document.getElementById('service').offsetTop;
-  // const serviceAnimationDots = document.getElementById('serviceAnimationDots').offsetTop;
-  // const serviceHeader = document.getElementById('serviceHeader').offsetTop;
-  // const news = document.getElementById('news').offsetTop;
-  // const recruit = document.getElementById('recruit').offsetTop;
-  // const contact = document.getElementById('contact').offsetTop;
-  // elementTop.value.push(home, service, serviceAnimationDots, serviceHeader, news, recruit, contact);
-};
 
-const getIndex = (e) => {
-  // console.log('e', e);
+const scrollTo = el => {
+  if (el === 'Service') {
+    swiper.slideTo(1);
+  } else if (el === 'Company') {
+    swiper.slideTo(4);
+  } else if (el === 'News') {
+    swiper.slideTo(5);
+  } else if (el === 'Recruit') {
+    swiper.slideTo(6);
+  } else if (el === 'Contact') {
+    swiper.slideTo(7);
+  }
 };
-// console.log('elementTop.value', elementTop.value);
 </script>

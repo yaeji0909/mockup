@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxt/image-edge', '@intlify/nuxt3', '@vueuse/nuxt'],
+  modules: ['@nuxt/image-edge', '@intlify/nuxt3', '@vueuse/nuxt', 'nuxt-swiper'],
   intlify: {
     localeDir: 'locales',
     vueI18n: {
