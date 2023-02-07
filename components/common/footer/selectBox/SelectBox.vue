@@ -10,15 +10,8 @@
           props.title === 'FAMILY SITE' && 'w-36  text-gray-sub',
         ]"
       >
-        <span class="mr-1" :class="props.title === 'FAMILY SITE' && 'mr-8'">{{
-          text
-        }}</span>
-        <nuxt-img
-          class="w-4 h-4"
-          :src="
-            show ? 'images/common/arrow-up.svg' : 'images/common/arrow-down.svg'
-          "
-        />
+        <span class="mr-1" :class="props.title === 'FAMILY SITE' && 'mr-8'">{{ text }}</span>
+        <nuxt-img class="w-4 h-4" :src="show ? 'images/common/arrow-up.svg' : 'images/common/arrow-down.svg'" />
       </button>
 
       <!-- Dropdown menu -->
@@ -28,14 +21,12 @@
         class="absolute p-1 bg-white rounded-[10px] min-w-max"
         :class="[
           props.title === 'FAMILY SITE' && 'w-36 text-gray-sub',
-          props.title === 'FAMILY SITE' || props.title === $t('footer.company')
-            ? '-top-20'
-            : 'top-10',
+          props.title === 'FAMILY SITE' || props.title === $t('footer.company') ? '-top-20' : 'top-10',
         ]"
       >
         <ul class="p-1" v-for="option in options" :key="option">
           <li
-            @click="(e) => optionClickHandler(e, option)"
+            @click="e => optionClickHandler(e, option)"
             class="block py-1 text-gray-sub hover:bg-gray rounded-[5px] text-xs text-black flex justify-center font-normal cursor-pointer"
           >
             {{ option }}
@@ -87,10 +78,10 @@ const clickHandler = () => {
 const emit = defineEmits(['changeFilter']);
 const optionClickHandler = (e, option) => {
   const value = e.target.innerText;
-  if (value === '회사소개') {
+  if (value === t('footer.company')) {
     router.push('/');
   }
-  if (value === '보도자료') {
+  if (value === t('footer.news')) {
     router.push('/news');
   }
   if (value === 'ZZIMCAR') {
@@ -99,11 +90,11 @@ const optionClickHandler = (e, option) => {
   if (value === 'SEIRA') {
     window.open(SEIRA_URL);
   }
-  if (value === '최신 등록일순') {
+  if (value === t('recruit.filterSort.newest')) {
     emit('changeFilter', 'registerAt');
     text.value = value;
   }
-  if (value === '공고 마감일순') {
+  if (value === t('recruit.filterSort.byDeadline')) {
     emit('changeFilter', 'endAt');
     text.value = value;
   }
