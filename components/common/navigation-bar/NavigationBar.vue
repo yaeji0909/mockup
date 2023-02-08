@@ -13,16 +13,16 @@
         </NuxtLink>
 
         <!-- Mobile menu button -->
-        <div
-          class="hidden xs:block sm:pl-40 md:hidden text-xs"
-          :class="props.color === 'white' ? 'bg-transparent text-black' : 'bg-transparent text-white'"
-        >
-          <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;</button>
-          <span>|</span>
-          <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
-        </div>
         <div class="flex justify-center items-center">
-          <button class="xs:hidden w-4 h-4 relative">
+          <div
+            class="hidden xs:block sm:pl-40 md:hidden text-xs mr-[37px]"
+            :class="props.color === 'white' ? 'bg-transparent text-black' : 'bg-transparent text-white'"
+          >
+            <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;</button>
+            <span>|</span>
+            <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
+          </div>
+          <button class="xs:hidden w-4 h-4 relative mr-[19px]">
             <img
               @click="langBtnClickHandler"
               :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang-${navColor.lang}.svg`"
