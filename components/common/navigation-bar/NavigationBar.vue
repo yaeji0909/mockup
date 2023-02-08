@@ -139,6 +139,7 @@ const clickNav = slide => {
   } else {
     router.push({ path: '/', query: { slide, isMain: false } });
   }
+  showMenu.value = false;
 };
 
 const moveToSlideOne = () => {
