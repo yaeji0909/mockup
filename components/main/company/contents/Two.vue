@@ -1,5 +1,5 @@
 <template>
-  <section class="w-[355px] md:w-[704px] xl:w-[1200px] m-auto">
+  <section class="w-[355px] md:w-[704px] xl:w-[1200px] m-auto md:pt-40 xl:pt-60">
     <article class="flex flex-col xl:flex-row justify-between gap-4 md:gap-6">
       <h1
         class="text-4xl md:text-6xl xl:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-aqua to-primary-mint"

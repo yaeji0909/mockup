@@ -1,6 +1,6 @@
 <template>
-  <header class="relative flex items-center h-screen overflow-hidden">
-    <main class="relative z-30 p-5 text-2xl mx-1 md:mx-8 xl:mx-80">
+  <header class="relative flex justify-center items-center h-screen overflow-hidden">
+    <main class="relative z-30 p-5 text-2xl mx-1 md:mx-8 xl:mx-80 w-screen xl:w-[1200px]">
       <section class="home-title opacity-0">
         <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">
           {{ $t('home.title1') }}
@@ -25,7 +25,7 @@
           {{ $t('home.desc3') }}
         </p>
       </section>
-      <section class="download-buttons opacity-0 mt-14 gap-4 md:gap-10 text-white flex">
+      <section class="download-buttons opacity-0 mt-14 gap-4 md:gap-10 text-white flex justify-left">
         <CommonButton class="g-btn" :text="$t('button.googlePlay')" :icon="true" @click="ClickBtn(GOOGLE_PLAY_URL)">
           <template #icon>
             <img :src="GOOGLE_PLAY_ICON" />

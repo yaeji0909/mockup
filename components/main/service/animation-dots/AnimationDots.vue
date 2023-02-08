@@ -1,5 +1,5 @@
 <template>
-  <swiper
+  <Swiper
     :direction="'vertical'"
     autoHeight
     :grabCursor="true"
@@ -14,7 +14,7 @@
     class="service"
   >
     <!-- 1 -->
-    <swiper-slide
+    <SwiperSlide
       class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
     >
       <div class="mt-10 xl:mr-20">
@@ -26,10 +26,10 @@
         </p>
       </div>
       <img :src="SERVICE_1" alt="SERVICE_1" class="w-[400px] md:w-[500px]" />
-    </swiper-slide>
+    </SwiperSlide>
     <!-- 2 -->
-    <swiper-slide
-      class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
+    <SwiperSlide
+      class="xl:w-[1200px] flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
       <img :src="SERVICE_2" alt="SERVICE_2" class="w-[400px] md:w-[500px]" />
       <div class="mt-10 xl:mr-20">
@@ -40,9 +40,9 @@
           {{ $t('service.2-desc') }}
         </p>
       </div>
-    </swiper-slide>
+    </SwiperSlide>
     <!-- 3 -->
-    <swiper-slide
+    <SwiperSlide
       class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
       <div class="mt-10 xl:mr-20">
@@ -54,9 +54,9 @@
         </p>
       </div>
       <img :src="SERVICE_3" alt="SERVICE_3" class="w-[400px] md:w-[500px]" />
-    </swiper-slide>
+    </SwiperSlide>
     <!-- 4 -->
-    <swiper-slide
+    <SwiperSlide
       class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
       <img :src="SERVICE_4" alt="SERVICE_4" class="w-[400px] md:w-[500px]" />
@@ -68,8 +68,8 @@
           {{ $t('service.4-desc') }}
         </p>
       </div>
-    </swiper-slide>
-  </swiper>
+    </SwiperSlide>
+  </Swiper>
 </template>
 
 <script setup>
@@ -126,6 +126,7 @@ const onSlideChange = e => {
 .swiper-slide {
   background: #fff;
   height: 100vh;
+  display: flex;
 }
 :deep(.swiper-pagination-vertical) {
   right: 5%;
