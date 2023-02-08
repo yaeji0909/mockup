@@ -1,31 +1,21 @@
 <template>
   <div
-    :class="[
-      showMenu && 'h-screen ',
-      props.color === 'white'
-        ? 'bg-transparent text-black'
-        : 'bg-transparent text-white',
-    ]"
+    :class="[props.color === 'white' ? 'bg-transparent text-black' : 'bg-transparent text-white']"
     ref="navigationBox"
   >
     <nav
-      class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
+      class="px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
+      :class="showMenu ? 'h-screen bg-white' : 'bg-transparent'"
     >
       <div class="flex items-center justify-between">
         <NuxtLink to="/" @click="moveToSlideOne">
-          <nuxt-img
-            :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`"
-          />
+          <nuxt-img :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`" />
         </NuxtLink>
 
         <!-- Mobile menu button -->
         <div
           class="hidden xs:block sm:pl-40 md:hidden text-xs"
-          :class="
-            props.color === 'white'
-              ? 'bg-transparent text-black'
-              : 'bg-transparent text-white'
-          "
+          :class="props.color === 'white' ? 'bg-transparent text-black' : 'bg-transparent text-white'"
         >
           <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;</button>
           <span>|</span>
@@ -35,15 +25,13 @@
           <button class="xs:hidden w-4 h-4 relative">
             <img
               @click="langBtnClickHandler"
-              :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang${logoColor.lang}.svg`"
+              :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang-${logoColor.lang}.svg`"
             />
           </button>
           <div @click="showMenuHandler" class="flex md:hidden">
-            <CommonNavigationBarHamburger
-              :color="props.color === 'white' ? 'black' : 'white'"
-              :changedColor="showMenu ? 'black' : ''"
-              :showMenu="showMenu"
-            />
+            <!-- showMenu ture, props.color white 인 경우 black -->
+            <!-- showMenu false 인 경우 black props.color 에 따라서만 바뀌면 됨 -->
+            <CommonNavigationBarHamburger :color="logoColor.hamburger" :showMenu="showMenu" />
           </div>
         </div>
       </div>
@@ -57,7 +45,7 @@
           class="mx-3 hover:text-primary-aqua cursor-pointer font-semibold text-xs md:text-xl xl:tex-=2xl"
           v-for="value in menu"
           :key="value.slide"
-          @click="(e) => clickNav(value.slide)"
+          @click="e => clickNav(value.slide)"
         >
           {{ value.nav }}
         </li>
@@ -95,14 +83,11 @@ const navigationBox = ref(null);
 
 const props = defineProps({
   color: String,
-  logoColor: String,
 });
 
-// const checkEmit = (value) => {
-//   console.log(value);
-//   return value;
-// };
-
+/**
+ * show menu (only mobile)
+ */
 const showMenuHandler = () => {
   showMenu.value = !showMenu.value;
 };
@@ -111,33 +96,81 @@ const langBtnClickHandler = () => {
   langBtnIsClicked.value = !langBtnIsClicked.value;
 };
 
+/**
+ * change logo color according to props.color
+ */
 const logoColor = reactive({
   main: 'white',
-  lang: '',
+  lang: 'white',
+  hamburger: 'white',
 });
 
-const changeColor = (prevValue) => {
-  console.log('parents', showMenu.value);
-  if (prevValue === true) {
-    logoColor.main = 'mint';
-    logoColor.lang = '-black';
-  }
-  if (prevValue === false) {
-    logoColor.main = 'white';
-    logoColor.lang = '';
-  }
-};
-
-watch(showMenu, (newValue) => {
-  changeColor(newValue);
-});
+// watch(
+//   () => props.color,
+//   (newValue, oldValue) => {
+//     if (newValue === 'white') {
+//       logoColor.main = 'mint';
+//       logoColor.lang = 'black';
+//     } else {
+//       logoColor.main = 'white';
+//       logoColor.lang = 'white';
+//     }
+//   },
+// );
 
 onMounted(() => {
   if (props.color === 'white') {
     logoColor.main = 'mint';
-    logoColor.lang = '-black';
+    logoColor.lang = 'black';
   }
 });
+
+/**
+ * change mobile logo color according to showMenu && props.color
+ */
+// watch(showMenu, newValue => {
+//   // console.log('showMenu.value', showMenu.value, 'newValue', newValue);
+//   // showMenu ture, props.color white 인 경우 black
+//   // showMenu false 인 경우 black props.color 에 따라서만 바뀌면 됨
+//   if (newValue === true) {
+//     // mobile menu open
+//     logoColor.main = 'mint';
+//     logoColor.lang = 'black';
+//     hamburgerColor.value = 'black';
+//   }
+//   if (newValue === false) {
+//     // mobile menu closed
+//     logoColor.main = 'white';
+//     logoColor.lang = 'white';
+//     hamburgerColor.value = 'white';
+//   }
+// });
+watch([() => showMenu.value, () => props.color], ([newShowMenu, newColor], [preShowMenu, preColor]) => {
+  console.log('newShowMenu', newShowMenu, 'newColor', newColor);
+  if (newShowMenu && newColor === 'white') {
+    logoColor.main = 'mint';
+    logoColor.lang = 'black';
+    logoColor.hamburger = 'black';
+  } else if (newShowMenu && newColor === 'black') {
+    logoColor.main = 'mint';
+    logoColor.lang = 'black';
+    logoColor.hamburger = 'black';
+  } else if (!newShowMenu && newColor === 'white') {
+    logoColor.main = 'mint';
+    logoColor.lang = 'black';
+    logoColor.hamburger = 'black';
+  } else if (!newShowMenu && newColor === 'black') {
+    logoColor.main = 'white';
+    logoColor.lang = 'white';
+    logoColor.hamburger = 'white';
+  }
+});
+
+const changeNavColor = (logoColor, langColor, hamColor) => {
+  logoColor.main = logoColor;
+  logoColor.lang = langColor;
+  logoColor.hamburger = hamColor;
+};
 
 /**
  * nav bar scroll move emit
@@ -146,29 +179,13 @@ const emit = defineEmits(['scrollTo']);
 const route = useRoute();
 const router = useRouter();
 
-const clickNav = (slide) => {
+const clickNav = slide => {
   if (route.path === '/') {
     emit('scrollTo', slide);
   } else {
     router.push({ path: '/', query: { slide, isMain: false } });
   }
 };
-
-/**
- * change logo color according to props.color
- */
-watch(
-  () => props.color,
-  (newValue, oldValue) => {
-    if (newValue === 'white') {
-      logoColor.main = 'mint';
-      logoColor.lang = '-black';
-    } else {
-      logoColor.main = 'white';
-      logoColor.lang = '';
-    }
-  }
-);
 
 const moveToSlideOne = () => {
   emit('scrollTo', 0);
