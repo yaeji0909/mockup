@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-white relative">
+  <div class="bg-white relative">
     <section
       class="h-1/3 relative flex flex-col justify-center items-center bg-contact-header bg-cover bg-right bg-no-repeat text-center"
     >

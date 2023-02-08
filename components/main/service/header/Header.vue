@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen">
+  <div class="">
     <div
       class="flex-col justify-center items-center bg-service-header bg-cover bg-right bg-no-repeat py-40 xl:py-32 pl-8 xl:pl-80"
     >
@@ -17,7 +17,6 @@
       />
     </div>
     <MainServiceReviewCard />
-    <!-- <MainCompanyReviewCard /> -->
   </div>
 </template>
 

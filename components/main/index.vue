@@ -13,6 +13,8 @@
       :speed="300"
       class="main-swiper"
       @slideChange="e => onSlideChange(e)"
+      @reachBeginning="e => onReachBeginning(e)"
+      :prevent-interaction-on-transition="true"
     >
       <SwiperSlide id="home">
         <MainHome />
@@ -80,4 +82,6 @@ const onSlideChange = e => {
     color.value = 'white';
   }
 };
+
+const onReachBeginning = e => {};
 </script>

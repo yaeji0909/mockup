@@ -1,7 +1,7 @@
 <template>
   <ClientOnly>
     <div
-      class="relative bg-phone h-[500px] md:h-[700px] container bg-contain bg-center bg-no-repeat flex-col justify-center items-center"
+      class="relative m-auto bottom-[5%] bg-phone h-[400px] md:h-[700px] lg:h-[500px] xl:h-[700px] container bg-contain bg-center bg-no-repeat flex-col justify-center items-center"
     >
       <MainServiceCard @slideChanged="slideChanged" />
       <div class="px-1">

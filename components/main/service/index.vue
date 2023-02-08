@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex flex-col items-center justify-center bg-service bg-cover pt-60">
+  <div class="h-screen bg-service bg-cover pt-40 md:pt-60">
     <!-- title -->
     <h1
       class="service-title opacity-0 text-3xl md:text-4xl xl:text-7xl md:leading-none font-bold text-center whitespace-pre-line md:whitespace-nowrap"
@@ -12,7 +12,7 @@
       {{ $t('service.desc') }}
     </p>
     <!-- phone -->
-    <MainServicePhone class="phone opacity-0 mt-[40px] xl:mt-[70px]" />
+    <MainServicePhone class="phone opacity-0 xl:mt-[70px]" />
   </div>
 </template>
 
