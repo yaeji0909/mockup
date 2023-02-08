@@ -1,6 +1,6 @@
 <template>
   <div
-    class="group search-bar flex items-center min-w-[335px] max-w-[800px] rounded-[50px] m-auto border border-gray-border focus-within:shadow-mint focus-within:border-primary-aqua transition"
+    class="group search-bar flex items-center w-[335px] md:w-[580px] lg:w-[800px] rounded-[50px] m-auto border border-gray-border focus-within:shadow-mint focus-within:border-primary-aqua transition"
   >
     <div
       class="flex justify-center items-center w-[90px] px-[15px] ml-[25px] mr-[15px] text-gray-sub text-xs md:text-xl font-medium border-r border-gray-border"
