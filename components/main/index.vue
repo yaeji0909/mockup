@@ -1,20 +1,20 @@
 <template>
   <div>
-    <CommonNavigationBar class="fixed z-20 w-screen" @scrollTo="scrollTo" :color="color" />
+    <CommonNavigationBar
+      class="fixed z-20 w-screen"
+      @scrollTo="scrollTo"
+      :color="color"
+    />
 
     <Swiper
       :direction="'vertical'"
       autoHeight
-      :centeredSlides="true"
       :slidesPerView="'auto'"
       :mousewheel="true"
       :modules="modules"
-      :watchOverflow="true"
       :speed="300"
-      class="main-swiper"
-      @slideChange="e => onSlideChange(e)"
-      @reachBeginning="e => onReachBeginning(e)"
-      :prevent-interaction-on-transition="true"
+      class="main-swiper swiper-v"
+      @slideChange="(e) => onSlideChange(e)"
     >
       <SwiperSlide id="home">
         <MainHome />
@@ -46,10 +46,12 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Mousewheel } from 'swiper';
+import { Mousewheel, FreeMode, Scrollbar } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/scrollbar';
 
-const modules = [Mousewheel];
+const modules = [Mousewheel, FreeMode, Scrollbar];
 
 /**
  * nav bar scroll move
@@ -67,7 +69,7 @@ onMounted(() => {
 });
 
 // 메인 페이지에서 스크롤 이동
-const scrollTo = slide => {
+const scrollTo = (slide) => {
   swiper.slideTo(slide);
 };
 
@@ -75,13 +77,41 @@ const scrollTo = slide => {
  * change navigation bar color
  */
 const color = ref('black');
-const onSlideChange = e => {
-  if (e.activeIndex === 0 || e.activeIndex === 3 || e.activeIndex === 4 || e.activeIndex === 6 || e.activeIndex === 7) {
+const onSlideChange = (e) => {
+  if (
+    e.activeIndex === 0 ||
+    e.activeIndex === 3 ||
+    e.activeIndex === 4 ||
+    e.activeIndex === 6 ||
+    e.activeIndex === 7
+  ) {
     color.value = 'black';
-  } else if (e.activeIndex === 1 || e.activeIndex === 2 || e.activeIndex === 5) {
+  } else if (
+    e.activeIndex === 1 ||
+    e.activeIndex === 2 ||
+    e.activeIndex === 5
+  ) {
     color.value = 'white';
   }
+
+  if (e.activeIndex === 3 || e.activeIndex === 7) {
+    swiper.mousewheel.disable();
+    // onTransitionStart(e.activeIndex);
+  } else {
+    // swiper.mousewheel.enable();
+    // onTransitionEnd(e.activeIndex);
+  }
+  // onTransitionStart(e.activeIndex);
 };
 
-const onReachBeginning = e => {};
+const onTransitionStart = (idx) => {
+  swiper.mousewheel.disable();
+  // swiper.params.touchReleaseOnEdges = false;
+  // swiper.params.mousewheel.releaseOnEdges = false;
+};
+const onTransitionEnd = (idx) => {
+  swiper.mousewheel.enable();
+  // swiper.params.touchReleaseOnEdges = false;
+  // swiper.params.mousewheel.releaseOnEdges = false;
+};
 </script>
