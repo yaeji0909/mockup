@@ -118,6 +118,14 @@ const changeNavColor = (logo, lang, ham) => {
   navColor.hamburger = ham;
 };
 
+onMounted(() => {
+  if (props.color === 'white') {
+    navColor.main = 'mint';
+    navColor.lang = 'black';
+    navColor.hamburger = 'black';
+  }
+});
+
 /**
  * nav bar scroll move emit
  */
