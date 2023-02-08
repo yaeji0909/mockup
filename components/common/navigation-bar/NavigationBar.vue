@@ -1,15 +1,15 @@
 <template>
-  <div
-    :class="[props.color === 'white' ? 'bg-transparent text-black' : 'bg-transparent text-white']"
-    ref="navigationBox"
-  >
+  <div :class="[props.color === 'white' ? 'bg-transparent text-black' : 'bg-transparent text-white']">
     <nav
       class="px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
       :class="showMenu ? 'h-screen bg-white' : 'bg-transparent'"
     >
       <div class="flex items-center justify-between">
         <NuxtLink to="/" @click="moveToSlideOne">
-          <nuxt-img :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`" />
+          <nuxt-img
+            :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${navColor.main}.svg`"
+            class="w-[140px] md:w-[180px] lg:w-[160px] xl:w-[180px]"
+          />
         </NuxtLink>
 
         <!-- Mobile menu button -->
@@ -25,13 +25,11 @@
           <button class="xs:hidden w-4 h-4 relative">
             <img
               @click="langBtnClickHandler"
-              :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang-${logoColor.lang}.svg`"
+              :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang-${navColor.lang}.svg`"
             />
           </button>
           <div @click="showMenuHandler" class="flex md:hidden">
-            <!-- showMenu ture, props.color white 인 경우 black -->
-            <!-- showMenu false 인 경우 black props.color 에 따라서만 바뀌면 됨 -->
-            <CommonNavigationBarHamburger :color="logoColor.hamburger" :showMenu="showMenu" />
+            <CommonNavigationBarHamburger :color="navColor.hamburger" :showMenu="showMenu" />
           </div>
         </div>
       </div>
@@ -77,10 +75,6 @@ const menu = [
   { slide: 7, nav: 'Contact' },
 ];
 
-const showMenu = ref(false);
-const langBtnIsClicked = ref(false);
-const navigationBox = ref(null);
-
 const props = defineProps({
   color: String,
 });
@@ -88,88 +82,40 @@ const props = defineProps({
 /**
  * show menu (only mobile)
  */
+const showMenu = ref(false);
 const showMenuHandler = () => {
   showMenu.value = !showMenu.value;
 };
 
+/**
+ * click language
+ */
+const langBtnIsClicked = ref(false);
 const langBtnClickHandler = () => {
   langBtnIsClicked.value = !langBtnIsClicked.value;
 };
 
 /**
- * change logo color according to props.color
+ * change navigation color according to showMenu && props.color
  */
-const logoColor = reactive({
+const navColor = reactive({
   main: 'white',
   lang: 'white',
   hamburger: 'white',
 });
 
-// watch(
-//   () => props.color,
-//   (newValue, oldValue) => {
-//     if (newValue === 'white') {
-//       logoColor.main = 'mint';
-//       logoColor.lang = 'black';
-//     } else {
-//       logoColor.main = 'white';
-//       logoColor.lang = 'white';
-//     }
-//   },
-// );
-
-onMounted(() => {
-  if (props.color === 'white') {
-    logoColor.main = 'mint';
-    logoColor.lang = 'black';
-  }
-});
-
-/**
- * change mobile logo color according to showMenu && props.color
- */
-// watch(showMenu, newValue => {
-//   // console.log('showMenu.value', showMenu.value, 'newValue', newValue);
-//   // showMenu ture, props.color white 인 경우 black
-//   // showMenu false 인 경우 black props.color 에 따라서만 바뀌면 됨
-//   if (newValue === true) {
-//     // mobile menu open
-//     logoColor.main = 'mint';
-//     logoColor.lang = 'black';
-//     hamburgerColor.value = 'black';
-//   }
-//   if (newValue === false) {
-//     // mobile menu closed
-//     logoColor.main = 'white';
-//     logoColor.lang = 'white';
-//     hamburgerColor.value = 'white';
-//   }
-// });
 watch([() => showMenu.value, () => props.color], ([newShowMenu, newColor], [preShowMenu, preColor]) => {
-  console.log('newShowMenu', newShowMenu, 'newColor', newColor);
-  if (newShowMenu && newColor === 'white') {
-    logoColor.main = 'mint';
-    logoColor.lang = 'black';
-    logoColor.hamburger = 'black';
-  } else if (newShowMenu && newColor === 'black') {
-    logoColor.main = 'mint';
-    logoColor.lang = 'black';
-    logoColor.hamburger = 'black';
-  } else if (!newShowMenu && newColor === 'white') {
-    logoColor.main = 'mint';
-    logoColor.lang = 'black';
-    logoColor.hamburger = 'black';
-  } else if (!newShowMenu && newColor === 'black') {
-    logoColor.main = 'white';
-    logoColor.lang = 'white';
-    logoColor.hamburger = 'white';
+  if (!newShowMenu && newColor === 'black') {
+    changeNavColor('white', 'white', 'white');
+  } else {
+    changeNavColor('mint', 'black', 'black');
   }
 });
 
-const changeNavColor = (logoColor, langColor, hamColor) => {
-  logoColor.main = logoColor;
-  logoColor.lang = langColor;
-  logoColor.hamburger = hamColor;
+const changeNavColor = (logo, lang, ham) => {
+  navColor.main = logo;
+  navColor.lang = lang;
+  navColor.hamburger = ham;
 };
 
 /**
