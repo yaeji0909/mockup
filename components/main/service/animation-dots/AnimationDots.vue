@@ -109,7 +109,7 @@ onMounted(() => {
  */
 const emit = defineEmits(['mouseEnable']);
 const onTransitionEnd = e => {
-  // console.log('animationDot e', e);
+  // console.log('animationDot end e', e);
   if (e.isEnd) {
     emit('mouseEnable');
   }
