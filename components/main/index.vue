@@ -46,6 +46,7 @@ import { Mousewheel, FreeMode, Scrollbar } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/scrollbar';
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
 const modules = [Mousewheel, FreeMode, Scrollbar];
 
@@ -73,6 +74,10 @@ const scrollTo = slide => {
  * change navigation bar color
  */
 const color = ref('black');
+
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const largerThanSm = breakpoints.greater('sm'); // only larger than sm
+
 const onSlideChange = e => {
   if (e.activeIndex === 0 || e.activeIndex === 3 || e.activeIndex === 4 || e.activeIndex === 6 || e.activeIndex === 7) {
     color.value = 'black';
@@ -81,16 +86,19 @@ const onSlideChange = e => {
   }
 
   // scroll 조정
-  // 2:service swiper  4:company swiper  5:news(길이문제)
-  console.log('e.activeIndex', e.activeIndex);
-  if (e.activeIndex === 2 || e.activeIndex === 4 || e.activeIndex === 5) {
+  // 2:service swiper  4:company swiper
+  // console.log('e.activeIndex', e.activeIndex);
+  if (e.activeIndex === 2 || e.activeIndex === 4) {
     swiper.mousewheel.disable();
+  }
+  // 5:news(길이문제)  7:contact(길이문제)
+  if (!largerThanSm) {
+    if (e.activeIndex === 5 || e.activeIndex === 7) {
+      swiper.mousewheel.disable();
+    }
   }
 };
 
-/**
- *
- */
 const mouseEnable = () => {
   swiper.mousewheel.enable();
 };
