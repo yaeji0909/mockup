@@ -1,19 +1,28 @@
 {
   "newsList": [
     {
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.10.26",
-      "title": "[뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수"
+      "pid": 1,
+      "imgUrl": "https://newsimg.sedaily.com/2022/12/19/26EYOQI7PM_1.jpg",
+      "date": "2022.12.19",
+      "title": "네이처모빌리티, 롤스이엔엠과 접이식 헬멧 제품 유통공급계약",
+      "contents": "",
+      "newsUrl": "https://www.sedaily.com/NewsView/26EYOQI7PM"
     },
     {
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.10.12",
-      "title": "[서울신문] 네이처모빌리티는 어떻게 제주에 안착했을까"
+      "pid": 2,
+      "imgUrl": "http://www.engjournal.co.kr/news/photo/202211/2119_3343_3336.jpg",
+      "date": "2022.11.10",
+      "title": "‘안전·편리·디자인’ 접이식 헬멧, 세 마리 토끼 잡는다",
+      "contents": "",
+      "newsUrl": "http://www.engjournal.co.kr/news/articleView.html?idxno=2119"
     },
     {
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.06.02",
-      "title": "[한겨례] 네이처모빌리티 ‘찜카’, ‘아기 유니콘 2022’ 1위로 뽑혀"
+      "pid": 3,
+      "imgUrl": "https://img.hankyung.com/photo/202210/PCM20221027000011990_P4.jpg",
+      "date": "2022.10.16",
+      "title": "네이처모빌리티, 일본 현지여행 플랫폼 스마트박스 인수",
+      "contents": "",
+      "newsUrl": "https://www.hankyung.com/economy/article/202210277274Y"
     }
   ]
 }
