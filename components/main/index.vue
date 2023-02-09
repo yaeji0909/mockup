@@ -103,14 +103,20 @@ const onSlideChange = e => {
   }
 
   // scroll 조정
-  // console.log('e.activeIndex', e.activeIndex);
+  console.log('e.activeIndex', e.activeIndex);
   if (e.activeIndex === 2 || e.activeIndex === 4) {
     // 2:service swiper  4:company swiper
     swiper.mousewheel.disable();
   }
   if (largerThanSm) {
+    // 길이 문제
     if (e.activeIndex === 5 || e.activeIndex === 7) {
-      // 5:news(길이문제)  7:contact(길이문제)
+      // 5:news  7:contact
+      swiper.mousewheel.disable();
+    }
+  } else {
+    if (e.activeIndex === 3) {
+      // 3:service
       swiper.mousewheel.disable();
     }
   }
