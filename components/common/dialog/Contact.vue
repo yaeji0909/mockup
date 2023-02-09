@@ -3,7 +3,7 @@
     :class="[
       !largerThanSm
         ? 'h-screen w-screen rounded-none'
-        : 'h-[750px] bg-white rounded-[20px] overflow-auto',
+        : 'h-full bg-white rounded-[20px] overflow-auto',
     ]"
   >
     <section>
@@ -21,7 +21,7 @@
             !largerThanSm ? 'm-auto ' : '',
           ]"
         >
-          {{ $t('dialog.title') }}
+          {{ $t("dialog.title") }}
         </h1>
         <img
           v-if="largerThanSm"
@@ -85,14 +85,14 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
-import { ref, watch, onMounted } from 'vue';
+import { useI18n } from "vue-i18n";
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+import { ref, watch, onMounted } from "vue";
 
 const CLOSE =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_close.svg';
+  "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_close.svg";
 const ARROW =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_arrow.svg';
+  "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_arrow.svg";
 
 /**
  * setting forma
@@ -101,50 +101,50 @@ const { t } = useI18n();
 
 const inputList = ref([
   {
-    label: t('dialog.company'),
-    placeholder: t('dialog.companyPlaceholder'),
-    content: '',
+    label: t("dialog.company"),
+    placeholder: t("dialog.companyPlaceholder"),
+    content: "",
   },
   {
-    label: t('dialog.name'),
-    placeholder: t('dialog.namePlaceholder'),
-    content: '',
+    label: t("dialog.name"),
+    placeholder: t("dialog.namePlaceholder"),
+    content: "",
   },
   {
-    label: t('dialog.mobile'),
-    placeholder: t('dialog.mobilePlaceholder'),
-    content: '',
+    label: t("dialog.mobile"),
+    placeholder: t("dialog.mobilePlaceholder"),
+    content: "",
   },
   {
-    label: t('dialog.email'),
-    placeholder: t('dialog.emailPlaceholder'),
-    content: '',
+    label: t("dialog.email"),
+    placeholder: t("dialog.emailPlaceholder"),
+    content: "",
   },
   {
-    label: t('dialog.type'),
-    placeholder: t('dialog.typePlaceholder'),
-    content: '',
+    label: t("dialog.type"),
+    placeholder: t("dialog.typePlaceholder"),
+    content: "",
   },
   {
-    label: t('dialog.content'),
-    placeholder: t('dialog.contentPlaceholder'),
-    content: '',
+    label: t("dialog.content"),
+    placeholder: t("dialog.contentPlaceholder"),
+    content: "",
   },
   {
-    label: t('dialog.privacy'),
-    placeholder: t('dialog.privacyText'),
-    content: '',
+    label: t("dialog.privacy"),
+    placeholder: t("dialog.privacyText"),
+    content: "",
     privacy: false,
   },
 ]);
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
-const largerThanSm = breakpoints.greater('sm'); // only larger than sm
+const largerThanSm = breakpoints.greater("sm"); // only larger than sm
 
 /**
  * filter list method according to selected option
  */
-const inquiryList = ref(['제휴', '광고', '입점']);
+const inquiryList = ref(["제휴", "광고", "입점"]);
 
 const changeOptions = (type, options) => {
   inputList.value[4].content = type;
@@ -171,6 +171,6 @@ const submit = () => {
     privacy: inputList.value[6].privacy,
   };
 
-  console.log('reqObj', reqObj);
+  console.log("reqObj", reqObj);
 };
 </script>
