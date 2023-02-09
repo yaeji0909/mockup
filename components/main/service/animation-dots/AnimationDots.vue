@@ -89,6 +89,8 @@ const modules = [Pagination, Mousewheel];
 
 let number = ref('01');
 
+let mousewheelDirection = ref(false);
+
 /**
  * custom pagination
  */
@@ -102,6 +104,15 @@ onMounted(() => {
   let num = document.createTextNode('01');
   p.appendChild(num);
   el.prepend(p);
+
+  // scroll move
+  addEventListener('wheel', event => {
+    if (event.deltaY < 0) {
+      mousewheelDirection.value = true;
+    } else {
+      mousewheelDirection.value = false;
+    }
+  });
 });
 
 /**
@@ -109,8 +120,9 @@ onMounted(() => {
  */
 const emit = defineEmits(['mouseEnable']);
 const onTransitionEnd = e => {
-  // console.log('animationDot end e', e);
   if (e.isEnd) {
+    emit('mouseEnable');
+  } else if (e.activeIndex === 0 && mousewheelDirection.value) {
     emit('mouseEnable');
   }
 };

@@ -49,6 +49,8 @@ const COMPANY_VIDEO = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/vi
  */
 let year = ref('2022');
 
+let mousewheelDirection = ref(false);
+
 const onSlideChange = e => {
   changeYearColor(year.value, e.activeIndex);
 };
@@ -149,6 +151,15 @@ onMounted(() => {
       year.classList.add('sm');
     });
   }
+
+  // scroll move
+  addEventListener('wheel', event => {
+    if (event.deltaY < 0) {
+      mousewheelDirection.value = true;
+    } else {
+      mousewheelDirection.value = false;
+    }
+  });
 });
 
 /**
@@ -156,8 +167,9 @@ onMounted(() => {
  */
 const emit = defineEmits(['mouseEnable']);
 const onTransitionEnd = e => {
-  // console.log('company e', e);
   if (e.isEnd) {
+    emit('mouseEnable');
+  } else if (e.activeIndex === 0 && mousewheelDirection.value) {
     emit('mouseEnable');
   }
 };

@@ -82,7 +82,7 @@ const onSlideChange = e => {
 
   // scroll 조정
   // 2:service swiper  4:company swiper  5:news(길이문제)
-  // console.log('e.activeIndex', e.activeIndex);
+  console.log('e.activeIndex', e.activeIndex);
   if (e.activeIndex === 2 || e.activeIndex === 4 || e.activeIndex === 5) {
     swiper.mousewheel.disable();
   }
@@ -92,7 +92,6 @@ const onSlideChange = e => {
  *
  */
 const mouseEnable = () => {
-  console.log('마우스 다시 움직여');
   swiper.mousewheel.enable();
 };
 </script>
