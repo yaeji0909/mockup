@@ -1,53 +1,53 @@
 {
-  "total": 30,
+  "total": 70,
   "newsList": [
     {
       "pid": 1,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.10.26",
-      "title": "1 [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": ""
+      "imgUrl": "https://newsimg.sedaily.com/2022/12/19/26EYOQI7PM_1.jpg",
+      "date": "2022.12.19",
+      "title": "네이처모빌리티, 롤스이엔엠과 접이식 헬멧 제품 유통공급계약",
+      "contents": "",
+      "newsUrl": "https://www.sedaily.com/NewsView/26EYOQI7PM"
     },
     {
       "pid": 2,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.10.26",
-      "title": "2 [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": ""
+      "imgUrl": "http://www.engjournal.co.kr/news/photo/202211/2119_3343_3336.jpg",
+      "date": "2022.11.10",
+      "title": "‘안전·편리·디자인’ 접이식 헬멧, 세 마리 토끼 잡는다",
+      "contents": "",
+      "newsUrl": "http://www.engjournal.co.kr/news/articleView.html?idxno=2119"
     },
     {
       "pid": 3,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.10.26",
-      "title": "3 [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": ""
+      "imgUrl": "https://img.hankyung.com/photo/202210/PCM20221027000011990_P4.jpg",
+      "date": "2022.10.16",
+      "title": "네이처모빌리티, 일본 현지여행 플랫폼 스마트박스 인수",
+      "contents": "",
+      "newsUrl": "https://www.hankyung.com/economy/article/202210277274Y"
     },
     {
       "pid": 4,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.10.26",
+      "date": "2022.10.12",
       "title": "4 [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": ""
+      "contents": "",
+      "newsUrl": "https://news.nate.com/view/20221012n19068?mid=n1101"
     },
     {
       "pid": 5,
       "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.10.26",
-      "title": "5 [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": ""
+      "date": "2022.10.04",
+      "title": "경남벤처투자, 제주 렌터카 플랫폼 ‘찜카’ 네이처모빌리티 베팅",
+      "contents": "",
+      "newsUrl": "https://core.asiae.co.kr/article/2022100408365474386"
     },
     {
       "pid": 6,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2022.10.26",
-      "title": "6 [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수, [뉴시스] 제주 기업 네이처모빌리티, 일본 여행 플랫폼 기업 인수",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": ""
+      "imgUrl": "https://image.zdnet.co.kr/2022/09/15/02dc0891940b0858f8d5ff7eb017b73b.jpg",
+      "date": "2022.09.15",
+      "title": "창업진흥원, 4차 산업혁명 페스티벌에서 전도유망 스타트업 소개",
+      "contents": "",
+      "newsUrl": "https://zdnet.co.kr/view/?no=20220915152235"
     }
   ]
 }

@@ -1,53 +1,53 @@
 {
-  "total": 30,
+  "total": 70,
   "newsList2": [
     {
       "pid": 1,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2023.01.14",
-      "title": "1 제주 렌터카 '100만원 바가지'에 분노…창업 후 400억 '잭팟' [방준식의 레저 스타트업]",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": "https://www.hankyung.com/life/article/202209136303i"
+      "imgUrl": "https://thumb.mt.co.kr/06/2022/09/2022090216522030780_1.jpg/dims/optimize/",
+      "date": "2022.09.02",
+      "title": "'2022 대한민국 굿컴퍼니대상', 중견·중소 '좋은 기업' 한자리에",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2022090216522030780"
     },
     {
       "pid": 2,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2023.01.14",
-      "title": "2 제주 렌터카 '100만원 바가지'에 분노…창업 후 400억 '잭팟' [방준식의 레저 스타트업]",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": "https://www.hankyung.com/life/article/202209136303i"
+      "imgUrl": "https://mobiinsidecontent.s3.ap-northeast-2.amazonaws.com/kr/wp-content/uploads/2022/08/29172034/%EB%84%A4%EC%9D%B4%EC%B2%981.jpg",
+      "date": "2022.08.30",
+      "title": "[아기유니콘 선정기업 2022] ‘통합’ 모빌리티 플랫폼의 진화는 어디까지? 네이처모빌리티, 이주상 대표 인터뷰",
+      "contents": "",
+      "newsUrl": "https://www.mobiinside.co.kr/2022/08/30/naturemobility-interview/"
     },
     {
       "pid": 3,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2023.01.14",
-      "title": "3 제주 렌터카 '100만원 바가지'에 분노…창업 후 400억 '잭팟' [방준식의 레저 스타트업]",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": "https://www.hankyung.com/life/article/202209136303i"
+      "imgUrl": "https://thumb.mt.co.kr/06/2022/08/2022081814534566800_1.jpg/dims/optimize/",
+      "date": "2022.08.18",
+      "title": "네이처모빌리티·카카오모빌리티, '카카오T 렌터카' 서비스 협업",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2022081814534566800"
     },
     {
       "pid": 4,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2023.01.14",
-      "title": "4 제주 렌터카 '100만원 바가지'에 분노…창업 후 400억 '잭팟' [방준식의 레저 스타트업]",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": "https://www.hankyung.com/life/article/202209136303i"
+      "imgUrl": "http://www.sisajournal-e.com/news/photo/202208/282124_112589_36.jpg",
+      "date": "2022.08.01",
+      "title": "[유니콘 발굴단⑫] 네이처모빌리티, 렌터카 예약에서 ‘통합 모빌리티’ 플랫폼 도약 준비",
+      "contents": "",
+      "newsUrl": "http://www.sisajournal-e.com/news/articleView.html?idxno=282124"
     },
     {
       "pid": 5,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2023.01.14",
-      "title": "5 제주 렌터카 '100만원 바가지'에 분노…창업 후 400억 '잭팟' [방준식의 레저 스타트업]",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": "https://www.hankyung.com/life/article/202209136303i"
+      "imgUrl": "https://platum.kr/wp-content/uploads/2022/07/ff.png",
+      "date": "2023.07.28",
+      "title": "모빌리티 플랫폼 기업 ‘네이처모빌리티’, 100억 원 규모 시리즈B 투자 유치",
+      "contents": "",
+      "newsUrl": "https://platum.kr/archives/190233"
     },
     {
       "pid": 6,
-      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
-      "date": "2023.01.14",
-      "title": "6 제주 렌터카 '100만원 바가지'에 분노…창업 후 400억 '잭팟' [방준식의 레저 스타트업]",
-      "contents": "contents에 img도 같이 v-html에 바로 보여주는 것.",
-      "newsUrl": "https://www.hankyung.com/life/article/202209136303i"
+      "imgUrl": "https://cdn.jejumaeil.net/news/photo/202207/317327_95056_5425.jpg",
+      "date": "2023.07.13",
+      "title": "(주)네이처모빌리티, K-예비유니콘 후보기업 선정",
+      "contents": "",
+      "newsUrl": "http://www.jejumaeil.net/news/articleViewAmp.html?idxno=317327"
     }
   ]
 }
