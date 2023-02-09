@@ -122,7 +122,7 @@ const emit = defineEmits(['mouseEnable']);
 const onTransitionEnd = e => {
   if (e.isEnd) {
     emit('mouseEnable');
-  } else if (e.activeIndex === 0 && mousewheelDirection.value) {
+  } else if (e.isBeginning && mousewheelDirection.value) {
     emit('mouseEnable');
   }
 };
