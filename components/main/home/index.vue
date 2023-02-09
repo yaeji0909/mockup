@@ -1,6 +1,6 @@
 <template>
   <header class="relative flex justify-center items-center h-screen overflow-hidden">
-    <main class="relative z-30 p-5 text-2xl mx-1 md:mx-8 xl:mx-80 w-screen xl:w-[1200px]">
+    <main class="relative z-30 p-5 text-2xl mx-1 md:mx-8 w-screen xl:w-[1200px]">
       <section class="home-title opacity-0">
         <h1 class="text-4xl md:text-6xl xl:text-8xl font-bold text-white">
           {{ $t('home.title1') }}
