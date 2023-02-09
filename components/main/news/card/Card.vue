@@ -4,7 +4,7 @@
     :class="
       isNewsPage
         ? 'grid md:grid-rows-3 xl:grid-rows-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-14 gap-x-6 xl:gap-x-10'
-        : 'flex flex-col md:flex-row items-center justify-center gap-10'
+        : 'flex flex-col lg:flex-row items-center justify-center gap-10'
     "
   >
     <div
