@@ -89,7 +89,7 @@ const modules = [Pagination, Mousewheel];
 
 let number = ref('01');
 
-let mousewheelDirection = ref(false);
+let mousewheelUp = ref(false);
 
 /**
  * custom pagination
@@ -108,9 +108,9 @@ onMounted(() => {
   // scroll move
   addEventListener('wheel', event => {
     if (event.deltaY < 0) {
-      mousewheelDirection.value = true;
+      mousewheelUp.value = true;
     } else {
-      mousewheelDirection.value = false;
+      mousewheelUp.value = false;
     }
   });
 });
@@ -118,11 +118,12 @@ onMounted(() => {
 /**
  * scroll move : 마지막 index 이후에 다음 컴포넌트 스크롤
  */
+// let isChildSlide = ref(true);
 const emit = defineEmits(['mouseEnable']);
 const onTransitionEnd = e => {
   if (e.isEnd) {
     emit('mouseEnable');
-  } else if (e.isBeginning && mousewheelDirection.value) {
+  } else if (e.isBeginning && mousewheelUp.value) {
     emit('mouseEnable');
   }
 };
