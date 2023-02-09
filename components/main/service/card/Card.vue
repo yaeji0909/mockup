@@ -15,6 +15,7 @@
     :modules="modules"
     @slideChange="e => onSlideChange(e)"
     ref="mySwiper"
+    class="md:mt-[50px] lg:mt-[30px]"
   >
     <swiper-slide
       v-for="service in services"
@@ -22,14 +23,16 @@
       class="w-[300px] lg:w-[450px] mt-[40px] mr-[0px] mb-[30px] ml-[0px] md:mt-[70px] md:mr-[50px] md:ml-[50px]"
     >
       <div
-        class="bg-white w-[175px] h-[175px] md:w-[260px] md:h-[260px] rounded-[14px] xl:rounded-[20px] flex flex-col items-center justify-center shadow-service"
+        class="bg-white w-[150px] h-[150px] md:w-[260px] md:h-[260px] lg:w-[175px] lg:h-[175px] xl:w-[260px] xl:h-[260px] rounded-[14px] xl:rounded-[20px] flex flex-col items-center justify-center shadow-service mt-[30px] md:mt-20 lg:mt-[30px] xl:mt-20"
       >
         <p class="text-base md:text-2xl font-medium text-center">
           {{ service.title }}
         </p>
         <img :key="service.id" :src="service.image" alt="service" class="mt-5 md:mt-10 w-[250px]" />
       </div>
-      <p class="w-[300px] px-[10px] text-gray-sub text-center mt-[20px] text-2xs md:text-base whitespace-pre-line">
+      <p
+        class="w-[300px] px-[10px] text-gray-sub text-center mt-[20px] text-2xs md:text-base lg:text-2xs xl:text-base whitespace-pre-line"
+      >
         {{ service.desc }}
       </p>
     </swiper-slide>
@@ -100,7 +103,8 @@ const largerThanMd = breakpoints.greater('md'); // only larger than md
 <style scoped>
 .swiper {
   /* width: 100%; */
-  padding: 50px 0 0 0;
+  /* padding: 50px 0 0 0; */
+  /* margin: 50px 0 0 0; */
 }
 .swiper-slide {
   background-position: center;

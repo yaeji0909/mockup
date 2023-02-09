@@ -13,7 +13,12 @@
     <!-- style tag로 적용 -->
     <div class="check-wrap">
       <label class="check-label">
-        <input type="checkbox" :disabled="disabled" />
+        <input
+          type="checkbox"
+          :disabled="disabled"
+          v-model="check"
+          @change="$emit('toggleCheck', check)"
+        />
         <span :class="['check', disabled ? 'bg-gray-200' : '']"></span>
       </label>
       <label>{{ text }}</label>
@@ -26,6 +31,9 @@ const props = defineProps({
   text: String,
   disabled: Boolean,
 });
+
+const check = ref(false);
+const emit = defineEmits(['toggleCheck']);
 </script>
 
 <style scoped>

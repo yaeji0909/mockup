@@ -5,8 +5,9 @@
       type="text"
       class="text-base flex items-center p-2 text-indigo-100 bg-gray-bg focus:bg-white focus:shadow-mint border-[1.5px] border-gray-border focus:text-gray-caption focus:border-primary-aqua rounded-[10px] w-full min-w-[335px] outline-none"
       :class="onError && 'focus:border-error focus:shadow-error'"
-      :modelValue="value"
-      @update:modelValue="value = $event"
+      :value="value"
+      @input="$emit('input', $event)"
+      :disabled="disabled"
     />
   </div>
 </template>
@@ -19,10 +20,11 @@ const props = defineProps({
   onError: Boolean,
   placeholder: String,
   value: String,
+  disabled: Boolean,
 });
 
 const debouncedSearch = () => {
-  return debounce(1000, keyword => {
+  return debounce(1000, (keyword) => {
     onSearch(keyword);
   });
 };
@@ -31,12 +33,4 @@ onMounted(() => {
     show = false;
   }
 });
-console.log('props.value', props.value);
-
-watch(
-  () => props.value,
-  (first, second) => {
-    console.log('Watch props.value function called with args:', first, second);
-  },
-);
 </script>

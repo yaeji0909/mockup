@@ -1,5 +1,5 @@
 <template>
-  <swiper
+  <Swiper
     :direction="'vertical'"
     autoHeight
     :grabCursor="true"
@@ -11,9 +11,11 @@
       clickable: true,
     }"
     @slideChange="e => onSlideChange(e)"
+    class="service"
+    @transitionEnd="e => onTransitionEnd(e)"
   >
     <!-- 1 -->
-    <swiper-slide
+    <SwiperSlide
       class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
     >
       <div class="mt-10 xl:mr-20">
@@ -24,13 +26,13 @@
           {{ $t('service.1-desc') }}
         </p>
       </div>
-      <img :src="SERVICE_1" alt="SERVICE_1" class="w-[400px] md:w-[500px]" />
-    </swiper-slide>
+      <img :src="SERVICE_1" alt="SERVICE_1" class="w-[300px] md:w-[500px]" />
+    </SwiperSlide>
     <!-- 2 -->
-    <swiper-slide
-      class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
+    <SwiperSlide
+      class="xl:w-[1200px] flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
-      <img :src="SERVICE_2" alt="SERVICE_2" class="w-[400px] md:w-[500px]" />
+      <img :src="SERVICE_2" alt="SERVICE_2" class="w-[300px] md:w-[500px]" />
       <div class="mt-10 xl:mr-20">
         <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
           {{ $t('service.2') }}
@@ -39,9 +41,9 @@
           {{ $t('service.2-desc') }}
         </p>
       </div>
-    </swiper-slide>
+    </SwiperSlide>
     <!-- 3 -->
-    <swiper-slide
+    <SwiperSlide
       class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
       <div class="mt-10 xl:mr-20">
@@ -52,13 +54,13 @@
           {{ $t('service.3-desc') }}
         </p>
       </div>
-      <img :src="SERVICE_3" alt="SERVICE_3" class="w-[400px] md:w-[500px]" />
-    </swiper-slide>
+      <img :src="SERVICE_3" alt="SERVICE_3" class="w-[300px] md:w-[500px]" />
+    </SwiperSlide>
     <!-- 4 -->
-    <swiper-slide
+    <SwiperSlide
       class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
-      <img :src="SERVICE_4" alt="SERVICE_4" class="w-[400px] md:w-[500px]" />
+      <img :src="SERVICE_4" alt="SERVICE_4" class="w-[300px] md:w-[500px]" />
       <div class="mt-10 xl:mr-20">
         <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
           {{ $t('service.4') }}
@@ -67,8 +69,8 @@
           {{ $t('service.4-desc') }}
         </p>
       </div>
-    </swiper-slide>
-  </swiper>
+    </SwiperSlide>
+  </Swiper>
 </template>
 
 <script setup>
@@ -87,12 +89,14 @@ const modules = [Pagination, Mousewheel];
 
 let number = ref('01');
 
+let mousewheelDirection = ref(false);
+
 /**
  * custom pagination
  */
 onMounted(() => {
   // add line
-  const el = document.querySelector('.swiper-pagination');
+  const el = document.querySelector('.service .swiper-pagination');
   const line = document.createElement('div');
   el.prepend(line);
   // add number
@@ -100,7 +104,28 @@ onMounted(() => {
   let num = document.createTextNode('01');
   p.appendChild(num);
   el.prepend(p);
+
+  // scroll move
+  addEventListener('wheel', event => {
+    if (event.deltaY < 0) {
+      mousewheelDirection.value = true;
+    } else {
+      mousewheelDirection.value = false;
+    }
+  });
 });
+
+/**
+ * scroll move : 마지막 index 이후에 다음 컴포넌트 스크롤
+ */
+const emit = defineEmits(['mouseEnable']);
+const onTransitionEnd = e => {
+  if (e.isEnd) {
+    emit('mouseEnable');
+  } else if (e.activeIndex === 0 && mousewheelDirection.value) {
+    emit('mouseEnable');
+  }
+};
 
 /**
  * change number
@@ -125,6 +150,7 @@ const onSlideChange = e => {
 .swiper-slide {
   background: #fff;
   height: 100vh;
+  display: flex;
 }
 :deep(.swiper-pagination-vertical) {
   right: 5%;
@@ -141,7 +167,7 @@ const onSlideChange = e => {
   border: solid 1px #d5dde5;
   margin: 20px 0 30px 0;
 }
-/* nymber */
+/* number */
 :deep(.swiper-pagination-vertical > p) {
   font-size: 18px;
   color: #37d1c7;

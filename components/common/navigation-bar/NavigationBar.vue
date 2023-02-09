@@ -1,31 +1,35 @@
 <template>
-  <div :class="showMenu ? ' h-screen text-black bg-white' : 'bg-black text-white'" ref="navigationBox">
-    <nav class="container px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
+  <div :class="[props.color === 'white' ? 'bg-transparent text-black' : 'bg-transparent text-white']">
+    <nav
+      class="xl:w-[1200px] px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
+      :class="showMenu ? 'h-screen bg-white' : 'bg-transparent'"
+    >
       <div class="flex items-center justify-between">
-        <NuxtLink to="/">
-          <nuxt-img :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${logoColor.main}.svg`" />
+        <NuxtLink to="/" @click="moveToSlideOne">
+          <nuxt-img
+            :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/logo-${navColor.main}.svg`"
+            class="w-[140px] md:w-[180px] lg:w-[160px] xl:w-[180px]"
+          />
         </NuxtLink>
 
-        <div
-          class="hidden xs:block sm:pl-40 md:hidden text-xs"
-          :class="showMenu || color === 'white' ? ' text-black' : 'text-white'"
-        >
-          <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;</button>
-          <span>|</span>
-          <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
-        </div>
+        <!-- Mobile menu button -->
         <div class="flex justify-center items-center">
-          <button class="xs:hidden w-4 h-4 relative">
+          <div
+            class="hidden xs:block sm:pl-40 md:hidden text-xs mr-[37px]"
+            :class="props.color === 'white' ? 'bg-transparent text-black' : 'bg-transparent text-white'"
+          >
+            <button class="hover:text-primary-aqua">KOR&nbsp;&nbsp;</button>
+            <span>|</span>
+            <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
+          </div>
+          <button class="xs:hidden w-4 h-4 relative mr-[19px]">
             <img
               @click="langBtnClickHandler"
-              :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang${logoColor.lang}.svg`"
+              :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang-${navColor.lang}.svg`"
             />
           </button>
           <div @click="showMenuHandler" class="flex md:hidden">
-            <CommonNavigationBarHamburger
-              :color="showMenu || color === 'white' ? 'black' : 'white'"
-              :showMenu="showMenu"
-            />
+            <CommonNavigationBarHamburger :color="navColor.hamburger" :showMenu="showMenu" />
           </div>
         </div>
       </div>
@@ -38,10 +42,10 @@
         <li
           class="mx-3 hover:text-primary-aqua cursor-pointer font-semibold text-xs md:text-xl xl:tex-=2xl"
           v-for="value in menu"
-          :key="value"
-          :class="color === 'white' && 'text-black'"
+          :key="value.slide"
+          @click="e => clickNav(value.slide)"
         >
-          {{ value }}
+          {{ value.nav }}
         </li>
       </ul>
       <div class="hidden md:block text-xs">
@@ -51,7 +55,7 @@
       </div>
       <div
         v-if="langBtnIsClicked"
-        class="bg-white w-11 h-[52px] absolute top-14 right-11 z-10 rounded-sm flex flex-col justify-center text-black sm:hidden"
+        class="bg-white w-11 h-[52px] absolute top-11 right-10 z-10 rounded-sm flex flex-col justify-center text-black"
       >
         <button class="text-xs hover:text-primary-aqua p-1">KOR</button>
         <button class="text-xs hover:text-primary-aqua p-1">ENG</button>
@@ -63,58 +67,84 @@
 <script setup>
 import { onMounted, ref, reactive } from 'vue';
 
-const menu = ['Service', 'Company', 'News', 'Recruit', 'Contact'];
-
-const showMenu = ref(false);
-const langBtnIsClicked = ref(false);
-const navigationBox = ref(null);
+const menu = [
+  { slide: 1, nav: 'Service' },
+  { slide: 4, nav: 'Company' },
+  { slide: 5, nav: 'News' },
+  { slide: 6, nav: 'Recruit' },
+  { slide: 7, nav: 'Contact' },
+];
 
 const props = defineProps({
   color: String,
 });
 
-// const checkEmit = (value) => {
-//   console.log(value);
-//   return value;
-// };
-
+/**
+ * show menu (only mobile)
+ */
+const showMenu = ref(false);
 const showMenuHandler = () => {
   showMenu.value = !showMenu.value;
 };
 
+/**
+ * click language
+ */
+const langBtnIsClicked = ref(false);
 const langBtnClickHandler = () => {
   langBtnIsClicked.value = !langBtnIsClicked.value;
 };
 
-const changeColor = prevValue => {
-  if (prevValue === true) {
-    logoColor.main = 'mint';
-    logoColor.lang = '-black';
-  }
-  if (prevValue === false) {
-    logoColor.main = 'white';
-    logoColor.lang = '';
-  }
-};
-
-watch(showMenu, newValue => {
-  changeColor(newValue);
-});
-
-const logoColor = reactive({
+/**
+ * change navigation color according to showMenu && props.color
+ */
+const navColor = reactive({
   main: 'white',
-  lang: '',
+  lang: 'white',
+  hamburger: 'white',
 });
+
+watch([() => showMenu.value, () => props.color], ([newShowMenu, newColor], [preShowMenu, preColor]) => {
+  if (!newShowMenu && newColor === 'black') {
+    changeNavColor('white', 'white', 'white');
+  } else {
+    changeNavColor('mint', 'black', 'black');
+  }
+});
+
+const changeNavColor = (logo, lang, ham) => {
+  navColor.main = logo;
+  navColor.lang = lang;
+  navColor.hamburger = ham;
+};
 
 onMounted(() => {
   if (props.color === 'white') {
-    logoColor.main = 'mint';
-    logoColor.lang = '-black';
-    console.log(navigationBox.value.classList);
-    navigationBox.value.classList.add('bg-white');
-    navigationBox.value.classList.add('text-black');
+    navColor.main = 'mint';
+    navColor.lang = 'black';
+    navColor.hamburger = 'black';
   }
 });
+
+/**
+ * nav bar scroll move emit
+ */
+const emit = defineEmits(['scrollTo']);
+const route = useRoute();
+const router = useRouter();
+
+const clickNav = slide => {
+  if (route.path === '/') {
+    emit('scrollTo', slide);
+  } else {
+    router.push({ path: '/', query: { slide, isMain: false } });
+  }
+  showMenu.value = false;
+};
+
+const moveToSlideOne = () => {
+  emit('scrollTo', 0);
+};
 </script>
 
 <style scoped>

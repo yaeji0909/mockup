@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-bg h-screen pt-10 lg:pt-20">
+  <div class="bg-gray-bg pt-10 lg:pt-20">
     <div class="text-center">
       <h3 class="text-base md:text-xl lg:text-2xl text-gray-caption font-medium">CUSTOMER REVIEWS</h3>
       <h1 class="text-3xl md:text-4xl lg:text-5xl text-black font-bold">

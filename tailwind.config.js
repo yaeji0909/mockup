@@ -59,18 +59,21 @@ module.exports = {
       },
       dropShadow: {
         review: '10px 6px 6px #ededed',
+        history: '0px 8px 20px rgba(55, 209, 199, 0.8)',
       },
       backgroundImage: {
-        service:
-          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-bg.svg)',
-        phone:
-          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
-        'service-header':
-          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
-        'review-5':
-          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
-        'contact-header':
-          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
+        service: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-bg.svg)',
+        phone: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
+        'service-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
+        'review-5': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
+        'contact-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
+        'pagination-bk': 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_bk.svg)',
+        'pagination-gray':
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_gray.svg)',
+        'pagination-mint':
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_mint.svg)',
+        'search-black': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg')",
+        'search-mint': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg')",
       },
     },
     plugins: [],

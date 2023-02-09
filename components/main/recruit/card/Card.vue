@@ -1,7 +1,7 @@
 <template>
   <div class="bg-secondary-beige h-screen">
     <!-- status -->
-    <swiper
+    <Swiper
       :grabCursor="true"
       :slidesPerView="'auto'"
       :centeredSlides="largerThanSm ? false : true"
@@ -13,7 +13,7 @@
       }"
       class="board"
     >
-      <swiper-slide
+      <SwiperSlide
         v-for="(board, idx) in recruitBoardList"
         :key="board.department"
         class="board flex justify-center items-center gap-2"
@@ -21,14 +21,18 @@
         <p class="text-base font-medium">{{ board.department }}</p>
         <p
           class="text-xs font-bold rounded-full w-[29px] h-[24px] flex justify-center items-center"
-          :class="idx === 0 ? ['bg-black', 'text-white'] : ['bg-gray-border', 'text-black']"
+          :class="
+            idx === 0
+              ? ['bg-black', 'text-white']
+              : ['bg-gray-border', 'text-black']
+          "
         >
           {{ board.num }}
         </p>
-      </swiper-slide>
-    </swiper>
+      </SwiperSlide>
+    </Swiper>
     <!-- card -->
-    <swiper
+    <Swiper
       :grabCursor="true"
       :centeredSlides="largerThanSm ? false : true"
       :spaceBetween="30"
@@ -42,7 +46,7 @@
       }"
       class="card"
     >
-      <swiper-slide
+      <SwiperSlide
         v-for="r in recruit"
         :key="r.title"
         class="card bg-white rounded-[20px] shadow-recruit mt-10 mb-10 md:my-12"
@@ -57,17 +61,21 @@
             {{ r.career }}
           </p>
         </div>
-        <h3 class="recruit-title text-xl md:text-2xl xl:text-3xl font-bold text-black pt-[13px] overflow-hidden">
+        <h3
+          class="recruit-title text-xl md:text-2xl xl:text-3xl font-bold text-black pt-[13px] overflow-hidden"
+        >
           {{ r.title }}
         </h3>
         <p class="text-xs md:text-sm xl:text-base text-gray-caption pt-[10px]">
           {{ r.location }}
         </p>
-        <h3 class="text-xl md:text-2xl xl:text-3xl font-bold text-primary-aqua pt-[12px] xl:pt-[23px]">
+        <h3
+          class="text-xl md:text-2xl xl:text-3xl font-bold text-primary-aqua pt-[12px] xl:pt-[23px]"
+        >
           {{ r.dueDate }}
         </h3>
-      </swiper-slide>
-    </swiper>
+      </SwiperSlide>
+    </Swiper>
   </div>
 </template>
 
@@ -125,6 +133,7 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
     width: 120px !important;
     height: 50px;
     margin-top: 2rem;
+    display: flex !important;
   }
   :deep(.swiper-slide.card) {
     width: 372px !important;
@@ -136,6 +145,7 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
   :deep(.swiper-slide.board) {
     width: 120px !important;
     height: 50px;
+    display: flex !important;
   }
   :deep(.swiper-slide.card) {
     width: 304px !important;
@@ -147,6 +157,7 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
   :deep(.swiper-slide.board) {
     width: 120px !important;
     height: 50px;
+    display: flex;
   }
   :deep(.swiper-slide.card) {
     width: 260px !important;

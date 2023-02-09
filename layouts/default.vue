@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CommonNavigationBar />
+    <!-- <CommonNavigationBar class="fixed z-10 w-screen" /> -->
     <slot />
     <!-- <CommonFooter /> -->
   </div>
