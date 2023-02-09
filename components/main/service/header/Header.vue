@@ -1,20 +1,20 @@
 <template>
-  <div class="">
-    <div
-      class="flex-col justify-center items-center bg-service-header bg-cover bg-right bg-no-repeat py-40 xl:py-32 pl-8 xl:pl-80"
-    >
-      <h1 class="text-4xl xl:text-7xl font-bold text-white">
-        <span class="text-primary-aqua">{{ $t('service.zzimcar') }}</span
-        >{{ $t('service.zzimcarAbout') }}
-      </h1>
-      <CommonButton
-        bgColor="none"
-        textColor="white"
-        :text="$t('service.zzimcarDirect')"
-        :icon="false"
-        @click="ClickBtn(ZZIMCAR_URL)"
-        class="mt-8"
-      />
+  <div>
+    <div class="flex justify-left items-center bg-service-header bg-cover bg-right bg-no-repeat py-40 px-6">
+      <div class="xl:w-[1200px]">
+        <h1 class="text-4xl xl:text-7xl font-bold text-white">
+          <span class="text-primary-aqua">{{ $t('service.zzimcar') }}</span
+          >{{ $t('service.zzimcarAbout') }}
+        </h1>
+        <CommonButton
+          bgColor="none"
+          textColor="white"
+          :text="$t('service.zzimcarDirect')"
+          :icon="false"
+          @click="ClickBtn(ZZIMCAR_URL)"
+          class="mt-8"
+        />
+      </div>
     </div>
     <MainServiceReviewCard />
   </div>
