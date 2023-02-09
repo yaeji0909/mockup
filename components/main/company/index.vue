@@ -49,7 +49,7 @@ const COMPANY_VIDEO = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/vi
  */
 let year = ref('2022');
 
-let mousewheelDirection = ref(false);
+let mousewheelUp = ref(false);
 
 const onSlideChange = e => {
   changeYearColor(year.value, e.activeIndex);
@@ -155,9 +155,9 @@ onMounted(() => {
   // scroll move
   addEventListener('wheel', event => {
     if (event.deltaY < 0) {
-      mousewheelDirection.value = true;
+      mousewheelUp.value = true;
     } else {
-      mousewheelDirection.value = false;
+      mousewheelUp.value = false;
     }
   });
 });
@@ -169,7 +169,7 @@ const emit = defineEmits(['mouseEnable']);
 const onTransitionEnd = e => {
   if (e.isEnd) {
     emit('mouseEnable');
-  } else if (e.activeIndex === 0 && mousewheelDirection.value) {
+  } else if (e.activeIndex === 0 && mousewheelUp.value) {
     emit('mouseEnable');
   }
 };
