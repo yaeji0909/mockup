@@ -1,10 +1,10 @@
 <template>
-  <div class="h-screen text-center bg-white pt-28 md:pt-60">
+  <div class="h-auto lg:h-screen text-center bg-white pt-28 md:pt-60">
     <h1 class="news-title opacity-0 text-4xl md:text-6xl xl:text-7xl font-bold">News</h1>
     <p class="news-desc opacity-0 text-base md:text-xl">{{ $t('news.sub') }}</p>
     <ClientOnly>
       <MainNewsCard :news="newsList" />
-      <div class="mt-28">
+      <div class="my-28">
         <CommonButton
           bdColor="primary-aqua"
           textColor="primary-aqua"
