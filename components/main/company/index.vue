@@ -18,6 +18,7 @@
       }"
       @slideChange="e => onSlideChange(e)"
       class="company"
+      @transitionEnd="e => onTransitionEnd(e)"
     >
       <swiper-slide class="flex min-h-screen">
         <MainCompanyContentsOne />
@@ -149,6 +150,17 @@ onMounted(() => {
     });
   }
 });
+
+/**
+ * scroll move : 마지막 index 이후에 다음 컴포넌트 스크롤
+ */
+const emit = defineEmits(['mouseEnable']);
+const onTransitionEnd = e => {
+  console.log('company e', e);
+  if (e.isEnd) {
+    emit('mouseEnable');
+  }
+};
 </script>
 
 <style scoped>

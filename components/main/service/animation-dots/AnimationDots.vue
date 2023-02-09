@@ -12,6 +12,7 @@
     }"
     @slideChange="e => onSlideChange(e)"
     class="service"
+    @transitionEnd="e => onTransitionEnd(e)"
   >
     <!-- 1 -->
     <SwiperSlide
@@ -102,6 +103,17 @@ onMounted(() => {
   p.appendChild(num);
   el.prepend(p);
 });
+
+/**
+ * scroll move : 마지막 index 이후에 다음 컴포넌트 스크롤
+ */
+const emit = defineEmits(['mouseEnable']);
+const onTransitionEnd = e => {
+  // console.log('animationDot e', e);
+  if (e.isEnd) {
+    emit('mouseEnable');
+  }
+};
 
 /**
  * change number

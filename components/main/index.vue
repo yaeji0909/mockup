@@ -1,10 +1,6 @@
 <template>
   <div>
-    <CommonNavigationBar
-      class="fixed z-20 w-screen"
-      @scrollTo="scrollTo"
-      :color="color"
-    />
+    <CommonNavigationBar class="fixed z-20 w-screen" @scrollTo="scrollTo" :color="color" />
 
     <Swiper
       :direction="'vertical'"
@@ -13,8 +9,8 @@
       :mousewheel="true"
       :modules="modules"
       :speed="300"
-      class="main-swiper swiper-v"
-      @slideChange="(e) => onSlideChange(e)"
+      class="main-swiper"
+      @slideChange="e => onSlideChange(e)"
     >
       <SwiperSlide id="home">
         <MainHome />
@@ -23,13 +19,13 @@
         <MainService />
       </SwiperSlide>
       <SwiperSlide id="serviceAnimationDots">
-        <MainServiceAnimationDots />
+        <MainServiceAnimationDots @mouseEnable="mouseEnable" />
       </SwiperSlide>
       <SwiperSlide id="serviceHeader">
         <MainServiceHeader />
       </SwiperSlide>
       <SwiperSlide id="company">
-        <MainCompany />
+        <MainCompany @mouseEnable="mouseEnable" />
       </SwiperSlide>
       <SwiperSlide id="news">
         <MainNews />
@@ -69,7 +65,7 @@ onMounted(() => {
 });
 
 // 메인 페이지에서 스크롤 이동
-const scrollTo = (slide) => {
+const scrollTo = slide => {
   swiper.slideTo(slide);
 };
 
@@ -77,41 +73,22 @@ const scrollTo = (slide) => {
  * change navigation bar color
  */
 const color = ref('black');
-const onSlideChange = (e) => {
-  if (
-    e.activeIndex === 0 ||
-    e.activeIndex === 3 ||
-    e.activeIndex === 4 ||
-    e.activeIndex === 6 ||
-    e.activeIndex === 7
-  ) {
+const onSlideChange = e => {
+  if (e.activeIndex === 0 || e.activeIndex === 3 || e.activeIndex === 4 || e.activeIndex === 6 || e.activeIndex === 7) {
     color.value = 'black';
-  } else if (
-    e.activeIndex === 1 ||
-    e.activeIndex === 2 ||
-    e.activeIndex === 5
-  ) {
+  } else if (e.activeIndex === 1 || e.activeIndex === 2 || e.activeIndex === 5) {
     color.value = 'white';
   }
 
-  if (e.activeIndex === 3 || e.activeIndex === 7) {
+  console.log('e.activeIndex', e.activeIndex);
+  // 2:service swiper  4:company swiper  5:news(길이문제)
+  if (e.activeIndex === 2 || e.activeIndex === 4 || e.activeIndex === 5) {
     swiper.mousewheel.disable();
-    // onTransitionStart(e.activeIndex);
-  } else {
-    // swiper.mousewheel.enable();
-    // onTransitionEnd(e.activeIndex);
   }
-  // onTransitionStart(e.activeIndex);
 };
 
-const onTransitionStart = (idx) => {
-  swiper.mousewheel.disable();
-  // swiper.params.touchReleaseOnEdges = false;
-  // swiper.params.mousewheel.releaseOnEdges = false;
-};
-const onTransitionEnd = (idx) => {
+const mouseEnable = () => {
+  console.log('마우스 다시 움직여');
   swiper.mousewheel.enable();
-  // swiper.params.touchReleaseOnEdges = false;
-  // swiper.params.mousewheel.releaseOnEdges = false;
 };
 </script>
