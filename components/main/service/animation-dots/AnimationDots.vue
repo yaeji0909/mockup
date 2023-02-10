@@ -10,6 +10,7 @@
     :pagination="{
       clickable: true,
     }"
+    :speed="200"
     @slideChange="e => onSlideChange(e)"
     class="service"
     @transitionEnd="e => onTransitionEnd(e)"
