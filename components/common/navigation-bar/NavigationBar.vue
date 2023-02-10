@@ -1,7 +1,7 @@
 <template>
   <div :class="[props.color === 'white' ? 'bg-white text-black' : 'bg-transparent text-white']">
     <nav
-      class="xl:w-[1200px] px-6 py-8 mx-auto md:flex md:justify-between md:items-center"
+      class="xl:w-[1200px] p-5 md:px-6 md:py-8 mx-auto md:flex md:justify-between md:items-center"
       :class="showMenu ? 'h-screen bg-white' : 'bg-transparent'"
     >
       <div class="flex items-center justify-between">
