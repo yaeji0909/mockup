@@ -94,29 +94,32 @@ const color = ref('black');
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
+const largerThanLg = breakpoints.greater('lg'); // only larger than lg
 
 const onSlideChange = e => {
+  // console.log('e.activeIndex', e.activeIndex);
   if (e.activeIndex === 0 || e.activeIndex === 3 || e.activeIndex === 4 || e.activeIndex === 6 || e.activeIndex === 7) {
     color.value = 'black';
   } else if (e.activeIndex === 1 || e.activeIndex === 2 || e.activeIndex === 5) {
     color.value = 'white';
   }
 
-  // scroll 조정
-  console.log('e.activeIndex', e.activeIndex);
+  /**
+   * scroll 조정
+   */
   if (e.activeIndex === 2 || e.activeIndex === 4) {
-    // 2:service swiper  4:company swiper
+    // 2:service swiper  4:company swiper (자식 스와이퍼 먼저 스크롤 위해)
     swiper.mousewheel.disable();
   }
-  if (largerThanSm) {
-    // 길이 문제
+  if (!largerThanLg.value) {
+    // news, contact : lg 이하는 disable (tablet, mobile 컨텐츠 스크롤 위해)
     if (e.activeIndex === 5 || e.activeIndex === 7) {
-      // 5:news  7:contact
       swiper.mousewheel.disable();
     }
-  } else {
+  }
+  if (!largerThanSm.value) {
+    // service : sm 이하는 disable (mobile 컨텐츠 스크롤 위해)
     if (e.activeIndex === 3) {
-      // 3:service
       swiper.mousewheel.disable();
     }
   }
