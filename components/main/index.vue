@@ -8,7 +8,7 @@
       :slidesPerView="'auto'"
       :mousewheel="true"
       :modules="modules"
-      :speed="300"
+      :speed="500"
       class="main-swiper"
       @slideChange="e => onSlideChange(e)"
     >
@@ -42,13 +42,12 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Mousewheel, FreeMode, Scrollbar } from 'swiper';
+import { Mousewheel, FreeMode } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import 'swiper/css/scrollbar';
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
-const modules = [Mousewheel, FreeMode, Scrollbar];
+const modules = [Mousewheel, FreeMode];
 
 /**
  * nav bar scroll move
@@ -56,11 +55,8 @@ const modules = [Mousewheel, FreeMode, Scrollbar];
 let swiper = ref(null);
 const route = useRoute();
 
-// news content 스크롤
-let contentEnd = ref(false);
-watch(contentEnd, newValue => {
-  if (newValue) swiper.mousewheel.enable();
-});
+let mousewheelUp = false;
+let currentIdx = null;
 
 onMounted(() => {
   swiper = document.querySelector('.main-swiper').swiper;
@@ -70,14 +66,29 @@ onMounted(() => {
     swiper.slideTo(route.query.slide);
   }
 
-  window.addEventListener('scroll', function () {
-    const maxHeight = document.body.scrollHeight - window.innerHeight;
-    // console.log((pageYOffset * 100) / maxHeight);
-    const wheelLocation = (window.pageYOffset * 100) / maxHeight;
-    if (wheelLocation === 0 || wheelLocation === 100) {
-      contentEnd.value = true;
+  // scroll move direcntion
+  addEventListener('wheel', event => {
+    if (event.deltaY < 0) {
+      mousewheelUp = true;
     } else {
-      contentEnd.value = false;
+      mousewheelUp = false;
+    }
+  });
+
+  addEventListener('scroll', function () {
+    const maxHeight = document.body.scrollHeight - window.innerHeight;
+    const wheelLocation = (window.pageYOffset * 100) / maxHeight;
+
+    if (currentIdx === 5) {
+      if ((wheelLocation === 0 && mousewheelUp) || (wheelLocation === 100 && !mousewheelUp)) {
+        swiper.mousewheel.enable();
+      }
+    } else if (currentIdx === 7) {
+      if (wheelLocation === 0 && mousewheelUp) {
+        swiper.mousewheel.enable();
+      } else {
+        swiper.mousewheel.disable();
+      }
     }
   });
 });
@@ -97,6 +108,7 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 const largerThanLg = breakpoints.greater('lg'); // only larger than lg
 
 const onSlideChange = e => {
+  currentIdx = e.activeIndex;
   // console.log('e.activeIndex', e.activeIndex);
   if (e.activeIndex === 0 || e.activeIndex === 3 || e.activeIndex === 4 || e.activeIndex === 6 || e.activeIndex === 7) {
     color.value = 'black';
