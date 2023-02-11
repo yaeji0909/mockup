@@ -1,5 +1,5 @@
 <template>
-  <ClientOnly>
+  <div>
     <footer class="bg-gray-bg px-5 py-[30px]">
       <div
         class="md:flex-col md:items-center w-[335px] md:w-[710px] xl:w-[1200px] m-auto"
@@ -111,7 +111,7 @@
     >
       <CommonDialogContact @close="open = false" />
     </section>
-  </ClientOnly>
+  </div>
 </template>
 
 <script setup>

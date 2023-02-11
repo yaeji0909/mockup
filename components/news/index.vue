@@ -5,16 +5,14 @@
         <CommonInputSearch :total="total" @input="searchInput" />
       </div>
       <div class="mt-[40px] xl:mt-[50px] border border-gray-sub" />
-      <ClientOnly>
-        <MainNewsCard :news="news" :isNewsPage="true" ref="newsCardList" />
-        <CommonPagination
-          class="mt-32"
-          :itemPerPage="6"
-          :totalCount="totalCount"
-          @changePage="changePage"
-        />
-        <!-- <CommonPaging :items="newsList" /> -->
-      </ClientOnly>
+      <MainNewsCard :news="news" :isNewsPage="true" ref="newsCardList" />
+      <CommonPagination
+        class="mt-32"
+        :itemPerPage="6"
+        :totalCount="totalCount"
+        @changePage="changePage"
+      />
+      <!-- <CommonPaging :items="newsList" /> -->
     </main>
   </div>
 </template>
