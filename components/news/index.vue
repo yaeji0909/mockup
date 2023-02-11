@@ -9,7 +9,6 @@
         <MainNewsCard :news="news" :isNewsPage="true" ref="newsCardList" />
         <CommonPagination
           class="mt-32"
-          :news="news"
           :itemPerPage="6"
           :totalCount="totalCount"
           @changePage="changePage"
