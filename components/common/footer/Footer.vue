@@ -60,7 +60,8 @@
         >
           <p>{{ $t('footer.copyright') }}</p>
           <div class="flex gap-[10px] xl:gap-[15px] mb-5 md:mb-0">
-            <button
+            <a
+              href="https://blog.naver.com/naturemobility"
               class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center drop-shadow"
             >
               <img
@@ -68,7 +69,7 @@
                 :src="NAVER"
                 alt="NAVER"
               />
-            </button>
+            </a>
             <button
               class="w-9 h-9 md:w-7 md:h-7 xl:w-9 xl:h-9 bg-white rounded-full flex justify-center items-center drop-shadow"
             >
@@ -100,9 +101,13 @@
         </section>
       </div>
     </footer>
+    <div
+      v-if="open"
+      class="w-full h-[163vh] bg-black absolute top-0 bg-opacity-50 fixed overflow-hidden z-20"
+    ></div>
     <section
       v-if="open"
-      class="absolute z-30 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+      class="absolute z-30 top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
     >
       <CommonDialogContact @close="open = false" />
     </section>
