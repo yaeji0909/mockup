@@ -3,7 +3,7 @@
     class="flex justify-center items-center text-xs md:text-base font-medium"
   >
     <vue-awesome-paginate
-      :total-items="70"
+      :total-items="totalCount"
       v-model="currentPage"
       :items-per-page="props.itemPerPage"
       :max-pages-shown="3"
@@ -14,11 +14,11 @@
         <button
           :class="[
             'prev-btn cursor-pointer w-[20px] h-[20px] bg-no-repeat bg-center',
-            previousButtonDisabled
+            prevButtonDisabled
               ? 'bg-pagination-gray cursor-not-allowed rotate-180'
               : 'bg-pagination-bk hover:bg-pagination-mint rotate-180',
           ]"
-          :disabled="previousButtonDisabled"
+          :disabled="prevButtonDisabled"
           @click="previous"
         />
       </template>
@@ -41,22 +41,31 @@
 
 <script setup>
 let currentPage = ref(1);
-let paginate_total = ref(0);
-let search_filter = ref('');
-let status_filter = ref('');
 
 const props = defineProps({
   itemPerPage: {
     type: Number,
     default: 6,
   },
+  totalCount: {
+    type: Number,
+    default: 70,
+  },
 });
 
 const emit = defineEmits(['changePage']);
 const onClickHandler = (page) => {
-  // currentPage.value = page;
+  currentPage.value = page;
   emit('changePage', page);
 };
+
+// 다음 버튼 비활성화 조건
+const nextButtonDisabled = computed(
+  () => currentPage.value >= Math.ceil(props.totalCount / props.itemPerPage)
+);
+
+// 이전 버튼 비활성화 조건
+const prevButtonDisabled = computed(() => currentPage.value <= 1);
 </script>
 
 <style scoped>

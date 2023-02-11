@@ -10,7 +10,8 @@
         <CommonPagination
           class="mt-32"
           :news="news"
-          :itemPerPage="itemPerPage"
+          :itemPerPage="6"
+          :totalCount="totalCount"
           @changePage="changePage"
         />
         <!-- <CommonPaging /> -->
@@ -51,13 +52,14 @@ const changePage = (param) => {
   currentPage.value = param;
 };
 
-let totalNewsList = ref([...newsList]);
-
 /**
  * 검색
  */
+let totalNewsList = ref([...newsList]);
+let totalCount = ref(total);
 const searchInput = (e) => {
   const filteredList = changeTextColor(e, totalNewsList.value);
   news.value = filteredList;
+  totalCount.value = news.value.length;
 };
 </script>
