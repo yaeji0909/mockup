@@ -28,9 +28,11 @@
         "
       />
       <p class="text-primary-aqua text-base font-medium pt-5">{{ n.date }}</p>
-      <h4 class="news-title text-black text-2xl font-bold pt-3 overflow-hidden">
-        {{ n.title }}
-      </h4>
+
+      <h4
+        class="news-title text-black text-2xl font-bold pt-3 overflow-hidden"
+        v-html="n.colorTitle || n.title"
+      />
       <div v-if="largerThanSm && !isNewsPage">
         <CommonButtonShortcutBtn
           :text="$t('button.moreDetail')"

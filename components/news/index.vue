@@ -58,44 +58,6 @@ let totalNewsList = ref([...newsList]);
  */
 const searchInput = (e) => {
   const filteredList = changeTextColor(e, totalNewsList.value);
-
-  if (!e.target.value) {
-    news.value = newsList;
-  } else {
-    news.value = filteredList;
-  }
+  news.value = filteredList;
 };
-
-/**
- * new pagiation
- */
-// const totalCount = total;
-// let news = ref(newsList1);
-// let currentPage = ref(1);
-// const itemPerPage = 6;
-
-// const changePage = (param) => {
-//   console.log('param', param);
-//   currentPage.value = param;
-// };
-// const setPaginate = (i) => {
-//   if (currentPage.value === 1) {
-//     return i < itemPerPage;
-//   } else {
-//     return (
-//       i >= itemPerPage * (current.value - 1) && i < current.value * itemPerPage
-//     );
-//   }
-// };
-// const newsCardList = ref(null);
-// onMounted(() => {
-//   console.log('newsCardList.newsCards', newsCardList.value.newsCards);
-//   news.value = Math.ceil(newsCardList.value.newsCards.length / itemPerPage);
-// });
-// const updatePaginate = () => {
-//   currentPage.value = 1;
-//   totalCount = Math.ceil(
-//     document.querySelectorAll('ul li').length / itemPerPage
-//   );
-// };
 </script>
