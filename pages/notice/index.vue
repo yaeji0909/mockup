@@ -1,9 +1,17 @@
 <template>
   <div class="text-center">
-    <CommonNavigationBar class="fixed z-10 w-screen" :elementTop="elementTop" color="white" />
+    <CommonNavigationBar
+      class="fixed z-50 w-screen"
+      :elementTop="elementTop"
+      color="white"
+    />
     <main>
       <section>
-        <h1 class="text-4xl md:text-6xl xl:text-7xl font-bold whitespace-pre-line">Notice</h1>
+        <h1
+          class="text-4xl md:text-6xl xl:text-7xl font-bold whitespace-pre-line"
+        >
+          Notice
+        </h1>
         <h5 class="text-base xl:text-xl mt-[10px]">{{ $t('notice.sub') }}</h5>
       </section>
       <section>
