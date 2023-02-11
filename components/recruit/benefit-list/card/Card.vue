@@ -48,12 +48,12 @@
           />
           <div>
             <h4 class="text-2xs md:text-2xl font-medium">
-              {{ $t('recruit.benefit.vacation') }}
+              {{ $t('recruit.benefit.horizontal') }}
             </h4>
             <h5
               class="text-[10px] md:text-base pt-[3px] md:pt-[4px] xl:pt-[5px] whitespace-pre-line leading-4"
             >
-              {{ $t('recruit.benefit.vacationDesc') }}
+              {{ $t('recruit.benefit.horizontalDesc') }}
             </h5>
           </div>
         </div>
