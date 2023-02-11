@@ -27,7 +27,7 @@
             : 'h-[200px] w-[335px] sm:w-[700px] md:h-[300px] lg:h-[240px] lg:w-[372px]'
         "
       />
-      <p class="text-primary-aqua text-base font-medium pt-5">{{ n.date }}</p>
+      <p class="text-primary-aqua text-base font-medium py-5">{{ n.date }}</p>
 
       <h4
         class="news-title text-black text-2xl font-bold pt-3 overflow-hidden"
