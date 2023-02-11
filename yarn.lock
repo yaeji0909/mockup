@@ -4820,6 +4820,13 @@
   "resolved" "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.0.7.tgz"
   "version" "3.0.7"
 
+"vue-awesome-paginate@^1.1.46":
+  "integrity" "sha512-hjwAJLd2N54j0uuGgqmlTdhZw8NBFQpFiShjGrvxsA0DnvmOQjM18GEor+Ieigz6nE8VA4hQerIDBQjf4lsacg=="
+  "resolved" "https://registry.npmjs.org/vue-awesome-paginate/-/vue-awesome-paginate-1.1.46.tgz"
+  "version" "1.1.46"
+  dependencies:
+    "vue" "^3.2.25"
+
 "vue-bundle-renderer@^1.0.0":
   "integrity" "sha512-43vCqTgaMXfHhtR8/VcxxWD1DgtzyvNc4wNyG5NKCIH19O1z5G9ZCRXTGEA2wifVec5PU82CkRLD2sTK9NkTdA=="
   "resolved" "https://registry.npmjs.org/vue-bundle-renderer/-/vue-bundle-renderer-1.0.0.tgz"
