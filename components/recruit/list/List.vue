@@ -2,7 +2,8 @@
   <div>
     <hr class="mt-[25px] md:mt-[20px] xl:mt-[30px] bg-gray-sub h-[2px]" />
     <ul class="w-full text-black">
-      <li
+      <li class="mt-5">{{ $t('recruit.noHiring') }}</li>
+      <!-- <li
         v-for="recruit in recruits"
         :key="recruit.pid"
         class="md:flex md:justify-between md:items-center border-b border-gray-border py-[25px] cursor-pointer"
@@ -37,7 +38,7 @@
         >
           {{ recruit.career }}
         </p>
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>

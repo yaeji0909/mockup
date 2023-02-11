@@ -51,29 +51,38 @@ module.exports = {
         white: '#FFFFFF',
       },
       boxShadow: {
-        mint: '0px 0px 5px rgba(67, 227, 217, 0.5);',
-        red: '0px 0px 5px rgba(67, 227, 217, 0.5);',
-        service: '-5px 5px 40px rgba(0, 0, 0, 0.15);',
-        recruit: '0px 4px 8px rgba(14, 31, 53, 0.12);',
-        contact: '0px 8px 20px rgba(14, 31, 53, 0.12);',
+        mint: '0px 0px 5px rgba(67, 227, 217, 0.5)',
+        red: '0px 0px 5px rgba(67, 227, 217, 0.5)',
+        service: '-5px 5px 40px rgba(0, 0, 0, 0.15)',
+        recruit: '0px 4px 8px rgba(14, 31, 53, 0.12)',
+        contact: '0px 8px 20px rgba(14, 31, 53, 0.12)',
+        'no-hiring': 'inset 0px 8px 20px rgba(14, 31, 53, 0.12)',
       },
       dropShadow: {
         review: '10px 6px 6px #ededed',
         history: '0px 8px 20px rgba(55, 209, 199, 0.8)',
       },
       backgroundImage: {
-        service: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-bg.svg)',
-        phone: 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
-        'service-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
-        'review-5': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
-        'contact-header': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
-        'pagination-bk': 'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_bk.svg)',
+        service:
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-bg.svg)',
+        phone:
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/iPhone.svg)',
+        'service-header':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/service-header.svg')",
+        'review-5':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/review_box_5.svg')",
+        'contact-header':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_bg.svg')",
+        'pagination-bk':
+          'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_bk.svg)',
         'pagination-gray':
           'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_gray.svg)',
         'pagination-mint':
           'url(https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/pagination_arrow_mint.svg)',
-        'search-black': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg')",
-        'search-mint': "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg')",
+        'search-black':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_bk.svg')",
+        'search-mint':
+          "url('https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/search_icon_mint.svg')",
       },
     },
     plugins: [],

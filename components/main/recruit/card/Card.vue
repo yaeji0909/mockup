@@ -32,7 +32,7 @@
       </SwiperSlide>
     </Swiper>
     <!-- card -->
-    <Swiper
+    <!-- <Swiper
       :grabCursor="true"
       :centeredSlides="largerThanSm ? false : true"
       :spaceBetween="30"
@@ -75,7 +75,18 @@
           D-{{ r.dDay }}
         </h3>
       </SwiperSlide>
-    </Swiper>
+    </Swiper> -->
+    <div class="mt-5">
+      <div
+        class="flex flex-col justify-center items-center m-auto w-[335px] md:w-[710px] lg:w-[960px] xl:w-[1200px] p-5 rounded-[20px] shadow-no-hiring"
+      >
+        <img
+          src="https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/alert_icon.svg"
+          alt="empty"
+        />
+        <p class="mt-5">{{ $t('recruit.noHiring') }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -95,11 +106,11 @@ const { t } = useI18n();
 const modules = [Pagination, Mousewheel, FreeMode];
 
 const recruitBoardList = [
-  { department: t('recruit.total'), num: 5 },
-  { department: t('recruit.businessSupport'), num: 1 },
-  { department: t('recruit.markerting'), num: 1 },
-  { department: t('recruit.engineer'), num: 2 },
-  { department: t('recruit.cs'), num: 1 },
+  { department: t('recruit.total'), num: 0 },
+  { department: t('recruit.businessSupport'), num: 0 },
+  { department: t('recruit.markerting'), num: 0 },
+  { department: t('recruit.engineer'), num: 0 },
+  { department: t('recruit.cs'), num: 0 },
 ];
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
