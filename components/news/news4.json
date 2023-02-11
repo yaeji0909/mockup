@@ -1,0 +1,53 @@
+{
+  "total": 70,
+  "newsList2": [
+    {
+      "pid": 19,
+      "imgUrl": "https://www.opinionnews.co.kr/news/photo/202204/66500_49524_2454.jpg",
+      "date": "2022.04.28",
+      "title": "[인터뷰] 이주상 네이처모빌리티 대표 '2030년 목표, 회사 가치 1조원'",
+      "contents": "",
+      "newsUrl": "https://www.opinionnews.co.kr/news/articleView.html?idxno=66500"
+    },
+    {
+      "pid": 20,
+      "imgUrl": "https://www.techm.kr/news/photo/202204/96281_109682_3345.jpg",
+      "date": "2022.04.11",
+      "title": "한컴, 신규법인 '한컴카플릭스' 설립…'MaaS' 사업 본격화",
+      "contents": "",
+      "newsUrl": "https://www.techm.kr/news/articleView.html?idxno=96281"
+    },
+    {
+      "pid": 21,
+      "imgUrl": "https://www.korea.kr/goNewsRes/attaches/innods/images/000105/19_640_1.jpg",
+      "date": "2022-04-04",
+      "title": "지능형 테마파크 열어 코로나19 극복하고 자유관광객 위한 모빌리티로 매출 ‘껑충’",
+      "contents": "",
+      "newsUrl": "https://gonggam.korea.kr/newsContentView.es?mid=a10201000000&section_id=NCCD_POLICY&content=NC002&news_id=EBC6D4014BD14203E0540021F662AC5F"
+    },
+    {
+      "pid": 22,
+      "imgUrl": "https://image.fnnews.com/resource/media/image/2022/01/19/202201191256005744_l.jpg",
+      "date": "2022.01.19",
+      "title": "초기관광벤처기업 ‘네이처모빌리티’, 차세대 친환경 모빌리티 플랫폼 서비스 선보인다",
+      "contents": "",
+      "newsUrl": "https://www.fnnews.com/news/202201191254272765"
+    },
+    {
+      "pid": 23,
+      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
+      "date": "2022-01-02",
+      "title": "혁신성장 이끈 ‘2021 올해의 관광벤처’ 24곳",
+      "contents": "",
+      "newsUrl": "https://www.traveltimes.co.kr/news/articleView.html?idxno=400023"
+    },
+    {
+      "pid": 24,
+      "imgUrl": "https://thumb.mt.co.kr/06/2021/12/2021122013280636422_1.jpg/dims/optimize/",
+      "date": "2021-12-20",
+      "title": "KAIST, 네이처모빌리티와 STAR 프로젝트 MOU 체결",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2021122013280636422"
+    }
+  ]
+}

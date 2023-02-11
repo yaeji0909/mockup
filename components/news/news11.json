@@ -1,0 +1,53 @@
+{
+  "total": 70,
+  "newsList2": [
+    {
+      "pid": 61,
+      "imgUrl": "https://thumb.mt.co.kr/06/2018/11/2018112013244187001_1.jpg/dims/optimize/",
+      "date": "2018-11-20",
+      "title": "네이처모빌리티, 해외 렌터카 플랫폼 '괌찜카' 출시",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2018112013244187001"
+    },
+    {
+      "pid": 62,
+      "imgUrl": "https://thumb.mt.co.kr/06/2018/10/2018103014345314436_1.jpg/dims/optimize/",
+      "date": "2018-10-31",
+      "title": "네이처모빌리티·현대ICT·본느·네트론, 굿컴퍼니대상 수상",
+      "contents": "",
+      "newsUrl": "https://m.mt.co.kr/renew//view.html?no=2018103014345314436"
+    },
+    {
+      "pid": 63,
+      "imgUrl": "https://img9.yna.co.kr/etc/inner/KR/2018/10/24/AKR20181024134700848_01_i_P4.jpg",
+      "date": "2018-10-25",
+      "title": "네이처모빌리티, 서울·경기 렌터카 플랫폼 '서울찜카' 출시",
+      "contents": "",
+      "newsUrl": "https://www.yna.co.kr/view/AKR20181024134700848"
+    },
+    {
+      "pid": 64,
+      "imgUrl": "https://www.cctvnews.co.kr/news/photo/201810/89622_84453_2755.png",
+      "date": "2018-10-17",
+      "title": "보스코인 파트너사 ‘네이처 모빌리티,’ IT 솔루션 ‘찜카 다이렉트’ 출시",
+      "contents": "",
+      "newsUrl": "https://www.cctvnews.co.kr/news/articleView.html?idxno=89622"
+    },
+    {
+      "pid": 65,
+      "imgUrl": "https://www.datanet.co.kr/news/photo/201809/126703_53331_518.jpg",
+      "date": "2018-09-19",
+      "title": "코리아캐시백·네이처모빌리티, 보스코인 기반 렌터카 서비스 추진",
+      "contents": "",
+      "newsUrl": "https://www.datanet.co.kr/news/articleView.html?idxno=126703"
+    },
+    {
+      "pid": 66,
+      "imgUrl": "https://img9.yna.co.kr/etc/inner/KR/2018/09/14/AKR20180914121300848_01_i_P4.jpg",
+      "date": "2018-09-14",
+      "title": "네이처모빌리티, 제주도 렌터카 가격 비교 플랫폼 '찜카' 출시",
+      "contents": "",
+      "newsUrl": "https://www.yna.co.kr/view/AKR20180914121300848"
+    }
+  ]
+}

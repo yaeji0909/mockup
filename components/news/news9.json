@@ -1,0 +1,53 @@
+{
+  "total": 70,
+  "newsList2": [
+    {
+      "pid": 49,
+      "imgUrl": "http://www.jemin.com/news/photo/202010/704731_304044_2757.jpg",
+      "date": "2020-10-14",
+      "title": "모빌리티 공유경제 플랫폼 '인기'",
+      "contents": "",
+      "newsUrl": "http://www.jemin.com/news/articleViewAmp.html?idxno=704731"
+    },
+    {
+      "pid": 50,
+      "imgUrl": "https://thumb.mt.co.kr/06/2020/09/2020090411083737165_1.jpg/dims/optimize/",
+      "date": "2020-09-04",
+      "title": "찜카' 네이처모빌리티, 항공사 '하이에어'와 서비스 제휴",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2020090411083737165"
+    },
+    {
+      "pid": 51,
+      "imgUrl": "https://thumb.mt.co.kr/06/2020/05/2020051815034288691_1.jpg/dims/optimize/",
+      "date": "2020-05-18",
+      "title": "네이처모빌리티, '글로벌 IP 스타기업' 선정",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2020051815034288691"
+    },
+    {
+      "pid": 52,
+      "imgUrl": "https://thumb.mt.co.kr/06/2020/02/2020022112335639962_1.jpg/dims/optimize/",
+      "date": "2020-02-21",
+      "title": "네이처모빌리티, 유로렌트카와 '미래형 렌터카 서비스' 업무 협약",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2020022112335639962"
+    },
+    {
+      "pid": 53,
+      "imgUrl": "https://thumb.mt.co.kr/06/2019/12/2019121713422935593_1.jpg/dims/optimize/",
+      "date": "2019-12-17",
+      "title": "네이처모빌리티, 글로벌 렌터카 플랫폼 '찜카' 리뉴얼",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2019121713422935593"
+    },
+    {
+      "pid": 54,
+      "imgUrl": "https://thumb.mt.co.kr/06/2019/10/2019101818013899226_3.jpg/dims/optimize/",
+      "date": "2019-10-18",
+      "title": "네이처모빌리티, '굿컴퍼니대상 2년 연속상' 수상",
+      "contents": "",
+      "newsUrl": "http://ecosmart.kaist.ac.kr/bbs/board.php?bo_table=menu4_2&wr_id=38"
+    }
+  ]
+}

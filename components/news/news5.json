@@ -1,0 +1,53 @@
+{
+  "total": 70,
+  "newsList2": [
+    {
+      "pid": 25,
+      "imgUrl": "https://thumb.mt.co.kr/06/2021/10/2021101517002059824_1.jpg/dims/optimize/",
+      "date": "2021-10-18",
+      "title": "2021 굿컴퍼니대상 선정, '상생과 혁신의 기치로 동반 성장'",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2021101517002059824"
+    },
+    {
+      "pid": 26,
+      "imgUrl": "https://cdn.smartcitytoday.co.kr/news/photo/202109/21602_12149_3330.png",
+      "date": "2021-09-29",
+      "title": "퍼스널 모빌리티 전용 '접는 헬멧' '눈길'",
+      "contents": "",
+      "newsUrl": "https://www.smartcitytoday.co.kr/news/articleView.html?idxno=21602"
+    },
+    {
+      "pid": 27,
+      "imgUrl": "https://thumb.mt.co.kr/06/2021/09/2021092817432997767_1.jpg/dims/optimize/",
+      "date": "2021-09-28",
+      "title": "네이처모빌리티, 접이식 헬멧 '라바' 론칭",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2021092817432997767"
+    },
+    {
+      "pid": 28,
+      "imgUrl": "https://image.fnnews.com/resource/media/image/2021/09/13/202109130946055106_l.jpg",
+      "date": "2021-09-13",
+      "title": "KSM' 등록 네이처모빌리티, 40억원 규모 시리즈A 투자 유치",
+      "contents": "",
+      "newsUrl": "https://www.fnnews.com/news/202109130945119248"
+    },
+    {
+      "pid": 29,
+      "imgUrl": "https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg",
+      "date": "2021-08-09",
+      "title": "네이처모빌리티, 항공권·렌터카 통합 플랫폼 구축·운영",
+      "contents": "",
+      "newsUrl": "http://www.jemin.com/news/articleViewAmp.html?idxno=722428"
+    },
+    {
+      "pid": 30,
+      "imgUrl": "https://thumb.mt.co.kr/06/2021/08/2021080616441219080_1.jpg/dims/optimize/",
+      "date": "2021-08-06",
+      "title": "찜카, 렌터카에서 항공권까지..'서비스·편의성 확대'",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2021080616441219080"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "total": 70,
+  "newsList2": [
+    {
+      "pid": 67,
+      "imgUrl": "https://img.etnews.com/photonews/1809/1106568_20180904152242_043_0001.jpg",
+      "date": "2018-09-04",
+      "title": "보스코인 '리버스 ICO 파트너' 4개사와 밋업 개최",
+      "contents": "",
+      "newsUrl": "https://www.etnews.com/20180904000233"
+    },
+    {
+      "pid": 68,
+      "imgUrl": "https://image.fnnews.com/resource/media/image/2018/08/28/201808281015209663_l.jpg",
+      "date": "2018-08-28",
+      "title": "보스코인-네이처모빌리티 '맞손' 블록체인 기반 차량공유 프로젝트 추진",
+      "contents": "",
+      "newsUrl": "https://www.fnnews.com/news/201808281013506136"
+    },
+    {
+      "pid": 69,
+      "imgUrl": "https://img8.yna.co.kr/etc/inner/KR/2018/08/20/AKR20180820117600848_02_i_P4.jpg",
+      "date": "2018-08-21",
+      "title": "네이처모빌리티-제주전기차서비스 '전기차 보급·활성화' MOU",
+      "contents": "",
+      "newsUrl": "https://www.yna.co.kr/view/AKR20180820117600848"
+    },
+    {
+      "pid": 70,
+      "imgUrl": "https://newsimg.sedaily.com/2018/08/15/1S3DCN1268_1.jpg",
+      "date": "2018-08-15",
+      "title": "이주상 네이처모빌리티 대표 '킥보드·전동휠...모든 운송수단 공유하는 플랫폼 꿈꿔요'",
+      "contents": "",
+      "newsUrl": "https://www.sedaily.com/NewsView/1S3DCN1268"
+    }
+  ]
+}

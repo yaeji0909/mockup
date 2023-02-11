@@ -1,0 +1,53 @@
+{
+  "total": 70,
+  "newsList2": [
+    {
+      "pid": 43,
+      "imgUrl": "https://cdn.aitimes.kr/news/photo/202012/18551_20370_539.jpg",
+      "date": "2020-12-02",
+      "title": "네이처모빌리티, AI·빅데이터 기반 렌터카 가격정보 시계열 예측 시스템 구축",
+      "contents": "",
+      "newsUrl": "https://www.aitimes.kr/news/articleView.html?idxno=18551"
+    },
+    {
+      "pid": 44,
+      "imgUrl": "http://hobbyen.co.kr/news/data/20201113/p1065573970425352_594_thum.jpg",
+      "date": "2020-11-13",
+      "title": "코맥스벤처러스, '벤처러스 클래스 2020' 글로벌 데모데이 가져",
+      "contents": "",
+      "newsUrl": "https://www.medintech.co.kr/news/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&bmode=view&idx=5563580&t=board"
+    },
+    {
+      "pid": 45,
+      "imgUrl": "https://img-lb.inews24.com/image_joy/202010/1604036228908_1_143742.jpg",
+      "date": "2020-10-30",
+      "title": "네이처모빌리티, 줌줌투어와 렌터카 특가 할인 프로모션 진행",
+      "contents": "",
+      "newsUrl": "https://www.joynews24.com/view/1312278"
+    },
+    {
+      "pid": 46,
+      "imgUrl": "https://thumb.mt.co.kr/06/2020/10/2020102311582719734_1.jpg/dims/optimize/",
+      "date": "2020-10-26",
+      "title": "렌터카 플랫폼 찜카, 야놀자와 프로모션 제휴",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2020102311582719734"
+    },
+    {
+      "pid": 47,
+      "imgUrl": "https://thumb.mt.co.kr/06/2020/10/2020102215520423190_1.jpg/dims/optimize/",
+      "date": "2020-10-22",
+      "title": "한국과학기술원, 네이처모빌리티와 미래 모빌리티 사업 업무협약",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2020102215520423190"
+    },
+    {
+      "pid": 48,
+      "imgUrl": "https://thumb.mt.co.kr/06/2020/10/2020101415452025356_1.jpg/dims/optimize/",
+      "date": "2020-10-20",
+      "title": "'굿컴퍼니' '4IR 기업' 집결..'가치 있는 성장 쫓아'",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2020101415452025356"
+    }
+  ]
+}

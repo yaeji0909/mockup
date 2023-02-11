@@ -1,0 +1,53 @@
+{
+  "total": 70,
+  "newsList2": [
+    {
+      "pid": 55,
+      "imgUrl": "https://static.news.zumst.com/images/96/2019/08/18/e0b343f9f4994b1aa0a9b32e74d27de6.jpg",
+      "date": "2019-08-18",
+      "title": "렌터카 실시간 예약 플랫폼 서비스, 글로벌 플랫폼으로 도약",
+      "contents": "",
+      "newsUrl": "https://m.news.zum.com/articles/54436454"
+    },
+    {
+      "pid": 56,
+      "imgUrl": "http://www.thepreview.co.kr/news/photo/201905/1463_4003_3123.jpg",
+      "date": "2019-05-31",
+      "title": "메종 글래드 제주-네이처 모빌리티 ‘카셰어링 서비스’ 지원 협약 체결",
+      "contents": "",
+      "newsUrl": "http://www.thepreview.co.kr/news/articleView.html?idxno=1463"
+    },
+    {
+      "pid": 57,
+      "imgUrl": "https://thumb.mt.co.kr/06/2019/05/2019051415235573800_1.jpg/dims/optimize/",
+      "date": "2019-05-14",
+      "title": "네이처모빌리티 '찜카', 제주은행 '제주지니'와 업무 협약",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2019051415235573800"
+    },
+    {
+      "pid": 58,
+      "imgUrl": "https://img2.yna.co.kr/etc/inner/KR/2019/01/22/AKR20190122127400848_01_i_P4.jpg",
+      "date": "2019-01-22",
+      "title": "한살림 제주, 네이처 모빌리티 차량 공유 앱 '찜카셰어링' 도입",
+      "contents": "",
+      "newsUrl": "https://www.yna.co.kr/view/AKR20190122127400848"
+    },
+    {
+      "pid": 59,
+      "imgUrl": "https://thumb.mt.co.kr/06/2019/01/2019011610592585074_1.jpg/dims/optimize/",
+      "date": "2019-01-16",
+      "title": "네이처모빌리티, 오키나와 렌터카 가격비교 '오키나와 찜카' 출시",
+      "contents": "",
+      "newsUrl": "https://m.mt.co.kr/renew/view.html?no=2019011610592585074"
+    },
+    {
+      "pid": 60,
+      "imgUrl": "https://img0.yna.co.kr/etc/inner/KR/2018/12/18/AKR20181218149200848_01_i_P4.jpg",
+      "date": "2018-12-18",
+      "title": "네이처 모빌리티, 카셰어링 플랫폼 '찜투고' 출시",
+      "contents": "",
+      "newsUrl": "https://www.yna.co.kr/view/AKR20181218149200848"
+    }
+  ]
+}

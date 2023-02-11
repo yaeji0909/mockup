@@ -1,0 +1,53 @@
+{
+  "total": 70,
+  "newsList2": [
+    {
+      "pid": 31,
+      "imgUrl": "https://cdn.jejumaeil.net/news/photo/202107/303225_82893_300.jpg",
+      "date": "2021-07-05",
+      "title": "「JDC, ‘Route330’」출발지부터 목적지까지 최적 이동수단 조합",
+      "contents": "",
+      "newsUrl": "http://www.jejumaeil.net/news/articleView.html?idxno=303225"
+    },
+    {
+      "pid": 32,
+      "imgUrl": "",
+      "date": "2021-06-25",
+      "title": "'모빌리티 성장 동력 발굴'…제3회 중견기업·스타트업 상생라운지 개최",
+      "contents": "",
+      "newsUrl": "https://m.wowtv.co.kr/NewsCenter/News/Read?articleId=A202106250335"
+    },
+    {
+      "pid": 33,
+      "imgUrl": "https://cdn.aitimes.com/news/photo/202104/137790_137170_213.jpg",
+      "date": "2021-04-06",
+      "title": "과기정통부, 지난해 'K-Global 프로젝트'로 수혜기업 성과 상승...투자유치 39% 증가",
+      "contents": "",
+      "newsUrl": "https://www.aitimes.com/news/articleView.html?idxno=137790"
+    },
+    {
+      "pid": 34,
+      "imgUrl": "http://contents.dt.co.kr/images/202103/2021032902109923053006[1].jpg?var=2543",
+      "date": "2021-03-30",
+      "title": "오픈플랜㈜ ‘토글 하루보험’, ㈜네이처모빌리티 ‘찜카’와 서비스 협력",
+      "contents": "",
+      "newsUrl": "http://www.dt.co.kr/contents.html?article_no=2021032902109923053006"
+    },
+    {
+      "pid": 35,
+      "imgUrl": "https://thumb.mt.co.kr/06/2021/03/2021031612371025577_1.jpg/dims/optimize/",
+      "date": "2021-03-16",
+      "title": "네이처모빌리티, 로우파트너스로부터 추가 투자 유치",
+      "contents": "",
+      "newsUrl": "https://news.mt.co.kr/mtview.php?no=2021031612371025577"
+    },
+    {
+      "pid": 36,
+      "imgUrl": "https://dangam.cdn.ntruss.com/3/ARTICLECONTENT_IMG/2021/1117/cef1f1de-e9e6-4386-bf65-3df33cab0b81",
+      "date": "2021-03-03",
+      "title": "소프트웨어 고성장클럽 사업에 선정된 지원기업 88개사 발표됐다",
+      "contents": "",
+      "newsUrl": "https://www.dangamsoft.com/story/1884?board=1875&typ=story"
+    }
+  ]
+}
