@@ -4,14 +4,21 @@
       <!-- Dropdown toggle button -->
       <button
         @click="clickHandler"
-        class="flex items-center p-2 bg-transparent text-xs text-black flex justify-center items-center min-w-24"
+        class="flex items-center pt-2 pb-1 bg-transparent text-xs text-black flex justify-between items-center min-w-24"
         :class="[
-          border ? 'border-b border-gray' : 'border:none',
-          props.title === 'FAMILY SITE' && 'w-36  text-gray-sub',
+          border ? 'border-b border-black p-2' : 'border:none',
+          props.title === 'FAMILY SITE' && 'w-full  text-gray-sub',
         ]"
       >
-        <span class="mr-1" :class="props.title === 'FAMILY SITE' && 'mr-8'">{{ text }}</span>
-        <nuxt-img class="w-4 h-4" :src="show ? 'images/common/arrow-up.svg' : 'images/common/arrow-down.svg'" />
+        <span class="mr-1" :class="props.title === 'FAMILY SITE'">{{
+          text
+        }}</span>
+        <nuxt-img
+          class="w-4 h-4"
+          :src="
+            show ? 'images/common/arrow-up.svg' : 'images/common/arrow-down.svg'
+          "
+        />
       </button>
 
       <!-- Dropdown menu -->
@@ -20,13 +27,15 @@
         v-show="show"
         class="absolute p-1 bg-white rounded-[10px] min-w-max"
         :class="[
-          props.title === 'FAMILY SITE' && 'w-36 text-gray-sub',
-          props.title === 'FAMILY SITE' || props.title === $t('footer.company') ? '-top-20' : 'top-10',
+          props.title === 'FAMILY SITE' && 'w-full text-gray-sub',
+          props.title === 'FAMILY SITE' || props.title === $t('footer.company')
+            ? '-top-20'
+            : 'top-10',
         ]"
       >
         <ul class="p-1" v-for="option in options" :key="option">
           <li
-            @click="e => optionClickHandler(e, option)"
+            @click="(e) => optionClickHandler(e, option)"
             class="block py-1 text-gray-sub hover:bg-gray rounded-[5px] text-xs text-black flex justify-center font-normal cursor-pointer"
           >
             {{ option }}
