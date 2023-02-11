@@ -13,7 +13,7 @@
           :totalCount="totalCount"
           @changePage="changePage"
         />
-        <!-- <CommonPaging /> -->
+        <!-- <CommonPaging :items="newsList" /> -->
       </ClientOnly>
     </main>
   </div>

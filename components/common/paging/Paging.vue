@@ -1,6 +1,6 @@
 <template>
   <div id="heroes">
-    <form class="form-inline">
+    <section class="form-inline">
       <input
         type="text"
         class="form-control"
@@ -8,72 +8,65 @@
         v-model="search_filter"
         @keyup="updatePaginate"
       />
-      <button @click.prevent="setStatus('')">All</button>
-      <button @click.prevent="setStatus('DC')">DC</button>
-      <button @click.prevent="setStatus('Marvel')">Marvel</button>
-    </form>
-
+    </section>
     <section class="table table-striped">
-      <div>
-        <div>
-          <td>Hero Name</td>
-          <td>Universe</td>
-        </div>
-      </div>
-      <ul>
-        <li
-          v-for="(hero, index) in heroes"
+      <ul
+        class="mt-16 grid md:grid-rows-3 xl:grid-rows-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-14 gap-x-6 xl:gap-x-10"
+      >
+        <!-- <li
+          v-for="(n, index) in limitArray(items)"
+          :key="n.pid"
+          class="group flex flex-col text-left cursor-pointer"
+          @click="moveToNews(n.newsUrl)"
           v-show="setPaginate(index)"
-          class="flex gap-40"
+        > -->
+        <li
+          v-for="(n, index) in props.items"
+          :key="n.pid"
+          class="group flex flex-col text-left cursor-pointer"
+          @click="moveToNews(n.newsUrl)"
+          v-show="setPaginate(index)"
         >
-          <p>{{ hero.name }}</p>
-          <p>{{ hero.universe }}</p>
+          <img
+            :src="n.imgUrl"
+            alt="THUMBNAIL_IMG"
+            class="h-[200px] xl:h-[240px] rounded-[20px] object-cover group-hover:scale-105 transition ease-in-out duration-300"
+          />
+          <p class="text-primary-aqua text-base font-medium pt-5">
+            {{ n.date }}
+          </p>
+          <h4
+            class="news-title text-black text-2xl font-bold pt-3 overflow-hidden"
+          >
+            {{ n.title }}
+          </h4>
         </li>
       </ul>
     </section>
-    <div id="pagination">
-      <a
-        href="#"
-        class="btn btn-default"
+    <section>
+      <button
+        class="w-[20px] h-[20px] mr-5"
         v-for="page_index in paginate_total"
-        @click.prevent="updateCurrent(page_index + 1)"
+        @click.prevent="updateCurrent(page_index)"
       >
-        {{ page_index + 1 }}
-      </a>
-    </div>
+        {{ page_index }}
+      </button>
+    </section>
   </div>
 </template>
 
 <script setup>
+const props = defineProps({
+  items: { type: Array },
+});
+
 let current = ref(1);
-const heroes = [
-  { name: 'Wolverine', universe: 'Marvel' },
-  { name: 'Batman', universe: 'DC' },
-  { name: 'Beast', universe: 'Marvel' },
-  { name: 'Superman', universe: 'DC' },
-  { name: 'Wonder Woman', universe: 'DC' },
-  { name: 'Iceman', universe: 'Marvel' },
-  { name: 'Black Panther', universe: 'Marvel' },
-  { name: 'Beast Boy', universe: 'DC' },
-  { name: 'Captain America', universe: 'Marvel' },
-  { name: 'Hawkgirl', universe: 'DC' },
-  { name: 'Cyclops', universe: 'Marvel' },
-  { name: 'Green Lantern', universe: 'DC' },
-  { name: 'Thor', universe: 'Marvel' },
-  { name: 'Flash', universe: 'DC' },
-  { name: 'Spider-man', universe: 'Marvel' },
-  { name: 'Martian Manhunter', universe: 'DC' },
-  { name: 'Nightwing', universe: 'DC' },
-  { name: 'Raven', universe: 'DC' },
-  { name: 'Hulk', universe: 'Marvel' },
-  { name: 'Shehulk', universe: 'Marvel' },
-];
 const paginate = 6;
 let paginate_total = ref(0);
 let search_filter = ref('');
 let status_filter = ref('');
 
-paginate_total.value = Math.ceil(heroes.length / paginate);
+paginate_total.value = Math.ceil(props.items.length / paginate);
 
 const setPaginate = (i) => {
   if (current.value === 1) {
@@ -97,6 +90,19 @@ const updatePaginate = () => {
     document.querySelectorAll('ul li').length / paginate
   );
 };
-</script>
 
-<style scoped></style>
+const limitArray = (arr, length = 6) => {
+  if (arr && arr.length) {
+    if (length === -1) {
+      return arr;
+    }
+    if (length > arr.length) {
+      return arr;
+    }
+
+    return arr.slice(0, length);
+  }
+
+  return null;
+};
+</script>
