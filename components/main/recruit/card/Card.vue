@@ -47,7 +47,7 @@
       class="card"
     >
       <SwiperSlide
-        v-for="r in recruit"
+        v-for="r in recruitList"
         :key="r.title"
         class="card bg-white rounded-[20px] shadow-recruit mt-10 mb-10 md:my-12"
       >
@@ -72,7 +72,7 @@
         <h3
           class="text-xl md:text-2xl xl:text-3xl font-bold text-primary-aqua pt-[12px] xl:pt-[23px]"
         >
-          {{ r.dueDate }}
+          D-{{ r.dDay }}
         </h3>
       </SwiperSlide>
     </Swiper>
@@ -80,7 +80,7 @@
 </template>
 
 <script setup>
-import recruits from '@/components/main/recruit/card/recruits.json';
+import { recruitList } from '@/components/recruit/list/recruit.json';
 import { useI18n } from 'vue-i18n';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Mousewheel, FreeMode } from 'swiper';
@@ -88,10 +88,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+import { diffDay } from '/composables/due.js';
 
 const { t } = useI18n();
-
-const { recruit } = recruits;
 
 const modules = [Pagination, Mousewheel, FreeMode];
 
@@ -105,6 +104,16 @@ const recruitBoardList = [
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
+
+/**
+ * d-day setting
+ */
+recruitList.map((d) => {
+  d.dDay = diffDay(d.endAt);
+});
+
+diffDay();
+setInterval(diffDay, 1000 * 60 * 60 * 24);
 </script>
 
 <style scoped>
