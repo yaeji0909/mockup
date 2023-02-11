@@ -59,6 +59,7 @@ let totalCount = ref(total);
 const searchInput = (e) => {
   const filteredList = changeTextColor(e, totalNewsList.value);
   news.value = filteredList;
-  totalCount.value = news.value.length;
+  // totalCount.value = news.value.length;
+  totalCount.value = 1;
 };
 </script>
