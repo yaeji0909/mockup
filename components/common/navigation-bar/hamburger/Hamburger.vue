@@ -22,9 +22,9 @@
 </template>
 
 <script setup>
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 
-import { ref } from "vue";
+import { ref } from 'vue';
 const line1 = ref(null);
 const line2 = ref(null);
 const line3 = ref(null);
@@ -34,22 +34,31 @@ const props = defineProps({
   showMenu: Boolean,
 });
 
-// const emits = defineEmits(["test-emit"]);
-
-const clickHandler = () => {
-  if (props.showMenu) {
-    gsap.to("#line1", { rotation: 0 });
-    gsap.to("#line3", { rotation: 0 });
-    gsap.to("#line2", { display: "block" });
+watch(
+  () => props.showMenu,
+  (newShowMenu) => {
+    clickHandler(newShowMenu);
   }
-  if (!props.showMenu) {
-    gsap.to("#line2", { display: "none" });
-    gsap.to("#line1", {
+);
+
+const clickHandler = (show) => {
+  if (!show) {
+    gsap.to('#line1', { rotation: 0 });
+    gsap.to('#line3', { rotation: 0 });
+    gsap.to('#line2', { display: 'block' });
+  } else {
+    gsap.to('#line2', { display: 'none', duration: 0.1 });
+    gsap.to('#line1', {
       rotation: 45,
-      transformOrigin: "center center",
+      // transformOrigin: 'center center',
       stagger: 1,
+      duration: 0.1,
     });
-    gsap.to("#line3", { rotation: -45, transformOrigin: "20% 0%" });
+    gsap.to('#line3', {
+      rotation: -45,
+      transformOrigin: '20% 0%',
+      duration: 0.1,
+    });
   }
 };
 </script>
