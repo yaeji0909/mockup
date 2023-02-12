@@ -13,8 +13,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, defineProps } from 'vue';
-
 const show = ref(false);
 const props = defineProps({
   onError: Boolean,

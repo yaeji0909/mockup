@@ -1,28 +1,16 @@
 <template>
-  <div>
-    <!-- tailwind 적용(체크 색상 변경 안됨) -->
-    <!-- <label class="flex items-center gap-1 select-none">
+  <div class="check-wrap" @click="$refs.input.click()">
+    <label class="check-label">
       <input
+        ref="input"
         type="checkbox"
-        id="check"
-        checked
-        class="w-[20px] h-[20px] rounded border border-gray-border text-white accent-primary-aqua"
+        :disabled="disabled"
+        v-model="check"
+        @change="$emit('toggleCheck', check)"
       />
-      <label for="check">{{ text }}</label>
-    </label> -->
-    <!-- style tag로 적용 -->
-    <div class="check-wrap">
-      <label class="check-label">
-        <input
-          type="checkbox"
-          :disabled="disabled"
-          v-model="check"
-          @change="$emit('toggleCheck', check)"
-        />
-        <span :class="['check', disabled ? 'bg-gray-200' : '']"></span>
-      </label>
-      <label>{{ text }}</label>
-    </div>
+      <span :class="['check', disabled ? 'bg-gray-200' : '']"></span>
+    </label>
+    <label class="cursor-pointer">{{ text }}</label>
   </div>
 </template>
 
@@ -34,6 +22,9 @@ const props = defineProps({
 
 const check = ref(false);
 const emit = defineEmits(['toggleCheck']);
+const click = (e) => {
+  console.log('click', e.target);
+};
 </script>
 
 <style scoped>
