@@ -19,7 +19,7 @@
     <SwiperSlide
       class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center whitespace-pre-line"
     >
-      <div class="mt-10 xl:mr-20">
+      <div class="xl:mr-20">
         <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
           {{ $t('service.1') }}
         </h1>
@@ -34,7 +34,7 @@
       class="xl:w-[1200px] flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
       <img :src="SERVICE_2" alt="SERVICE_2" class="w-[300px] md:w-[500px]" />
-      <div class="mt-10 xl:mr-20">
+      <div class="xl:mr-20">
         <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
           {{ $t('service.2') }}
         </h1>
@@ -47,7 +47,7 @@
     <SwiperSlide
       class="flex flex-col-reverse xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
-      <div class="mt-10 xl:mr-20">
+      <div class="xl:mr-20">
         <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
           {{ $t('service.3') }}
         </h1>
@@ -62,7 +62,7 @@
       class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
       <img :src="SERVICE_4" alt="SERVICE_4" class="w-[300px] md:w-[500px]" />
-      <div class="mt-10 xl:mr-20">
+      <div class="xl:mr-20">
         <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
           {{ $t('service.4') }}
         </h1>
