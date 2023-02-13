@@ -32,16 +32,21 @@
       <CommonDialogContact @close="open = false" @successDialog="successDialog" />
     </section> -->
     <section v-show="open">
-      <CommonDialogModal v-model="open" @close="open = false" />
+      <CommonDialogModal v-model="open" @close="open = false" @successDialog="successDialog" />
     </section>
-    <section v-if="successPopup" class="absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <CommonDialogSuccess @successDialog="successDialog" />
+    <section v-show="successPopup">
+      <CommonDialogSuccess v-model="successPopup" @successDialog="successDialog" />
     </section>
   </div>
 </template>
 
 <script setup>
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+import { ModalsContainer, VueFinalModal, useModal } from 'vue-final-modal';
+
+components: {
+  VueFinalModal;
+}
 
 let showModal = ref(false);
 
@@ -65,5 +70,6 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 let successPopup = ref(false);
 const successDialog = param => {
   successPopup.value = param ? true : false;
+  console.log('param', param, 'successPopup', successPopup.value);
 };
 </script>

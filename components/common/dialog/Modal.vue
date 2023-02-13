@@ -87,15 +87,10 @@
           />
         </div>
       </section>
-      <section>
-        <div class="absolute top-1/2 left-0">
-          <CommonDialogAlert v-if="submitAvailable" @success="successSubmit" />
-        </div>
-      </section>
     </div>
-    <!-- <span class="bg-white"># Simple modal</span>
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-    <button class="modal-close" @click="showModal = false">x</button> -->
+    <section v-show="submitAvailable" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <CommonDialogAlert @success="successSubmit" />
+    </section>
   </vue-final-modal>
 </template>
 
@@ -103,6 +98,10 @@
 import { useI18n } from 'vue-i18n';
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { ModalsContainer, VueFinalModal, useModal } from 'vue-final-modal';
+
+components: {
+  'vue-final-modal':VueFinalModal;
+}
 
 const CLOSE = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_close.svg';
 const ARROW = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_arrow.svg';
@@ -237,6 +236,7 @@ watch(
  */
 const emit = defineEmits(['close', 'successDialog']);
 const successSubmit = param => {
+  console.log('successSubmit 확인', param);
   submitAvailable.value = false;
   if (param) {
     emit('successDialog', true);
