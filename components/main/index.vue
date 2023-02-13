@@ -22,7 +22,7 @@
         <MainServiceAnimationDots @mouseEnable="mouseEnable" />
       </SwiperSlide>
       <SwiperSlide id="serviceHeader">
-        <MainServiceHeader />
+        <MainServiceHeader @mouseEnable="mouseEnable" />
       </SwiperSlide>
       <SwiperSlide id="company">
         <MainCompany @mouseEnable="mouseEnable" />
@@ -50,7 +50,7 @@ import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 const modules = [Mousewheel, FreeMode];
 
 /**
- * nav bar scroll move
+ * scroll 조정
  */
 let swiper = ref(null);
 const route = useRoute();
@@ -66,7 +66,7 @@ onMounted(() => {
     swiper.slideTo(route.query.slide);
   }
 
-  // scroll move direcntion
+  // scroll move direction
   addEventListener('wheel', event => {
     if (event.deltaY < 0) {
       mousewheelUp = true;
@@ -105,6 +105,7 @@ const color = ref('black');
 
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const largerThanSm = breakpoints.greater('sm'); // only larger than sm
+const largerThanMd = breakpoints.greater('md'); // only larger than md
 const largerThanLg = breakpoints.greater('lg'); // only larger than lg
 
 const onSlideChange = e => {
