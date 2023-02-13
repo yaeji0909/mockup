@@ -26,17 +26,17 @@
             <div v-if="year.month === '05'" class="flex items-center text-base md:text-2xl xl:text-5xl">
               <h3 class="mr-2 min-w-max">{{ $t('company.2022.05-1') }}</h3>
               <div class="relative min-w-max">
-                <img
+                <nuxt-img
                   :src="STAR"
                   alt="STAR"
                   class="absolute top-[5%] lg:top-[0%] xl:top-[-10%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
                 />
                 <div class="flex items-center">
-                  <img :src="FEATHER" alt="FEATHER" />
+                  <nuxt-img :src="FEATHER" alt="FEATHER" />
                   <h3 class="text-primary-mint drop-shadow-history">
                     {{ $t('company.2022.05-2') }}
                   </h3>
-                  <img :src="FEATHER" alt="FEATHER" class="-scale-x-100" />
+                  <nuxt-img :src="FEATHER" alt="FEATHER" class="-scale-x-100" />
                 </div>
               </div>
               <h3 class="ml-2 min-w-max">{{ $t('company.2022.05-3') }}</h3>

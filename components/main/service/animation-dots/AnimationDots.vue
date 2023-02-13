@@ -27,13 +27,13 @@
           {{ $t('service.1-desc') }}
         </p>
       </div>
-      <img :src="SERVICE_1" alt="SERVICE_1" class="w-[300px] md:w-[500px]" />
+      <nuxt-img :src="SERVICE_1" alt="SERVICE_1" class="w-[300px] md:w-[500px]" />
     </SwiperSlide>
     <!-- 2 -->
     <SwiperSlide
       class="xl:w-[1200px] flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
-      <img :src="SERVICE_2" alt="SERVICE_2" class="w-[300px] md:w-[500px]" />
+      <nuxt-img :src="SERVICE_2" alt="SERVICE_2" class="w-[300px] md:w-[500px]" />
       <div class="xl:mr-20">
         <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
           {{ $t('service.2') }}
@@ -55,13 +55,13 @@
           {{ $t('service.3-desc') }}
         </p>
       </div>
-      <img :src="SERVICE_3" alt="SERVICE_3" class="w-[300px] md:w-[500px]" />
+      <nuxt-img :src="SERVICE_3" alt="SERVICE_3" class="w-[300px] md:w-[500px]" />
     </SwiperSlide>
     <!-- 4 -->
     <SwiperSlide
       class="flex flex-col xl:flex-row text-center xl:text-left justify-center items-center xl:gap-14 whitespace-pre-line"
     >
-      <img :src="SERVICE_4" alt="SERVICE_4" class="w-[300px] md:w-[500px]" />
+      <nuxt-img :src="SERVICE_4" alt="SERVICE_4" class="w-[300px] md:w-[500px]" />
       <div class="xl:mr-20">
         <h1 class="text-3xl md:text-4xl xl:text-7xl font-bold">
           {{ $t('service.4') }}

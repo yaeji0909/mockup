@@ -11,13 +11,11 @@
       v-for="n in props.news"
       :key="n.pid"
       class="group flex flex-col text-left cursor-pointer"
-      :class="
-        isNewsPage ? '' : 'w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0'
-      "
+      :class="isNewsPage ? '' : 'w-[335px] sm:w-[700px] lg:w-[372px] sm:px-8 md:px-0'"
       @click="moveToNews(n.newsUrl)"
       ref="newsCards"
     >
-      <img
+      <nuxt-img
         :src="n.imgUrl"
         alt="THUMBNAIL_IMG"
         class="rounded-[20px] object-cover group-hover:scale-105 transition ease-in-out duration-300"
@@ -29,10 +27,7 @@
       />
       <p class="text-primary-aqua text-base font-medium py-5">{{ n.date }}</p>
 
-      <h4
-        class="news-title text-black text-2xl font-bold pt-3 overflow-hidden"
-        v-html="n.colorTitle || n.title"
-      />
+      <h4 class="news-title text-black text-2xl font-bold pt-3 overflow-hidden" v-html="n.colorTitle || n.title" />
       <div v-if="largerThanSm && !isNewsPage">
         <CommonButtonShortcutBtn
           :text="$t('button.moreDetail')"
@@ -50,8 +45,7 @@
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 import { ref } from 'vue';
 
-const THUMBNAIL_IMG =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg';
+const THUMBNAIL_IMG = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/news_thumbnail.svg';
 
 const props = defineProps({
   news: Object,
@@ -63,7 +57,7 @@ const props = defineProps({
  */
 let redirectUrl = ref('https://train.zzimcar.com/');
 
-const slideChanged = (url) => {
+const slideChanged = url => {
   redirectUrl = url;
 };
 
@@ -80,7 +74,7 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 /**
  * 해당 뉴스 링크로 이동
  */
-const moveToNews = (url) => {
+const moveToNews = url => {
   if (!url) return;
   window.open(url);
 };

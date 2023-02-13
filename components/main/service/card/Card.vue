@@ -28,7 +28,7 @@
         <p class="text-base md:text-2xl font-medium text-center">
           {{ service.title }}
         </p>
-        <img :key="service.id" :src="service.image" alt="service" class="mt-5 md:mt-10 w-[250px]" />
+        <nuxt-img :key="service.id" :src="service.image" alt="service" class="mt-5 md:mt-10 w-[250px]" />
       </div>
       <p
         class="w-[300px] px-[10px] text-gray-sub text-center mt-[20px] text-2xs md:text-base lg:text-2xs xl:text-base whitespace-pre-line"

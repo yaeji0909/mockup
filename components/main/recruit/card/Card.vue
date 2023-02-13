@@ -21,11 +21,7 @@
         <p class="text-base font-medium">{{ board.department }}</p>
         <p
           class="text-xs font-bold rounded-full w-[29px] h-[24px] flex justify-center items-center"
-          :class="
-            idx === 0
-              ? ['bg-black', 'text-white']
-              : ['bg-gray-border', 'text-black']
-          "
+          :class="idx === 0 ? ['bg-black', 'text-white'] : ['bg-gray-border', 'text-black']"
         >
           {{ board.num }}
         </p>
@@ -80,10 +76,7 @@
       <div
         class="flex flex-col justify-center items-center m-auto w-[335px] md:w-[710px] lg:w-[960px] xl:w-[1200px] p-5 rounded-[20px] shadow-no-hiring"
       >
-        <img
-          src="https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/alert_icon.svg"
-          alt="empty"
-        />
+        <nuxt-img src="https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/alert_icon.svg" alt="empty" />
         <p class="mt-5">{{ $t('recruit.noHiring') }}</p>
       </div>
     </div>
@@ -119,7 +112,7 @@ const largerThanSm = breakpoints.greater('sm'); // only larger than sm
 /**
  * d-day setting
  */
-recruitList.map((d) => {
+recruitList.map(d => {
   d.dDay = diffDay(d.endAt);
 });
 

@@ -2,29 +2,16 @@
   <div
     :class="[
       'bg-white relative',
-      !largerThanSm
-        ? 'h-full w-screen rounded-none'
-        : 'h-full rounded-[20px] overflow-auto',
+      !largerThanSm ? 'h-full w-screen rounded-none' : 'h-full rounded-[20px] overflow-auto',
     ]"
   >
     <section>
       <div class="flex justify-between items-center px-5 py-6">
-        <img
-          v-if="!largerThanSm"
-          :src="ARROW"
-          alt="CLOSE"
-          class="w-[20px]"
-          @click="$emit('close')"
-        />
-        <h1
-          :class="[
-            'text-xl md:text-4xl xl:text-5xl font-bold',
-            !largerThanSm ? 'm-auto ' : '',
-          ]"
-        >
+        <nuxt-img v-if="!largerThanSm" :src="ARROW" alt="CLOSE" class="w-[20px]" @click="$emit('close')" />
+        <h1 :class="['text-xl md:text-4xl xl:text-5xl font-bold', !largerThanSm ? 'm-auto ' : '']">
           {{ $t('dialog.title') }}
         </h1>
-        <img
+        <nuxt-img
           v-if="largerThanSm"
           :src="CLOSE"
           alt="CLOSE"
@@ -57,7 +44,7 @@
               :placeholder="input.placeholder"
               maxlength="500"
               :value="input.content"
-              @input="(e) => (input.content = e.target.value)"
+              @input="e => (input.content = e.target.value)"
             />
           </div>
           <!-- 개인정보수집 동의 -->
@@ -74,7 +61,7 @@
               :text="$t('dialog.agreeText')"
               :value="input.privacy"
               class="mt-[10px] w-full text-xs"
-              @toggleCheck="(e) => changeCheck(e)"
+              @toggleCheck="e => changeCheck(e)"
             />
           </div>
         </div>
@@ -84,7 +71,7 @@
             :value="input.content"
             class="mt-[10px] w-full text-sm"
             :disabled="input.label === t('dialog.privacy') ? true : false"
-            @input="(e) => (input.content = e.target.value)"
+            @input="e => (input.content = e.target.value)"
           />
         </div>
       </div>
@@ -111,10 +98,8 @@
 import { useI18n } from 'vue-i18n';
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
-const CLOSE =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_close.svg';
-const ARROW =
-  'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_arrow.svg';
+const CLOSE = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_close.svg';
+const ARROW = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/dialog_arrow.svg';
 
 /**
  * setting forma
@@ -181,7 +166,7 @@ const changeOptions = (type, options) => {
 /**
  * check box
  */
-const changeCheck = (check) => {
+const changeCheck = check => {
   inputList.value[6].privacy = check;
 };
 
@@ -214,7 +199,7 @@ const submit = () => {
  */
 watch(
   inputList.value,
-  (newInput) => {
+  newInput => {
     let isEmpty = true;
     let agree = false;
 
@@ -233,14 +218,14 @@ watch(
     }
     disableSubmit.value = !isEmpty && agree ? false : true;
   },
-  { deep: true }
+  { deep: true },
 );
 
 /**
  * close dialog
  */
 const emit = defineEmits(['close', 'successDialog']);
-const successSubmit = (param) => {
+const successSubmit = param => {
   submitAvailable.value = false;
   if (param) {
     emit('successDialog', true);

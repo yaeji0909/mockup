@@ -28,12 +28,12 @@
       <section class="download-buttons opacity-0 mt-14 gap-4 md:gap-10 text-white flex justify-left">
         <CommonButton class="g-btn" :text="$t('button.googlePlay')" :icon="true" @click="ClickBtn(GOOGLE_PLAY_URL)">
           <template #icon>
-            <img :src="GOOGLE_PLAY_ICON" />
+            <nuxt-img :src="GOOGLE_PLAY_ICON" />
           </template>
         </CommonButton>
         <CommonButton class="a-btn" :text="$t('button.appStore')" :icon="true" @click="ClickBtn(APP_STORE_URL)">
           <template #icon>
-            <img class="a-btn-icon" :src="APP_STORE_ICON" />
+            <nuxt-img class="a-btn-icon" :src="APP_STORE_ICON" />
           </template>
         </CommonButton>
       </section>

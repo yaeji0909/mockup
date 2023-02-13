@@ -1,13 +1,7 @@
 <template>
   <div id="heroes">
     <section class="form-inline">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search"
-        v-model="search_filter"
-        @keyup="updatePaginate"
-      />
+      <input type="text" class="form-control" placeholder="Search" v-model="search_filter" @keyup="updatePaginate" />
     </section>
     <section class="table table-striped">
       <ul
@@ -27,7 +21,7 @@
           @click="moveToNews(n.newsUrl)"
           v-show="setPaginate(index)"
         >
-          <img
+          <nuxt-img
             :src="n.imgUrl"
             alt="THUMBNAIL_IMG"
             class="h-[200px] xl:h-[240px] rounded-[20px] object-cover group-hover:scale-105 transition ease-in-out duration-300"
@@ -35,9 +29,7 @@
           <p class="text-primary-aqua text-base font-medium pt-5">
             {{ n.date }}
           </p>
-          <h4
-            class="news-title text-black text-2xl font-bold pt-3 overflow-hidden"
-          >
+          <h4 class="news-title text-black text-2xl font-bold pt-3 overflow-hidden">
             {{ n.title }}
           </h4>
         </li>
@@ -68,27 +60,25 @@ let status_filter = ref('');
 
 paginate_total.value = Math.ceil(props.items.length / paginate);
 
-const setPaginate = (i) => {
+const setPaginate = i => {
   if (current.value === 1) {
     return i < paginate;
   } else {
     return i >= paginate * (current.value - 1) && i < current.value * paginate;
   }
 };
-const setStatus = async (status) => {
+const setStatus = async status => {
   status_filter.value = status;
   await nextTick(() => {
     updatePaginate();
   });
 };
-const updateCurrent = (i) => {
+const updateCurrent = i => {
   current.value = i;
 };
 const updatePaginate = () => {
   current.value = 1;
-  paginate_total.value = Math.ceil(
-    document.querySelectorAll('ul li').length / paginate
-  );
+  paginate_total.value = Math.ceil(document.querySelectorAll('ul li').length / paginate);
 };
 
 const limitArray = (arr, length = 6) => {

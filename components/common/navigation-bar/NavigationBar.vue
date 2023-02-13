@@ -23,7 +23,7 @@
             <button class="hover:text-primary-aqua">&nbsp;&nbsp;ENG</button>
           </div>
           <button class="xs:hidden w-4 h-4 relative mr-[19px]">
-            <img
+            <nuxt-img
               @click="langBtnClickHandler"
               :src="`https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/lang-${navColor.lang}.svg`"
             />

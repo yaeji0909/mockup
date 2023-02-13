@@ -16,26 +16,26 @@
         class="info-box relative absolute z-20 bottom-0 bg-white w-[340px] md:w-[704px] xl:w-[372px] rounded-[20px] px-5 py-[25px]"
       >
         <div v-if="!map.hover" class="absolute top-[-35%] left-[40%]">
-          <img :src="PIN" alt="PIN" />
+          <nuxt-img :src="PIN" alt="PIN" />
         </div>
         <h3 class="text-xl :text-2xl font-bold">{{ map.title }}</h3>
         <h5 class="text-xs pt-5">{{ map.addr[0] }}</h5>
         <h5 v-if="map.addr[1]" class="text-xs pt-3">{{ map.addr[1] }}</h5>
         <section v-if="map.hover" class="bg-gray-bg rounded-[10px] mt-[25px] px-[12px] py-[15px]">
           <div class="h-5 flex gap-3">
-            <img :src="PHONE" alt="PHONE" class="w-3" />
+            <nuxt-img :src="PHONE" alt="PHONE" class="w-3" />
             <p class="text-2xs">{{ map.phone }}</p>
           </div>
           <div class="h-5 flex gap-3 mt-2">
-            <img :src="TEL" alt="TEL" class="w-3" />
+            <nuxt-img :src="TEL" alt="TEL" class="w-3" />
             <p class="text-2xs">{{ map.tel }}</p>
           </div>
           <div class="h-5 flex gap-3 mt-2">
-            <img :src="EMAIL" alt="EMAIL" class="w-3" />
+            <nuxt-img :src="EMAIL" alt="EMAIL" class="w-3" />
             <p class="text-2xs">{{ map.email }}</p>
           </div>
           <div class="h-5 flex gap-3 mt-2">
-            <img :src="TIME" alt="TIME" class="w-3" />
+            <nuxt-img :src="TIME" alt="TIME" class="w-3" />
             <p class="text-2xs">{{ map.time }}</p>
           </div>
         </section>
