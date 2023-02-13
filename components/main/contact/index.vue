@@ -20,15 +20,19 @@
     <section class="py-[30px] md:py-[50px] xl:py-[85px]">
       <MainContactMapCard />
     </section>
+
     <section class="w-screen">
       <CommonFooter />
     </section>
-    <section
+    <!-- <section
       v-if="open"
       class="absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       :class="!largerThanSm ? 'h-full' : ''"
     >
       <CommonDialogContact @close="open = false" @successDialog="successDialog" />
+    </section> -->
+    <section v-show="open">
+      <CommonDialogModal v-model="open" @close="open = false" />
     </section>
     <section v-if="successPopup" class="absolute z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <CommonDialogSuccess @successDialog="successDialog" />
@@ -38,6 +42,8 @@
 
 <script setup>
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+
+let showModal = ref(false);
 
 const ICON_1 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_icon_01.svg';
 const ICON_2 = 'https://naturemobility.s3.ap-northeast-2.amazonaws.com/image/contact_icon_02.svg';

@@ -67,9 +67,12 @@
         </section>
       </div>
     </footer>
-    <div v-if="open" class="w-full h-[163vh] bg-black absolute top-0 bg-opacity-50 fixed overflow-hidden z-20"></div>
-    <section v-if="open" class="absolute z-30 top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <!-- <div v-if="open" class="w-full h-[163vh] bg-black absolute top-0 bg-opacity-50 fixed overflow-hidden z-20"></div> -->
+    <!-- <section v-if="open" class="absolute z-30 top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <CommonDialogContact @close="open = false" />
+    </section> -->
+    <section v-show="open">
+      <CommonDialogModal v-model="open" @close="open = false" />
     </section>
   </div>
 </template>

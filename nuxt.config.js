@@ -1,12 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ['~/assets/css/main.css'],
-  modules: [
-    '@nuxt/image-edge',
-    '@intlify/nuxt3',
-    '@vueuse/nuxt',
-    'nuxt-swiper',
-  ],
+  css: ['~/assets/css/main.css', 'vue-final-modal/style.css'],
+  modules: ['@nuxt/image-edge', '@intlify/nuxt3', '@vueuse/nuxt', 'nuxt-swiper'],
   intlify: {
     localeDir: 'locales',
     vueI18n: {
@@ -22,10 +17,7 @@ export default defineNuxtConfig({
   },
   buildModules: [
     'nuxt-gsap-module',
-    [
-      '@pinia/nuxt',
-      { disableVuex: false, autoImports: ['defineStore', 'definePiniaStore'] },
-    ],
+    ['@pinia/nuxt', { disableVuex: false, autoImports: ['defineStore', 'definePiniaStore'] }],
   ],
   gsap: {
     /* Module Options */
